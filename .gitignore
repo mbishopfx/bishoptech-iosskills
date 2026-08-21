@@ -1,0 +1,29 @@
+# macOS
+.DS_Store
+
+# Xcode and Swift Package Manager
+DerivedData/
+.build/
+.swiftpm/
+*.xcuserstate
+xcuserdata/
+
+# Local tooling and generated output
+*.log
+*.tmp
+*.swp
+.env
+.env.*
+!.env.example
+.venv/
+node_modules/
+coverage/
+dist/
+!knowledge-base/skills/dist/
+!knowledge-base/skills/dist/*.skill
+
+# Temporary local recipe checks
+t221-recipe-check.swift
+
+# Internal planning state is kept outside the public repository
+docs/goals/
