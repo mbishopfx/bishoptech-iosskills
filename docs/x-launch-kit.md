@@ -10,6 +10,8 @@ This kit is ready for the first public repository announcement. The canonical re
 
 **Proof points:** 1,007 Markdown files, 3,081 official Apple/Swift destinations, 19 validated role packages, and 19 portable skill artifacts.
 
+**Visual asset:** attach [agentic-team-map.svg](agentic-team-map.svg) or export it to PNG for the launch post.
+
 **Trust line:** Review-ready engineering guidance is not a promise of App Store approval. The bundle keeps compile, simulator, physical-device, signed-release, TestFlight, and production evidence separate.
 
 ## Primary launch post

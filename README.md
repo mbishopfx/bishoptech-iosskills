@@ -6,6 +6,8 @@ An official-source-grounded knowledge base and open-source-ready skill bundle fo
 
 [GitHub repository](https://github.com/mbishopfx/bishoptech-iosskills) · [Skill catalog](docs/skills-catalog.md) · [X launch kit](docs/x-launch-kit.md)
 
+![Apple-native agentic engineering team map](docs/agentic-team-map.svg)
+
 The goal is ambitious: give a solo developer the practical coverage of an architect, native UI designer, AI engineer, implementer, test engineer, accessibility auditor, security reviewer, release manager, and documentation maintainer—while keeping every claim tied to the right Apple source, target, device, and evidence level.
 
 ## Project snapshot
