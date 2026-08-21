@@ -1,6 +1,6 @@
 # X launch kit
 
-This kit is ready for the first public repository announcement. Replace REPO_URL with the final public GitHub URL before posting.
+This kit is ready for the first public repository announcement. The canonical repository is https://github.com/mbishopfx/bishoptech-iosskills.
 
 ## Positioning
 
@@ -18,7 +18,7 @@ This kit is ready for the first public repository announcement. Replace REPO_URL
 >
 > 19 source-grounded skills for SwiftUI, Liquid Glass, on-device AI, testing, accessibility, security, and release proof.
 >
-> Built for solo devs. REPO_URL
+> Built for solo devs. https://github.com/mbishopfx/bishoptech-iosskills
 
 ## Short launch post
 
@@ -26,7 +26,7 @@ This kit is ready for the first public repository announcement. Replace REPO_URL
 >
 > This repo adds native UI, Liquid Glass, model safety, accessibility, entitlements, device checks, TestFlight, and release evidence.
 >
-> Open-source skills for Apple app LLMs: REPO_URL
+> Open-source skills for Apple app LLMs: https://github.com/mbishopfx/bishoptech-iosskills
 
 ## Technical launch post
 
@@ -34,7 +34,7 @@ This kit is ready for the first public repository announcement. Replace REPO_URL
 >
 > Route choice, SDK and device gates, privacy, typed AI proposals, Liquid Glass states, accessibility tasks, UI tests, device evidence, and release audits.
 >
-> REPO_URL
+> https://github.com/mbishopfx/bishoptech-iosskills
 
 ## Thread
 
@@ -114,7 +114,7 @@ If you are building native Apple apps with an LLM, I would love feedback on:
 - evaluation fixtures
 - device and release proof gaps
 
-REPO_URL
+https://github.com/mbishopfx/bishoptech-iosskills
 
 ## Suggested hashtags and topics
 
@@ -128,7 +128,7 @@ ios, swift, swiftui, liquid-glass, apple-intelligence, on-device-ai, coding-agen
 
 ## Posting checklist
 
-- replace REPO_URL with the canonical public repository;
+- use the canonical public repository URL in each post;
 - pin the launch post and reply with the skill catalog link;
 - attach one clean architecture diagram or repository screenshot;
 - make the first line legible without clicking “show more”;

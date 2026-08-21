@@ -4,6 +4,8 @@
 
 An official-source-grounded knowledge base and open-source-ready skill bundle for building high-quality iOS apps with Swift, SwiftUI, Liquid Glass, Apple Intelligence, on-device AI, and the wider Apple SDK.
 
+[GitHub repository](https://github.com/mbishopfx/bishoptech-iosskills) · [Skill catalog](docs/skills-catalog.md) · [X launch kit](docs/x-launch-kit.md)
+
 The goal is ambitious: give a solo developer the practical coverage of an architect, native UI designer, AI engineer, implementer, test engineer, accessibility auditor, security reviewer, release manager, and documentation maintainer—while keeping every claim tied to the right Apple source, target, device, and evidence level.
 
 ## Project snapshot
