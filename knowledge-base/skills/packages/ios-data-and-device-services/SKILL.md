@@ -26,6 +26,10 @@ Use this skill to keep app-owned data, Apple-managed records, external service s
 7. Bound asynchronous work. Cancel queries, observations, sync batches, discovery scans, connections, ranging sessions, and retries when the feature no longer owns them. Finish observer/background callbacks, release radio sessions, and ignore stale callbacks after cancellation.
 8. Verify with fixtures first, then signed physical devices and real services/accessories. Record OS, device, account, authorization state, dataset, schema/environment, accessory firmware, network topology, timestamp, and observed latency/freshness; do not generalize one successful run.
 
+## Fast path
+
+Write a truth-ownership table first: local, Apple system, remote, or derived. Implement one create/read/update/delete or observation slice with migration, conflict, and offline behavior, and add CloudKit, HealthKit, Contacts, or an accessory only when the table shows that service owns a required boundary.
+
 ## Persistence and sync boundaries
 
 - Keep a domain model independent of SwiftData/Core Data/CloudKit. Use SwiftData `ModelContainer`/`ModelContext` and explicit schema/migration policy for local records; use `ModelActor` or an intentional isolation boundary for background persistence.

@@ -69,6 +69,14 @@ pass in the receipt.
 10. **Lead judge:** reject unsupported claims, reconcile findings, and produce a
     next-action list with the smallest safe follow-up.
 
+## Fast path
+
+Select roles in proportion to risk instead of running the entire team for every change:
+
+- Local UI or deterministic state: intake, route, design, implement, and test.
+- Protected data, cross-target, system-hosted, AI, or release work: add only the specialist lanes that own those gates.
+- Give every selected role the same handoff packet, stop after the smallest slice passes its next gate, and escalate only for an open risk or evidence boundary.
+
 ## Route workflow
 
 1. Record a one-sentence outcome and an explicit consequence of failure.

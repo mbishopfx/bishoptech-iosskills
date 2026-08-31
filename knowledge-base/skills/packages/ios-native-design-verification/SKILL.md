@@ -38,6 +38,10 @@ Use this skill to make an original product feel at home on Apple platforms throu
 - Animation is state-scoped and cancellable. The destination state must remain understandable when Reduce Motion is enabled, a transition is interrupted, content loads slowly, or a device cannot provide the desired effect.
 - Haptic feedback confirms a user action; it does not replace visible or spoken feedback and must have a graceful no-hardware/no-preference path.
 
+## Fast path
+
+Review the smallest state-by-environment matrix: primary state, empty/error state, Dynamic Type or VoiceOver, reduced effects, and the narrowest and widest supported target. Record a concrete defect, affected state, and owner; do not spend a full screenshot pass on a surface that fails its semantic or state contract.
+
 ## Verification matrix
 
 | Surface | Check | Evidence boundary |
@@ -60,6 +64,12 @@ Produce a compact design note or implementation change containing:
 - remaining `to-verify` gaps and claims deliberately not made.
 
 For implementation, change only the requested screen/component and directly related state or preview fixtures. Do not globally restyle an app, replace system bars with custom glass, add a dependency, alter supplied copy/assets, or add analytics/permissions/entitlements without a stated product need and authorization.
+
+## Hard boundaries
+
+- Never call a screenshot, preview, or simulator result proof of accessibility, physical ergonomics, performance, or release behavior.
+- Never replace a semantic system control with a decorative imitation when the system control meets the product need.
+- Never hide a missing state, contrast failure, reduced-effects path, or localization failure behind visual polish.
 
 ## Related routes and recipes
 

@@ -1027,6 +1027,43 @@ Capability recipes:
 - [Screen capture and broadcast services](44-system-services/06-screen-capture-and-broadcast-services.md)
 - [HomeKit, Matter, and home automation](42-framework-deep-dives/15-homekit-matter-and-home-automation.md)
 
+## Meta Wearables extension
+
+The Meta extension is the route and evidence layer for iOS companion apps and Meta glasses/display surfaces. Start with the [Meta Wearables route map](70-meta-wearables/README.md), then choose the [native DAT route](70-meta-wearables/01-dat-ios-sdk-foundations.md), [camera/audio route](70-meta-wearables/03-device-session-camera-and-audio.md), [native Display route](70-meta-wearables/04-display-access-and-glasses-ui.md), or [Web App route](70-meta-wearables/06-web-apps-display-and-input.md).
+
+- [Platform and route selection](70-meta-wearables/00-platform-and-route-selection.md)
+- [DAT iOS foundations](70-meta-wearables/01-dat-ios-sdk-foundations.md)
+- [Registration, permissions, and configuration](70-meta-wearables/02-registration-permissions-and-configuration.md)
+- [Device session, camera, and audio](70-meta-wearables/03-device-session-camera-and-audio.md)
+- [Display access and glasses UI](70-meta-wearables/04-display-access-and-glasses-ui.md)
+- [Device models and capability matrix](70-meta-wearables/05-device-models-and-capability-matrix.md)
+- [Web Apps, Display, and input](70-meta-wearables/06-web-apps-display-and-input.md)
+- [MockDevice testing and evidence](70-meta-wearables/07-mockdevice-testing-and-evidence.md)
+- [Privacy, publishing, and release](70-meta-wearables/08-privacy-publishing-and-release.md)
+- [Source refresh and version history](70-meta-wearables/09-source-refresh-and-version-history.md)
+- [Meta source registry](sources/meta-wearables-source-registry.md) · [Meta freshness log](sources/meta-wearables-source-freshness-log.md)
+- [DAT iOS API surface atlas](70-meta-wearables/10-dat-ios-api-surface-atlas.md)
+- [Upstream DAT skills and tooling map](70-meta-wearables/11-upstream-skill-and-tooling-map.md)
+- [Device and release evidence packet](70-meta-wearables/12-device-and-release-evidence-packet.md)
+- [Public plugin and skill matrix](70-meta-wearables/13-public-plugin-and-skill-matrix.md)
+- [DAT Android parity and boundaries](70-meta-wearables/14-dat-android-parity-and-boundaries.md)
+- [Full SDK capability and source-conflict matrix](70-meta-wearables/15-full-sdk-capability-and-source-conflict-matrix.md)
+- [Device-generation and runtime-support matrix](70-meta-wearables/16-device-generation-and-runtime-support-matrix.md)
+- [On-device compliance and runtime contract](70-meta-wearables/17-on-device-compliance-and-runtime-contract.md)
+- [Operational readiness and recovery](70-meta-wearables/18-operational-readiness-and-recovery.md)
+- [Application architecture and platform boundaries](70-meta-wearables/19-application-architecture-and-platform-boundaries.md)
+- [Reference implementation playbooks](70-meta-wearables/28-reference-implementation-playbooks.md)
+- [Implementation recipes and build handoffs](70-meta-wearables/29-implementation-recipes-and-build-handoffs.md)
+- [DAT Android API surface atlas](70-meta-wearables/20-dat-android-api-surface-atlas.md)
+- [Developer Center project and release operations](70-meta-wearables/21-developer-center-project-and-release-operations.md)
+- [Transport, audio, and runtime reliability](70-meta-wearables/22-transport-audio-and-runtime-reliability.md)
+- [Debugging, observability, and diagnostic evidence](70-meta-wearables/23-debugging-observability-and-diagnostic-evidence.md)
+- [Input, sensors, and physical interaction](70-meta-wearables/24-input-sensors-and-physical-interaction.md)
+- [Security, attestation, and credential boundaries](70-meta-wearables/25-security-attestation-and-credential-boundaries.md)
+- [Version-dependency and device-compatibility evidence](70-meta-wearables/26-version-dependency-and-device-compatibility-evidence.md)
+- [Source-pinned Meta Wearables surface manifest](70-meta-wearables/27-source-pinned-surface-manifest.md)
+- [Meta Wearables skill packages](skills/packages/README.md)
+
 ## Foundations
 
 - [Scope and source policy](00-foundations/00-scope-and-source-policy.md)

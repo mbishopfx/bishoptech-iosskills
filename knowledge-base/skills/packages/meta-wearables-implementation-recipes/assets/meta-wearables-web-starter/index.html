@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=600, height=600, initial-scale=1, viewport-fit=cover">
+    <meta name="description" content="A glanceable Meta Wearables Display starter with phone fallback.">
+    <meta name="mrbd-web-app-capable" content="yes">
+    <title>Wearable Display Starter</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: #000;
+        color: #fff;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        min-width: 100vw;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        background: #000;
+      }
+
+      .display-shell {
+        width: min(600px, 100vw);
+        height: min(600px, 100vh);
+        min-height: 320px;
+        display: grid;
+        grid-template-rows: 1fr auto auto;
+        gap: 24px;
+        padding: 48px;
+        border: 4px solid #fff;
+        background: #000;
+      }
+
+      h1, p { margin: 0; }
+      h1 { font-size: clamp(2rem, 8vw, 4rem); line-height: 1; }
+      p { align-self: end; font-size: clamp(1.25rem, 4vw, 2rem); line-height: 1.2; }
+
+      .controls { display: flex; gap: 16px; }
+
+      button {
+        min-height: 64px;
+        flex: 1;
+        padding: 12px 16px;
+        border: 3px solid #fff;
+        border-radius: 0;
+        background: #000;
+        color: #fff;
+        font: inherit;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      button:focus-visible,
+      button[aria-current="true"] {
+        outline: 6px solid #ffeb3b;
+        outline-offset: 4px;
+      }
+
+      #status {
+        min-height: 1.25em;
+        color: #ffeb3b;
+        font-size: 1rem;
+      }
+
+      @media (max-width: 420px), (max-height: 420px) {
+        .display-shell { padding: 24px; gap: 16px; }
+        .controls { gap: 8px; }
+        button { min-height: 52px; padding: 8px; }
+      }
+    </style>
+  </head>
+  <body>
+    <main id="app" class="display-shell" tabindex="-1" aria-live="polite" aria-describedby="body">
+      <h1 id="title">Preparing display</h1>
+      <p id="body">Starting the wearable route.</p>
+      <div class="controls" aria-label="Display actions">
+        <button id="primary" type="button" aria-current="true">Please wait</button>
+        <button id="phone" type="button" aria-current="false">Use phone</button>
+      </div>
+      <div id="status" role="status"></div>
+    </main>
+    <script type="module" src="./src/main.mjs"></script>
+  </body>
+</html>

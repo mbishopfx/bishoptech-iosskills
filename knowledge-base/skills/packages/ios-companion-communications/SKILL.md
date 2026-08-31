@@ -23,6 +23,10 @@ Use this skill to keep paired-device, vehicle, App Clip, push, call, audio, serv
 6. Define unavailable/fallback behavior: no Watch, not reachable, inactive watch, CarPlay disconnect, no invocation URL, App Clip replaced by full app, push token rotation, server timeout, call rejection, audio interruption, and no system entitlement.
 7. Test the actual two-device/system surface. A simulator, mock push, local URL, or screenshot does not prove pairing, APNs, vehicle behavior, system call UI, audio, default-role eligibility, or delivery timing.
 
+## Fast path
+
+Freeze one message, call, or notification lifecycle and one user-visible fallback. Trace sender -> transport -> system host -> receiver -> acknowledgment or expiry, then test duplicate, delayed, background, permission, revocation, and disconnect states before adding another companion surface.
+
 ## Non-negotiable communication rules
 
 - PushKit is not a general-purpose background wake channel. For VoIP on current SDKs, report the incoming call to CallKit quickly; if the app cannot use CallKit, use UserNotifications instead.

@@ -29,6 +29,10 @@ Record each claim at the strongest level actually tested:
 
 Never write “works” without naming the target, OS, device, build identity, environment, and operation that was actually tested.
 
+## Fast path
+
+List the requested claims before running commands and assign each the lowest evidence level that can support it. Execute only the first unmet gate, recording command, target, date, result, and non-proof; stop when the claim is supported or the missing hardware, account, signing, or system access is explicit.
+
 ## Verification workflow
 
 1. Convert the requested claim into an observable operation: “camera frame delivered,” “Foundation Models response generated,” “HealthKit query authorized,” “Widget refreshed,” “Watch event applied,” “VoIP call reported,” “StoreKit entitlement verified,” or “signed build launched.”
@@ -69,6 +73,12 @@ Next gate:
 ```
 
 Do not include secrets, raw health/contact/call payloads, private tokens, or unnecessary user media in evidence. Redact screenshots and logs, and state when a result is fixture-only or preliminary API behavior.
+
+## Hard boundaries
+
+- Never promote a lower evidence level to a stronger one: source, compile, simulator, physical, signed, distribution, and production results remain separate.
+- Never print credentials, private payloads, or unnecessary identifiers while collecting proof.
+- Never call a named target, device, system surface, or release path verified when its actual operation, configuration, and evidence record are missing.
 
 ## Related routes
 

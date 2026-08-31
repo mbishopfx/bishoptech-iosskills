@@ -47,6 +47,8 @@ Before submitting:
 
 - validate every changed skill with the skill creator's package validator;
 - inspect the archive contents;
+- run `python3 scripts/validate_skill_bundle.py .` for the full package contract;
+- rebuild deterministic archives with `python3 scripts/package_skills.py .` and rerun `python3 scripts/validate_skill_bundle.py . --check-archives`;
 - check Markdown links, Sources headings, official hosts, local links, fence balance, and whitespace;
 - typecheck affected Swift recipes against the named SDK when possible;
 - live-check official links for version-sensitive routes;

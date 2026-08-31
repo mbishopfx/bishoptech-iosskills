@@ -1,0 +1,811 @@
+schema_version: 1
+manifest_id: meta-wearables-public-surface-2026-08-22
+manifest_revision: 6
+snapshot:
+  reviewed_at: "2026-08-22"
+  status: public-source-tranche
+  authority_note: "Use the exact resolved package/artifact and target runtime over this discovery manifest."
+  current_dat_release: "0.9.0"
+  web_apps_revision: "a2714f862c61b1ce9c6cb624fc7e4938087102db"
+  web_apps_plugin_version: "127.0.0"
+  full_reference_url: "https://wearables.developer.meta.com/llms.txt?full=true&product=dat"
+  full_reference_anchor_terms:
+    - "# DAT SDK v0.9"
+    - "Ray-Ban Meta (Gen 1 and Gen 2)"
+    - "Ray-Ban Meta Optics"
+    - "Meta Ray-Ban Display glasses"
+    - "MWDATCore"
+  authenticated_developer_center: access-gated
+  callable_wearables_mcp_in_workspace: unavailable
+  docs_mcp_authentication: none-per-official-repository-readmes
+
+authority_order:
+  - exact_selected_package_or_artifact_and_generated_api
+  - same_release_changelog_and_official_sample
+  - authenticated_developer_center_or_authorized_mcp
+  - public_full_reference
+  - moving_upstream_agent_guidance
+  - community_troubleshooting_signal
+
+journeys:
+  - id: native-dat-ios
+    label: "Meta Wearables Device Access Toolkit for iOS"
+    surfaces: [mobile-companion, native-dat]
+    repository: "https://github.com/facebook/meta-wearables-dat-ios"
+    revision: "225f64ff1617e7acc8c407bb8d3ee132f7263d00"
+    reproducible_release: "0.9.0 tag 9b1b83d791dfebff7afd452e924a256819094b64"
+    local_atlas: "knowledge-base/70-meta-wearables/10-dat-ios-api-surface-atlas.md"
+    local_roles: [meta-dat-ios-integration, meta-dat-api-atlas, meta-dat-camera-audio, meta-dat-display]
+  - id: native-dat-android
+    label: "Meta Wearables Device Access Toolkit for Android"
+    surfaces: [mobile-companion, native-dat]
+    repository: "https://github.com/facebook/meta-wearables-dat-android"
+    revision: "81dfb51b9be26de5cd262bb1dcbb4b8d0d6bd2bc"
+    reproducible_release: "0.9.0 Maven artifacts"
+    local_atlas: "knowledge-base/70-meta-wearables/20-dat-android-api-surface-atlas.md"
+    local_roles: [meta-dat-android-integration, meta-dat-android-api-atlas]
+  - id: web-apps
+    label: "Meta Wearables Web Apps for Meta Ray-Ban Display"
+    surfaces: [hosted-web-app, native-display-host]
+    repository: "https://github.com/facebook/meta-wearables-webapp"
+    revision: "a2714f862c61b1ce9c6cb624fc7e4938087102db"
+    local_atlas: "knowledge-base/70-meta-wearables/06-web-apps-display-and-input.md"
+    local_roles: [meta-wearables-web-apps, meta-wearables-input-sensors]
+  - id: phone-fallback
+    label: "Phone-first fallback and consent/control plane"
+    surfaces: [ios, android, hosted-web-app]
+    source_status: product-architecture-route
+    local_atlas: "knowledge-base/70-meta-wearables/19-application-architecture-and-platform-boundaries.md"
+    local_roles: [meta-wearables-app-architecture, meta-wearables-on-device-compliance]
+
+native_modules:
+  ios:
+    - id: ios-core
+      import_or_product: MWDATCore
+      purpose: "configuration, registration, permissions, devices, selectors, sessions, state, and errors"
+      status: confirmed-by-upstream-source
+    - id: ios-camera
+      import_or_product: MWDATCamera
+      purpose: "Camera, Stream, VideoFrame, PhotoData, configuration, and capture"
+      status: confirmed-by-upstream-source
+    - id: ios-display
+      import_or_product: MWDATDisplay
+      purpose: "native Display content, components, input, icons/images, and video"
+      status: confirmed-by-upstream-source
+    - id: ios-mockdevice
+      import_or_product: MWDATMockDevice
+      purpose: "simulated glasses, permissions, media, gestures, and UI-test control"
+      status: confirmed-by-upstream-source
+    - id: ios-mockdevice-test-client
+      import_or_product: MWDATMockDeviceTestClient
+      purpose: "XCUITest-process control of the MockDevice localhost test server and deterministic device actions"
+      status: confirmed-by-0.9.0-package-manifest
+    - id: ios-index-only-names
+      import_or_product: "MWDATDevice, MWDATMedia, MWDATState, MWDATLogger, MWDATMock, MWDATKey"
+      purpose: "broader names in the machine-readable full reference"
+      status: package-resolution-required
+  android:
+    - id: android-core
+      artifact: "com.meta.wearable:mwdat-core:0.9.0"
+      purpose: "initialization, registration, permissions, devices, selectors, sessions, state, and errors"
+      status: public-artifact
+    - id: android-camera
+      artifact: "com.meta.wearable:mwdat-camera:0.9.0"
+      purpose: "Camera, Stream, frames, configuration, errors, and photo capture"
+      status: public-artifact
+    - id: android-display
+      artifact: "com.meta.wearable:mwdat-display:0.9.0"
+      purpose: "Display builders, text/images/icons/buttons/video, taps/clicks, state, and errors"
+      status: public-artifact
+    - id: android-mockdevice
+      artifact: "com.meta.wearable:mwdat-mockdevice:0.9.0"
+      purpose: "simulated glasses, permissions, media, lifecycle, gestures, and R8 test support"
+      status: public-artifact
+
+source_inventory:
+  authority_note: "This inventory records repository/package tree anchors in addition to the normalized API rows. The source-refresh tree checker re-reads these anchors live; the inventory is source evidence, not generated API or target/build/hardware proof."
+  ai_surfaces:
+    root_files: [AGENTS.md, README.md, install-skills.sh]
+    plugin_manifests:
+      ios: plugins/mwdat-ios/.codex-plugin/plugin.json
+      android: plugins/mwdat-android/.codex-plugin/plugin.json
+      web_apps: plugins/meta-wearables-webapp/.codex-plugin/plugin.json
+    docs_mcp_endpoint: https://mcp.developer.meta.com/wearables
+
+  ios:
+    release_tag: 0.9.0
+    release_revision: 9b1b83d791dfebff7afd452e924a256819094b64
+    package_manifest: Package.swift
+    products:
+      - MWDATCore
+      - MWDATCamera
+      - MWDATDisplay
+      - MWDATMockDevice
+      - MWDATMockDeviceTestClient
+    binary_targets:
+      - MWDATCore.xcframework
+      - MWDATCamera.xcframework
+      - MWDATDisplay.xcframework
+      - MWDATMockDevice.xcframework
+      - MWDATMockDeviceTestClient.xcframework
+    test_only_products: [MWDATMockDeviceTestClient]
+    moving_main_revision: 225f64ff1617e7acc8c407bb8d3ee132f7263d00
+    plugin_root: plugins/mwdat-ios/skills
+    plugin_skill_count: 10
+    plugin_roles:
+      - camera-streaming
+      - dat-conventions
+      - debugging
+      - display-access
+      - getting-started
+      - live-debugging-mcp
+      - mockdevice-testing
+      - permissions-registration
+      - sample-app-guide
+      - session-lifecycle
+    plugin_version: 0.9.0
+    sample_roots: [CameraAccess, DisplayAccess]
+    sample_min_ios: "17.2"
+    sample_xcode: "26.4"
+    sample_swift: "6.3"
+  android:
+    moving_main_revision: 81dfb51b9be26de5cd262bb1dcbb4b8d0d6bd2bc
+    plugin_root: plugins/mwdat-android/skills
+    plugin_skill_count: 10
+    plugin_roles:
+      - camera-streaming
+      - dat-conventions
+      - debugging
+      - display-access
+      - getting-started
+      - live-debugging-mcp
+      - mockdevice-testing
+      - permissions-registration
+      - sample-app-guide
+      - session-lifecycle
+    plugin_version: 0.9.0
+    sample_roots: [CameraAccess, DisplayAccess]
+    sample_min_sdk: 31
+    sample_compile_sdk: 36
+    sample_target_sdk: 36
+    sample_dat_artifacts:
+      - com.meta.wearable:mwdat-core:0.9.0
+      - com.meta.wearable:mwdat-camera:0.9.0
+      - com.meta.wearable:mwdat-display:0.9.0
+      - com.meta.wearable:mwdat-mockdevice:0.9.0
+  web_apps:
+    moving_main_revision: a2714f862c61b1ce9c6cb624fc7e4938087102db
+    plugin_root: plugins/meta-wearables-webapp
+    plugin_skill_count: 12
+    plugin_roles:
+      - add-device-sensors
+      - add-gestures
+      - add-local-storage
+      - add-offline
+      - add-text-input
+      - add-ui
+      - connect-api
+      - create-webapp
+      - passcode-for-testing
+      - publish-to-vercel
+      - qr-code
+      - test-on-device
+    plugin_version: 127.0.0
+    reference_files: [display-guidelines.md, performance-guidelines.md]
+    example_roots: [snake]
+    template_assets: [prompts.json]
+
+agent_surface_contract:
+  reviewed_at: "2026-08-30"
+  authority_note: "This contract records official agent/tooling entry points for source lookup and role discovery. It does not prove package compilation, account access, device capability, physical behavior, or release eligibility."
+  docs_mcp:
+    endpoint: https://mcp.developer.meta.com/wearables
+    authentication: none-per-official-repository-readmes
+    local_callable: false
+    tools:
+      native-dat: search_dat_docs
+      web-apps: search_webapps_docs
+    fallback: "Use the public full-reference endpoint or official repository files when the current client cannot call MCP."
+  surfaces:
+    - id: native-dat-ios
+      repository: https://github.com/facebook/meta-wearables-dat-ios
+      source_revision: 225f64ff1617e7acc8c407bb8d3ee132f7263d00
+      readme: https://github.com/facebook/meta-wearables-dat-ios#readme
+      root_files: [AGENTS.md, README.md, install-skills.sh]
+      plugin_manifest: plugins/mwdat-ios/.codex-plugin/plugin.json
+      codex_install:
+        mode: local-plugin
+        command: "codex plugin install ./plugins/mwdat-ios"
+        helper: "./install-skills.sh codex"
+      docs_mcp_tool: search_dat_docs
+    - id: native-dat-android
+      repository: https://github.com/facebook/meta-wearables-dat-android
+      source_revision: 81dfb51b9be26de5cd262bb1dcbb4b8d0d6bd2bc
+      readme: https://github.com/facebook/meta-wearables-dat-android#readme
+      root_files: [AGENTS.md, README.md, install-skills.sh]
+      plugin_manifest: plugins/mwdat-android/.codex-plugin/plugin.json
+      codex_install:
+        mode: local-plugin
+        command: "codex plugin install ./plugins/mwdat-android"
+        helper: "./install-skills.sh codex"
+      docs_mcp_tool: search_dat_docs
+    - id: web-apps
+      repository: https://github.com/facebook/meta-wearables-webapp
+      source_revision: a2714f862c61b1ce9c6cb624fc7e4938087102db
+      readme: https://github.com/facebook/meta-wearables-webapp#readme
+      root_files: [AGENTS.md, README.md, install-skills.sh]
+      plugin_manifest: plugins/meta-wearables-webapp/.codex-plugin/plugin.json
+      codex_install:
+        mode: marketplace
+        command: "codex plugin marketplace add https://github.com/facebook/meta-wearables-webapp"
+        refresh: "codex plugin marketplace upgrade meta-wearables"
+        install: "Open /plugins in Codex and install Meta Wearables"
+        helper: "./install-skills.sh all"
+      docs_mcp_tool: search_webapps_docs
+
+terminology_contract:
+  authority_note: "These mappings resolve user language to public source journeys; they do not create an SDK family, a device support table, or a runtime capability claim."
+  reviewed_at: "2026-08-22"
+  terms:
+    - id: regular-sdk
+      user_phrases: ["regular SDK", "regular sdk"]
+      resolution_status: ambiguous-user-phrase
+      canonical_routes: [native-dat-ios, native-dat-android, web-apps]
+      source_refs: [DAT-IOS-AGENTS, DAT-ANDROID-AGENTS, FULL-REFERENCE]
+      public_sdk_family: false
+      agent_action: "Ask whether the request means a native iOS/Android DAT companion integration or a hosted WebApps experience on Meta Ray-Ban Display; never invent a third native SDK."
+      evidence_boundary: "Route selection is source evidence; exact package/API, target build, account, device, and physical behavior remain separate."
+    - id: full-sdk
+      user_phrases: ["full SDK", "all capabilities", "full Meta Wearables SDK"]
+      resolution_status: composite-audit
+      canonical_routes: [native-dat-ios, native-dat-android, web-apps, phone-fallback]
+      source_refs: [FULL-REFERENCE, DAT-IOS-REPOSITORY, DAT-ANDROID-REPOSITORY, WEB-APPS-TOOLKIT]
+      public_sdk_family: false
+      agent_action: "Run the full-SDK capability audit across the selected native, Display, Web Apps, fallback, privacy, Developer Center, and evidence lanes before implementation."
+      evidence_boundary: "A composite inventory is not a package, generated API dump, authenticated support table, or hardware proof."
+    - id: ray-ban-display
+      user_phrases: ["Ray-Ban Display", "Display glasses"]
+      resolution_status: capability-and-product-label
+      canonical_routes: [native-dat-ios, native-dat-android, web-apps]
+      source_refs: [FULL-REFERENCE, WEB-APPS-DOCS, DAT-IOS-REPOSITORY, DAT-ANDROID-REPOSITORY]
+      public_sdk_family: false
+      agent_action: "Choose native DAT Display or hosted WebApps based on where the app logic and UI live, then require runtime Display/capability and physical legibility/input evidence."
+      evidence_boundary: "A product label or source mention does not prove a named pair, firmware, session, input path, or release channel."
+    - id: gen-2
+      user_phrases: ["Gen 2", "regular Gen 2", "Ray-Ban Meta Gen 2"]
+      resolution_status: product-label-with-runtime-gate
+      canonical_routes: [native-dat-ios, native-dat-android, phone-fallback]
+      source_refs: [FULL-REFERENCE, DAT-IOS-REPOSITORY, DAT-ANDROID-REPOSITORY]
+      public_sdk_family: false
+      agent_action: "Record the exact retail model, runtime identity, firmware, companion version, artifact, and requested capability; do not generalize one Gen 2 SKU."
+      evidence_boundary: "Public Gen 2 naming is source evidence; runtime recognition, capability response, sustained operation, and physical results remain target-specific."
+    - id: gen-3
+      user_phrases: ["Gen 3", "regular Gen 3", "Meta Glasses as Gen 3"]
+      resolution_status: unresolved-alias
+      canonical_routes: [native-dat-ios, native-dat-android, phone-fallback]
+      source_refs: [FULL-REFERENCE, DAT-IOS-REPOSITORY, DAT-ANDROID-REPOSITORY]
+      public_sdk_family: false
+      agent_action: "Keep the label to-verify until an official support/model mapping and a named-device run exist; do not alias it to .metaGlasses, .rayBanMeta, or Display."
+      evidence_boundary: "A product announcement, enum, package compile, MockDevice, or browser result cannot close the Gen 3 mapping or physical capability claim."
+
+api_surface:
+  revision: meta-wearables-api-surface-2026-08-22
+  authority_note: "Rows normalize the public source snapshot for agent routing; the exact selected package/generated API, target build, account state, and named device remain authoritative."
+  source_anchors:
+    DAT-IOS-CHANGELOG: "https://github.com/facebook/meta-wearables-dat-ios/blob/main/CHANGELOG.md"
+    DAT-IOS-REPOSITORY: "https://github.com/facebook/meta-wearables-dat-ios"
+    DAT-IOS-AGENTS: "https://github.com/facebook/meta-wearables-dat-ios/blob/main/AGENTS.md"
+    DAT-IOS-API: "https://wearables.developer.meta.com/docs/reference/ios_swift/dat/latest"
+    DAT-ANDROID-CHANGELOG: "https://github.com/facebook/meta-wearables-dat-android/blob/main/CHANGELOG.md"
+    DAT-ANDROID-REPOSITORY: "https://github.com/facebook/meta-wearables-dat-android"
+    DAT-ANDROID-AGENTS: "https://github.com/facebook/meta-wearables-dat-android/blob/main/AGENTS.md"
+    DAT-ANDROID-API: "https://wearables.developer.meta.com/docs/reference/android/dat/latest"
+    FULL-REFERENCE: "https://wearables.developer.meta.com/llms.txt?full=true"
+    WEB-APPS-TOOLKIT: "https://github.com/facebook/meta-wearables-webapp"
+    WEB-APPS-AGENTS: "https://github.com/facebook/meta-wearables-webapp/blob/main/AGENTS.md"
+    WEB-APPS-DOCS: "https://wearables.developer.meta.com/docs/develop/webapps"
+    APPLE-AUDIO: "https://developer.apple.com/documentation/avfaudio/avaudiosession"
+  rows:
+    - id: IOS-CORE-001
+      journey: native-dat-ios
+      platform: ios
+      lane: core
+      symbols: ["MWDATCore", "Wearables.configure()", "Wearables.shared"]
+      status: source-confirmed
+      source_refs: [DAT-IOS-REPOSITORY, DAT-IOS-CHANGELOG, DAT-IOS-API]
+      evidence_level: source
+      compile_or_runtime_gate: "Resolve the 0.9.0 SPM product and generated API in the actual Xcode target before importing or extending the surface."
+      privacy_path: phone-control-plane
+      fallback: "Keep registration/setup and a useful phone-only experience available when DAT is unavailable."
+    - id: IOS-REG-001
+      journey: native-dat-ios
+      platform: ios
+      lane: registration
+      symbols: ["registrationStateStream()", "startRegistration()", "Wearables.handleUrl(_:)"]
+      status: source-confirmed
+      source_refs: [DAT-IOS-CHANGELOG, DAT-IOS-API]
+      evidence_level: source
+      compile_or_runtime_gate: "Verify the callback URL, Meta AI installation, registration state, and duplicate/late callback handling in the target."
+      privacy_path: phone-control-plane
+      fallback: "Expose an explicit not-registered state and phone-only flow; never silently open the companion app."
+    - id: IOS-PERM-001
+      journey: native-dat-ios
+      platform: ios
+      lane: permissions
+      symbols: ["checkPermissionStatus(_:) ", "requestPermission(_:) ", "PermissionStatus"]
+      status: source-confirmed
+      source_refs: [DAT-IOS-REPOSITORY, DAT-IOS-API]
+      evidence_level: source
+      compile_or_runtime_gate: "Confirm the selected permission enum, Info.plist usage descriptions, denial state, and recovery path."
+      privacy_path: phone-consent
+      fallback: "Render permission-denied or unavailable state with a manual phone fallback."
+    - id: IOS-DEVICE-001
+      journey: native-dat-ios
+      platform: ios
+      lane: device-selection
+      symbols: ["devicesStream()", "AutoDeviceSelector", "SpecificDeviceSelector", "Device.supportsDisplay()", "DeviceType.supportsDisplay"]
+      status: source-confirmed-device-gated
+      source_refs: [DAT-IOS-CHANGELOG, DAT-IOS-API]
+      evidence_level: source
+      compile_or_runtime_gate: "Use runtime device metadata and capability predicates; record the observed DeviceType, link, compatibility, firmware, and companion tuple."
+      privacy_path: phone-device-metadata
+      fallback: "Keep the feature unavailable until an eligible device is selected; do not infer eligibility from Gen 2/Gen 3 wording."
+    - id: IOS-SESSION-001
+      journey: native-dat-ios
+      platform: ios
+      lane: session
+      symbols: ["Wearables.createSession(deviceSelector:)", "DeviceSession.start()", "DeviceSession.stateStream()", "DeviceSession.errorStream()", "DeviceSession.stop()"]
+      status: source-confirmed
+      source_refs: [DAT-IOS-CHANGELOG, DAT-IOS-API]
+      evidence_level: source
+      compile_or_runtime_gate: "Treat .stopped stream completion as terminal; release and recreate the session after stop, doff, disconnect, or incompatible state."
+      privacy_path: phone-session-control
+      fallback: "Cancel capability work, clear wearable state, and return to the phone route on pause, stop, or disconnect."
+    - id: IOS-CAMERA-001
+      journey: native-dat-ios
+      platform: ios
+      lane: camera
+      symbols: ["DeviceSession.addCamera(config:)", "Camera.stream", "Camera.stop()", "CameraState", "Camera.statePublisher"]
+      status: source-confirmed-versioned
+      source_refs: [DAT-IOS-CHANGELOG, DAT-IOS-API]
+      evidence_level: source
+      compile_or_runtime_gate: "Use the 0.9 consolidated Camera route; typecheck the exact addCamera signature and stop camera children before the parent session."
+      privacy_path: glasses-camera-to-phone-app
+      fallback: "Stop and release the camera on denial, doff, background, thermal, disconnect, or bounded-queue overflow."
+      migration: "Do not use removed DeviceSession.addStream(config:) or assume a pre-0.9 direct stream route."
+    - id: IOS-MEDIA-001
+      journey: native-dat-ios
+      platform: ios
+      lane: camera-photo
+      symbols: ["VideoFrame", "PhotoData", "capturePhoto(format:)", "StreamError.photoCaptureFailed", "VideoFrame.makeUIImage()"]
+      status: source-confirmed-versioned
+      source_refs: [DAT-IOS-CHANGELOG, DAT-IOS-API]
+      evidence_level: source
+      compile_or_runtime_gate: "Bound frame processing and confirm the selected photo/frame error and conversion APIs against the pinned package."
+      privacy_path: glasses-media-to-phone-processing
+      fallback: "Use a phone camera or manual input when the glasses camera is unavailable; do not persist raw media by default."
+      migration: "The 0.9 CaptureError enum is removed; photo failures surface through the stream error path."
+    - id: IOS-AUDIO-001
+      journey: native-dat-ios
+      platform: ios
+      lane: audio
+      symbols: ["AVAudioSession", "AVAudioSession.Category.playAndRecord", "AVAudioSession.Mode.videoRecording", "allowBluetoothHFP", "AVAudioEngine"]
+      status: route-specific-to-verify
+      source_refs: [APPLE-AUDIO, FULL-REFERENCE, DAT-IOS-REPOSITORY]
+      evidence_level: source
+      compile_or_runtime_gate: "Verify the active A2DP/HFP route, microphone consent, interruption handling, sample rate, and physical audio result; do not invent MWDATAudio."
+      privacy_path: glasses-or-phone-audio-to-phone-app
+      fallback: "Use phone microphone/manual input or audio playback without capture when the HFP route is unavailable."
+    - id: IOS-DISPLAY-001
+      journey: native-dat-ios
+      platform: ios
+      lane: native-display
+      symbols: ["MWDATDisplay", "DeviceSession.addDisplay()", "Display", "FlexBox", "Text", "Button", "Image", "Icon", "ButtonGroup", "VideoPlayer"]
+      status: source-confirmed-device-gated
+      source_refs: [DAT-IOS-CHANGELOG, DAT-IOS-API]
+      evidence_level: source
+      compile_or_runtime_gate: "Attach Display only after a started session and a true runtime supportsDisplay() result; verify input, rendering, clear, stop, and error behavior on a named Display pair."
+      privacy_path: glasses-display-from-phone-app
+      fallback: "Present the same result on the phone when Display capability, link, legibility, or input is unavailable."
+      migration: "0.9 adds ButtonGroup and makes lifecycle/stop behavior version-sensitive; do not copy older async or DAM assumptions."
+    - id: IOS-DEVICE-OPS-001
+      journey: native-dat-ios
+      platform: ios
+      lane: health-update
+      symbols: ["Wearables.deviceStateStream(for:)", "DeviceState", "ThermalLevel", "Wearables.openFirmwareUpdate()", "Wearables.openDATGlassesAppUpdate()", "NavigationError"]
+      status: source-confirmed-device-gated
+      source_refs: [DAT-IOS-CHANGELOG, DAT-IOS-API]
+      evidence_level: source
+      compile_or_runtime_gate: "Observe the named device state/error and post-action firmware/DAT-app state; source availability is not update completion."
+      privacy_path: phone-device-health-control
+      fallback: "Stop or degrade the capability under thermal/battery/peak-power conditions and provide a bounded update/retry path."
+    - id: IOS-MOCK-001
+      journey: native-dat-ios
+      platform: ios
+      lane: mock
+      symbols: ["MWDATMockDevice", "MockDeviceKit", "MockCameraKit", "MockDeviceTestClient", "MockCaptouchKit"]
+      status: source-confirmed-test-only
+      source_refs: [DAT-IOS-CHANGELOG, DAT-IOS-REPOSITORY]
+      evidence_level: mock
+      compile_or_runtime_gate: "Run registration, permission, lifecycle, media, gesture, unsupported, stop, and link-availability fixtures with the exact mock package."
+      privacy_path: fixture-only
+      fallback: "Use deterministic phone/mock fixtures for development; never call them physical glasses evidence."
+    - id: IOS-DIAG-001
+      journey: native-dat-ios
+      platform: ios
+      lane: diagnostics
+      symbols: ["ListenerTokenBag", "AnyListenerToken.store(in:)", "stateStream()", "errorStream()", "Wearables MCP"]
+      status: source-confirmed-boundary
+      source_refs: [DAT-IOS-CHANGELOG, DAT-IOS-API, FULL-REFERENCE]
+      evidence_level: source
+      compile_or_runtime_gate: "Keep listener ownership bounded and redact diagnostics; MCP/source lookup is not target compilation, companion introspection, or physical proof."
+      privacy_path: redacted-app-visible-diagnostics
+      fallback: "Return a local first-failure handoff with no raw media, tokens, serials, or private payloads."
+
+    - id: AND-ARTIFACT-001
+      journey: native-dat-android
+      platform: android
+      lane: artifacts
+      symbols: ["com.meta.wearable:mwdat-core:0.9.0", "com.meta.wearable:mwdat-camera:0.9.0", "com.meta.wearable:mwdat-display:0.9.0", "com.meta.wearable:mwdat-mockdevice:0.9.0"]
+      status: public-artifact
+      source_refs: [DAT-ANDROID-REPOSITORY, DAT-ANDROID-CHANGELOG]
+      evidence_level: source
+      compile_or_runtime_gate: "Resolve the exact Maven artifact graph, repository access, min/compile SDK, and generated/API reference in the target."
+      privacy_path: phone-control-plane
+      fallback: "Keep the Android phone route useful without assuming an artifact or physical device is available."
+    - id: AND-CORE-001
+      journey: native-dat-android
+      platform: android
+      lane: core-registration
+      symbols: ["Wearables.initialize(context)", "Wearables.startRegistration(activity)", "registrationState", "registrationErrorStream", "DatResult"]
+      status: source-confirmed-versioned
+      source_refs: [DAT-ANDROID-CHANGELOG, DAT-ANDROID-API]
+      evidence_level: source
+      compile_or_runtime_gate: "Resolve Kotlin/Java signatures from the exact artifact and observe callback, Meta AI, registration, and typed failure states."
+      privacy_path: phone-control-plane
+      fallback: "Expose explicit registration failure and phone-only operation; do not hide companion or permission requirements."
+    - id: AND-DEVICE-001
+      journey: native-dat-android
+      platform: android
+      lane: device-selection
+      symbols: ["Wearables.devices", "AutoDeviceSelector", "SpecificDeviceSelector", "DeviceType.isDisplayCapable", "Device.isDisplayCapable()"]
+      status: source-confirmed-device-gated
+      source_refs: [DAT-ANDROID-CHANGELOG, DAT-ANDROID-API]
+      evidence_level: source
+      compile_or_runtime_gate: "Resolve the selected artifact’s metadata, link, compatibility, activeDevice, and display-capability APIs; record the complete device tuple."
+      privacy_path: phone-device-metadata
+      fallback: "Keep the feature unavailable or phone-only until the exact device is eligible."
+    - id: AND-SESSION-001
+      journey: native-dat-android
+      platform: android
+      lane: session
+      symbols: ["Wearables.createSession(...) ", "DeviceSession", "Session", "DeviceSessionState", "Flow", "StateFlow", "DeviceSession.errors"]
+      status: source-conflict-versioned
+      source_refs: [DAT-ANDROID-CHANGELOG, DAT-ANDROID-REPOSITORY, DAT-ANDROID-API]
+      evidence_level: source
+      compile_or_runtime_gate: "Resolve Session versus DeviceSession and state/error names from the exact 0.9 artifact; collect and cancel flows with session ownership."
+      privacy_path: phone-session-control
+      fallback: "Reject stale events after stop/disconnect and return to phone state; recreate terminal sessions rather than reusing them."
+      migration: "The 0.7 migration renamed Session to DeviceSession, while moving examples still show Session; the selected artifact wins."
+    - id: AND-CAMERA-001
+      journey: native-dat-android
+      platform: android
+      lane: camera
+      symbols: ["DeviceSession.addCamera(streamConfiguration)", "Camera.stream", "Camera.stop()", "DeviceSession.removeCamera()", "CameraState"]
+      status: source-confirmed-versioned
+      source_refs: [DAT-ANDROID-CHANGELOG, DAT-ANDROID-API]
+      evidence_level: source
+      compile_or_runtime_gate: "Typecheck consolidated camera ownership, stream start/stop, photo capture, and bounded frame consumption against the resolved artifact."
+      privacy_path: glasses-camera-to-phone-app
+      fallback: "Stop/release on denial, doff, disconnect, thermal, background, or queue pressure; offer a phone camera path."
+      migration: "0.9 removes direct addStream/removeStream and moves streaming under Camera."
+    - id: AND-DISPLAY-001
+      journey: native-dat-android
+      platform: android
+      lane: native-display
+      symbols: ["DeviceSession.addDisplay(config)", "Display.sendContent { }", "FlexBoxScope.buttonGroup { }", "ButtonGroupScope.button(...) ", "FlexBoxScope.image(bitmap = ...)", "Display.clearDisplay()"]
+      status: source-confirmed-device-gated
+      source_refs: [DAT-ANDROID-CHANGELOG, DAT-ANDROID-API]
+      evidence_level: source
+      compile_or_runtime_gate: "Use the selected builder signatures, display capability predicate, typed state/errors, tap/click callbacks, and named physical input/rendering task."
+      privacy_path: glasses-display-from-phone-app
+      fallback: "Render the same content on the Android phone when Display or input is unavailable."
+      migration: "0.9 removes DisplayComponent/VideoScope return assumptions and ignores DAM_ENABLED."
+    - id: AND-AUDIO-001
+      journey: native-dat-android
+      platform: android
+      lane: audio
+      symbols: ["AudioRecord", "CameraAccess sound-in-video", "HFP glasses-microphone route"]
+      status: route-specific-to-verify
+      source_refs: [DAT-ANDROID-REPOSITORY, FULL-REFERENCE]
+      evidence_level: source
+      compile_or_runtime_gate: "Keep phone AudioRecord separate from a glasses HFP claim; resolve the target artifact/audio route, consent, transport, and physical result."
+      privacy_path: phone-microphone-or-glasses-audio-to-phone-app
+      fallback: "Use phone microphone/manual input only with explicit consent and disclosure."
+    - id: AND-MOCK-001
+      journey: native-dat-android
+      platform: android
+      lane: mock
+      symbols: ["mwdat-mockdevice", "MockDeviceKitInterface", "MockCameraKit", "MockGlasses", "R8 consumer rules"]
+      status: source-confirmed-test-only
+      source_refs: [DAT-ANDROID-CHANGELOG, DAT-ANDROID-REPOSITORY]
+      evidence_level: mock
+      compile_or_runtime_gate: "Run registration, permission, lifecycle, phone/file media, gesture, minified/R8, and terminal-state fixtures against the exact artifact."
+      privacy_path: fixture-only
+      fallback: "Use mock fixtures for deterministic logic and a phone fallback; never call them radio, optics, HFP, or physical proof."
+    - id: AND-JAVA-001
+      journey: native-dat-android
+      platform: android
+      lane: interop
+      symbols: ["DatResult", "Wearables.initialize(...)", "Wearables.createSession(...)", "Stream.start()", "Stream.capturePhoto(...) ", "Display.sendContent(...)"]
+      status: source-confirmed-compile-gated
+      source_refs: [DAT-ANDROID-CHANGELOG, DAT-ANDROID-API]
+      evidence_level: source
+      compile_or_runtime_gate: "Run a Java-visible compile/interoperability fixture when Java callers or binary API guarantees are in scope."
+      privacy_path: phone-control-plane
+      fallback: "Keep the implementation Kotlin-only or expose a typed adapter when Java compatibility is not required."
+      migration: "0.9 changes DatResult from a Kotlin inline value class to a Java-visible reference type."
+    - id: AND-OPS-001
+      journey: native-dat-android
+      platform: android
+      lane: health-update
+      symbols: ["Wearables.openFirmwareUpdate(activity)", "Wearables.openDATGlassesAppUpdate(activity)", "Wearables.getDeviceState(deviceIdentifier)", "ThermalLevel", "Wearables.isDevMode"]
+      status: source-confirmed-device-gated
+      source_refs: [DAT-ANDROID-CHANGELOG, DAT-ANDROID-API]
+      evidence_level: source
+      compile_or_runtime_gate: "Observe the exact state/error and post-update tuple; update navigation being callable is not proof that the update completed."
+      privacy_path: phone-device-health-control
+      fallback: "Bound the retry/update path and degrade under thermal, battery, peak-power, or DAT-app-required errors."
+    - id: AND-DIAG-001
+      journey: native-dat-android
+      platform: android
+      lane: diagnostics
+      symbols: ["DatResult", "Flow", "StateFlow", "CRASH_REPORTING_OPT_OUT", "Wearables MCP"]
+      status: source-confirmed-boundary
+      source_refs: [DAT-ANDROID-CHANGELOG, DAT-ANDROID-API, FULL-REFERENCE]
+      evidence_level: source
+      compile_or_runtime_gate: "Keep typed error/state evidence and crash-reporting disclosure separate from companion internals, release approval, and physical behavior."
+      privacy_path: redacted-app-visible-diagnostics
+      fallback: "Return a minimal redacted diagnostic handoff without tokens, media, identifiers, or private project data."
+
+    - id: WEB-RUNTIME-001
+      journey: web-apps
+      platform: web
+      lane: hosted-runtime
+      symbols: ["Meta Ray-Ban Display Web App", "public HTTPS URL", "600x600 viewport", "HTML/CSS/JavaScript"]
+      status: source-confirmed-device-gated
+      source_refs: [WEB-APPS-TOOLKIT, WEB-APPS-DOCS, FULL-REFERENCE]
+      evidence_level: source
+      compile_or_runtime_gate: "Use a public HTTPS deployment and the actual Meta AI add/launch path; a localhost/browser page is not glasses delivery."
+      privacy_path: hosted-web-app-network-and-storage
+      fallback: "Provide a phone web/native fallback when the host URL, add/launch, or Display target is unavailable."
+    - id: WEB-INPUT-001
+      journey: web-apps
+      platform: web
+      lane: input
+      symbols: ["D-pad", "EMG focus", "Arrow keys", "Enter/pinch activation", "focusable controls"]
+      status: source-confirmed-toolkit-gated
+      source_refs: [WEB-APPS-TOOLKIT, WEB-APPS-DOCS]
+      evidence_level: source
+      compile_or_runtime_gate: "Run the browser simulator and named physical Display task for focus order, action, dismissal, timeout, and exit."
+      privacy_path: hosted-web-app-input
+      fallback: "Keep keyboard/touch/phone controls available outside the glasses host; do not assume a touchscreen or cursor."
+    - id: WEB-CONFLICT-001
+      journey: web-apps
+      platform: web
+      lane: source-conflict
+      symbols: ["text composer", "service-worker/offline", "Escape/back", "extended gestures", "Generic Sensor API", "geolocation"]
+      status: source-conflict-to-verify
+      source_refs: [FULL-REFERENCE, WEB-APPS-TOOLKIT, WEB-APPS-DOCS]
+      evidence_level: source
+      compile_or_runtime_gate: "Treat each feature independently; require authenticated reference/MCP reconciliation, simulator result, target firmware, and named physical Display evidence."
+      privacy_path: hosted-web-app-feature-specific
+      fallback: "Offer visible phone/keyboard/network/manual alternatives and never present ordinary browser capability as glasses support."
+    - id: WEB-SIM-001
+      journey: web-apps
+      platform: web
+      lane: simulator
+      symbols: ["Display Web App Simulator", "browser keyboard events", "environment/additive preview"]
+      status: source-confirmed-test-only
+      source_refs: [WEB-APPS-TOOLKIT]
+      evidence_level: browser-sim
+      compile_or_runtime_gate: "Record simulator viewport, focus/action, loading/error, and performance results separately from physical Display output."
+      privacy_path: fixture-only
+      fallback: "Use simulator/browser output for layout and reducer work; do not label it optics, radio, audio, firmware, or physical evidence."
+    - id: WEB-NET-001
+      journey: web-apps
+      platform: web
+      lane: network-storage
+      symbols: ["HTTPS origin", "Fetch/WebSocket", "Cache API", "localStorage"]
+      status: source-conflict-to-verify
+      source_refs: [FULL-REFERENCE, WEB-APPS-TOOLKIT, WEB-APPS-DOCS]
+      evidence_level: source
+      compile_or_runtime_gate: "Declare origin, network, cache, storage, retention, offline, and user-consent behavior; reconcile unsupported/full-index conflicts before shipping."
+      privacy_path: remote-or-local-web-data
+      fallback: "Degrade to a bounded static/phone result when network, storage, or the Web App host is unavailable."
+    - id: WEB-PHYSICAL-001
+      journey: web-apps
+      platform: web
+      lane: release-proof
+      symbols: ["Meta AI add/launch", "named MRBD pair", "firmware", "signed/release channel"]
+      status: physical-and-release-gated
+      source_refs: [WEB-APPS-DOCS, FULL-REFERENCE]
+      evidence_level: physical
+      compile_or_runtime_gate: "Record the hosted URL/revision, target Display model/firmware, companion state, add/launch result, legibility/input, exit, and release channel."
+      privacy_path: hosted-web-app-to-display
+      fallback: "Keep a phone-first route and mark the Web App unavailable until the named target/release task passes."
+
+    - id: INDEX-CONCEPTUAL-001
+      journey: native-dat-ios
+      platform: cross-platform
+      lane: conceptual-index
+      symbols: ["MWDATDevice", "MWDATMedia", "MWDATState", "MWDATLogger", "MWDATMock", "MWDATKey"]
+      status: package-resolution-required
+      source_refs: [FULL-REFERENCE, DAT-IOS-API, DAT-ANDROID-API]
+      evidence_level: source
+      compile_or_runtime_gate: "Treat broad full-reference names as discovery/index signals until the selected package or artifact exposes an importable product or generated symbol."
+      privacy_path: unknown-until-resolved
+      fallback: "Use confirmed four-runtime-module/four-artifact routes and a phone fallback; keep the iOS MockDevice test client test-only and do not create a guessed module."
+
+preflight_contract:
+  reference: knowledge-base/skills/packages/meta-wearables-device-proof/references/target-preflight.md
+  task_ids:
+    - PRE-SOURCE-01
+    - PRE-IOS-01
+    - PRE-ANDROID-01
+    - PRE-WEB-01
+    - PRE-IDENTITY-01
+    - PRE-DATA-01
+    - PRE-TUPLE-01
+    - PRE-BUILD-01
+    - PRE-ARCHIVE-01
+  authority_note: "Preflight freezes target, dependency, identity, data-path, and artifact facts; it never upgrades static evidence to build, physical, signed, release-channel, or production proof."
+
+capabilities:
+  - id: configuration-and-registration
+    surfaces: [native-dat-ios, native-dat-android, web-apps]
+    status: source-backed
+    evidence: [SRC-01, CFG-01, DAT-REG-01, COMP-SOURCE-01]
+    preflight_tasks: [PRE-SOURCE-01, PRE-IOS-01, PRE-ANDROID-01, PRE-WEB-01, PRE-IDENTITY-01]
+    owner_routes: [02-registration-permissions-and-configuration, 25-security-attestation-and-credential-boundaries]
+  - id: device-selection-and-compatibility
+    surfaces: [native-dat-ios, native-dat-android]
+    status: device-gated
+    evidence: [GEN-STATIC-01, COMP-TUPLE-01, DAT-SES-01]
+    preflight_tasks: [PRE-SOURCE-01, PRE-IOS-01, PRE-ANDROID-01, PRE-TUPLE-01]
+    owner_routes: [05-device-models-and-capability-matrix, 16-device-generation-and-runtime-support-matrix, 26-version-dependency-and-device-compatibility-evidence]
+  - id: session-lifecycle
+    surfaces: [native-dat-ios, native-dat-android]
+    status: source-backed-with-version-conflicts
+    evidence: [DAT-SES-01, OPS-PAIR-01, DBG-PATH-01]
+    preflight_tasks: [PRE-SOURCE-01, PRE-IOS-01, PRE-ANDROID-01, PRE-DATA-01]
+    owner_routes: [03-device-session-camera-and-audio, 18-operational-readiness-and-recovery]
+  - id: camera-photo
+    surfaces: [native-dat-ios, native-dat-android]
+    status: source-backed-device-gated
+    evidence: [DAT-CAM-01, TRN-STREAM-01, COMP-CAPABILITY-01]
+    preflight_tasks: [PRE-SOURCE-01, PRE-IOS-01, PRE-ANDROID-01, PRE-DATA-01, PRE-TUPLE-01, PRE-BUILD-01]
+    owner_routes: [03-device-session-camera-and-audio, 22-transport-audio-and-runtime-reliability]
+  - id: audio-hfp-a2dp
+    surfaces: [native-dat-ios, native-dat-android]
+    status: source-backed-route-specific
+    evidence: [DAT-AUD-01, TRN-AUDIO-01, ODC-PHYS-01]
+    preflight_tasks: [PRE-SOURCE-01, PRE-IOS-01, PRE-ANDROID-01, PRE-DATA-01, PRE-TUPLE-01, PRE-BUILD-01]
+    owner_routes: [03-device-session-camera-and-audio, 22-transport-audio-and-runtime-reliability]
+  - id: native-display
+    surfaces: [native-dat-ios, native-dat-android]
+    status: capability-and-physical-gated
+    evidence: [DAT-DISP-01, INP-PHYSICAL-01, COMP-CAPABILITY-01]
+    preflight_tasks: [PRE-SOURCE-01, PRE-IOS-01, PRE-ANDROID-01, PRE-IDENTITY-01, PRE-DATA-01, PRE-TUPLE-01, PRE-BUILD-01, PRE-ARCHIVE-01]
+    owner_routes: [04-display-access-and-glasses-ui, 24-input-sensors-and-physical-interaction]
+  - id: web-app-display
+    surfaces: [web-apps]
+    status: hosted-and-physical-gated
+    evidence: [WEB-SIM-01, WEB-PHYS-01, COMP-CAPABILITY-01]
+    preflight_tasks: [PRE-SOURCE-01, PRE-WEB-01, PRE-TUPLE-01]
+    owner_routes: [06-web-apps-display-and-input]
+  - id: web-app-conflict-features
+    surfaces: [web-apps]
+    status: source-conflict
+    features: [text-composer, offline-cache, back-navigation, extended-gestures, sensors]
+    evidence: [INP-SOURCE-01, INP-BROWSER-01, WEB-PHYS-01]
+    preflight_tasks: [PRE-SOURCE-01, PRE-WEB-01, PRE-DATA-01]
+    owner_routes: [06-web-apps-display-and-input, 24-input-sensors-and-physical-interaction]
+  - id: native-sensors
+    surfaces: [native-dat-ios, native-dat-android]
+    status: to-verify
+    features: [imu, emg, temple-gesture, geolocation]
+    evidence: [INP-SOURCE-01, INP-STATIC-01, INP-PHYSICAL-01]
+    preflight_tasks: [PRE-SOURCE-01, PRE-IOS-01, PRE-ANDROID-01, PRE-TUPLE-01, PRE-BUILD-01]
+    owner_routes: [10-dat-ios-api-surface-atlas, 20-dat-android-api-surface-atlas, 24-input-sensors-and-physical-interaction]
+  - id: mock-and-simulator
+    surfaces: [native-dat-ios, native-dat-android, web-apps]
+    status: source-backed-test-only
+    evidence: [MOCK-01, MOCK-02, MOCK-03, WEB-SIM-01]
+    preflight_tasks: [PRE-SOURCE-01, PRE-IOS-01, PRE-ANDROID-01, PRE-WEB-01, PRE-BUILD-01]
+    owner_routes: [07-mockdevice-testing-and-evidence]
+  - id: debug-and-observability
+    surfaces: [native-dat-ios, native-dat-android, web-apps]
+    status: source-backed-app-visible
+    evidence: [DBG-SOURCE-01, DBG-CONN-01, DBG-EVENT-01, DBG-BUNDLE-01]
+    preflight_tasks: [PRE-SOURCE-01, PRE-IOS-01, PRE-ANDROID-01, PRE-WEB-01, PRE-DATA-01]
+    owner_routes: [23-debugging-observability-and-diagnostic-evidence]
+  - id: processing-and-on-device-compliance
+    surfaces: [native-dat-ios, native-dat-android, web-apps]
+    status: claim-specific
+    evidence: [ODC-SOURCE-01, ODC-STATIC-01, ODC-PHYS-01, ODC-RELEASE-01]
+    preflight_tasks: [PRE-SOURCE-01, PRE-IOS-01, PRE-ANDROID-01, PRE-WEB-01, PRE-DATA-01, PRE-TUPLE-01]
+    owner_routes: [17-on-device-compliance-and-runtime-contract]
+  - id: identity-attestation-and-origin
+    surfaces: [native-dat-ios, native-dat-android, web-apps]
+    status: source-and-account-gated
+    evidence: [SEC-SOURCE-01, SEC-STATIC-01, SEC-ATTEST-01, SEC-RELEASE-01]
+    preflight_tasks: [PRE-SOURCE-01, PRE-IOS-01, PRE-ANDROID-01, PRE-WEB-01, PRE-IDENTITY-01, PRE-ARCHIVE-01]
+    owner_routes: [25-security-attestation-and-credential-boundaries]
+  - id: firmware-companion-and-release-compatibility
+    surfaces: [native-dat-ios, native-dat-android, web-apps]
+    status: access-and-physical-gated
+    evidence: [COMP-VERSION-01, COMP-TUPLE-01, COMP-FIRMWARE-01, COMP-RELEASE-01]
+    preflight_tasks: [PRE-SOURCE-01, PRE-IOS-01, PRE-ANDROID-01, PRE-WEB-01, PRE-TUPLE-01, PRE-ARCHIVE-01]
+    owner_routes: [18-operational-readiness-and-recovery, 26-version-dependency-and-device-compatibility-evidence]
+
+source_conflicts:
+  - id: ios-minimum-and-module-names
+    status: version-conflict
+    action: "Use the selected 0.9.0 package/changelog and generated API; keep public-index wording as discovery only."
+  - id: ios-dam-and-camera-lifecycle
+    status: migration-conflict
+    action: "Use 0.9.0 Camera ownership/stop and always-on DAM behavior; compile the target."
+  - id: android-session-and-camera-names
+    status: symbol-conflict
+    action: "Resolve Session/DeviceSession and addCamera against the selected Maven artifact/API."
+  - id: web-app-capability-index-versus-toolkit
+    status: source-conflict
+    action: "Keep text/offline/back/gesture/sensor features independent and to-verify until target evidence closes them."
+  - id: android-wifi-parity
+    status: platform-parity-conflict
+    action: "Do not promise iOS-equivalent DAT Wi-Fi on Android without artifact and physical transport evidence."
+  - id: version-dependency-page
+    status: access-gated
+    action: "Record the login result; never reconstruct exact compatibility values from memory or community reports."
+
+generation_labels:
+  - label: ray-ban-meta-gen-2
+    status: source-plus-to-verify
+    rule: "Use exact runtime identity, firmware, companion, artifact, and capability evidence."
+  - label: ray-ban-meta-optics-gen-2
+    status: source-plus-to-verify
+    rule: "Do not inherit Display capability from the product label."
+  - label: meta-ray-ban-display
+    status: device-gated
+    rule: "Use native Display or Web Apps only after capability and physical Display evidence."
+  - label: meta-glasses
+    status: to-verify-as-gen-3
+    rule: "Do not equate the product line or enum signal with a Gen 3 runtime mapping."
+  - label: gen-3
+    status: to-verify
+    rule: "Require current official mapping and named runtime evidence."
+  - label: regular-sdk
+    status: ambiguous
+    rule: "Resolve to native DAT, native Display, Web Apps, or phone fallback; do not invent a third public SDK family."
+
+evidence_ladder:
+  - source
+  - static
+  - build
+  - mock
+  - browser-sim
+  - connected
+  - physical
+  - signed
+  - release-channel
+  - production
+
+refresh_triggers:
+  - new DAT iOS tag, package, or generated API
+  - new DAT Android artifact, Maven coordinate, or generated API
+  - Web Apps toolkit/runtime or full-reference revision
+  - authenticated Developer Center version/dependency or release policy change
+  - Meta AI companion, on-glasses DAT-app, firmware, or device-model change
+  - new official product/generation mapping
+  - named target build, physical run, or compatibility failure

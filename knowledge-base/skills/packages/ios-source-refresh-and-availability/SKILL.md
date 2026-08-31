@@ -56,6 +56,10 @@ artifacts.
 8. **Write the receipt.** List changed files, source/SDK evidence, commands and
    results, evidence level, remaining uncertainty, and the next refresh trigger.
 
+## Fast path
+
+Treat each change signal as a graph query: exact source or SDK -> affected route -> recipe/test/fixture -> package artifact. Update only reachable nodes, then run source and package validators. If the official source and installed interface show no relevant change, emit a no-change receipt instead of rewriting the bundle.
+
 ## Availability record
 
 For each changed capability, record:

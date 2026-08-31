@@ -28,6 +28,10 @@ Inspect the target view hierarchy and target settings first:
 6. Define an adaptive visual fallback. Test light/dark appearance, contrast, Dynamic Type, reduced motion, reduced transparency/effects, localization, and content behind the effect. A glass layer must never be the only carrier of meaning.
 7. Record which behavior is system-provided and which is custom so later SDK changes can be rechecked without treating a screenshot as the contract.
 
+## Fast path
+
+Audit in this order: system-managed bars -> content hierarchy -> functional controls -> custom glass. Keep custom effects only where they encode a real relationship, and validate one interaction plus contrast, Dynamic Type, and reduced-effects behavior before considering a broad restyle.
+
 ## Change boundary
 
 May inspect and change the named UI surface, related layout modifiers, component styles, previews, and directly related state needed to demonstrate the effect. Preserve supplied copy, assets, navigation, and product hierarchy. Do not globally restyle an app or replace system bars with custom glass merely because a single screen requests Liquid Glass.

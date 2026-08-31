@@ -30,6 +30,10 @@ Turn an idea into a capability route and evidence plan before framework choices 
 9. Choose proportional evidence. Separate source, compile, preview/fixture, simulator, physical device, two-device/accessory/vehicle, system surface, signed artifact, TestFlight/App Store, server/account, and production proof.
 10. Produce the route plan and stop before implementing unless the user explicitly asked for the build. If implementation is requested, keep the first slice narrow and make the route’s verification gates executable in the target project.
 
+## Fast path
+
+For one feature, compare no more than the plausible capability lanes against outcome ownership, target availability, setup cost, fallback, and required proof. Pick the first route that satisfies the outcome with the least irreversible configuration, then record the other lanes as rejected or deferred. Expand the matrix only when a new requirement changes that decision.
+
 ## Capability decision table
 
 | Need | Start route | Do not assume |

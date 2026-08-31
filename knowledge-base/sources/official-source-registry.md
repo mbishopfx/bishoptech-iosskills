@@ -38,6 +38,33 @@ Research date for this first registry: **2026-08-19**. Apple’s documentation i
 | Entitlements and bundle configuration | [Bundle Resources](https://developer.apple.com/documentation/bundleresources) |
 | Release-environment testing | [Testing a release build](https://developer.apple.com/documentation/xcode/testing-a-release-build) |
 
+## Meta Wearables
+
+Research date for this extension snapshot: **2026-08-22**. Meta Wearables sources are preview/version-sensitive; re-open the exact repository, changelog, Developer Center page, and target package before implementation.
+
+| Topic | Official source |
+| --- | --- |
+| DAT iOS repository | [facebook/meta-wearables-dat-ios](https://github.com/facebook/meta-wearables-dat-ios) |
+| DAT iOS README and AI-assisted development | [README](https://github.com/facebook/meta-wearables-dat-ios#readme) |
+| DAT iOS release/migrations | [DAT iOS CHANGELOG](https://github.com/facebook/meta-wearables-dat-ios/blob/main/CHANGELOG.md) |
+| DAT iOS upstream skill roles | [Plugin skills](https://github.com/facebook/meta-wearables-dat-ios/tree/main/plugins/mwdat-ios/skills) |
+| DAT iOS sample architecture | [Sample apps](https://github.com/facebook/meta-wearables-dat-ios/tree/main/samples) and [sample-app guide](https://github.com/facebook/meta-wearables-dat-ios/blob/main/plugins/mwdat-ios/skills/sample-app-guide/SKILL.md) |
+| DAT Android repository | [facebook/meta-wearables-dat-android](https://github.com/facebook/meta-wearables-dat-android) |
+| Device Access Toolkit overview | [Introducing Meta Wearables Device Access Toolkit](https://developers.meta.com/blog/introducing-meta-wearables-device-access-toolkit/) |
+| Wearables Developer Center | [Develop with Meta Wearables](https://wearables.developer.meta.com/docs/develop/) |
+| iOS integration | [Build integration for iOS](https://wearables.developer.meta.com/docs/build-integration-ios) |
+| iOS DAT API reference | [DAT iOS Swift reference](https://wearables.developer.meta.com/docs/reference/ios_swift/dat/latest) |
+| Full public platform/API index | [Wearables `llms.txt`](https://wearables.developer.meta.com/llms.txt?full=true) |
+| Mock Device Kit | [Mock Device Kit](https://wearables.developer.meta.com/docs/mock-device-kit) |
+| iOS Mock Device testing | [Testing MDK iOS](https://wearables.developer.meta.com/docs/testing-mdk-ios) |
+| Web Apps repository | [facebook/meta-wearables-webapp](https://github.com/facebook/meta-wearables-webapp) |
+| Web Apps documentation | [Meta Wearables Web Apps](https://wearables.developer.meta.com/docs/develop/webapps) |
+| Web App Display guidelines | [Display guidelines](https://github.com/facebook/meta-wearables-webapp/blob/main/plugins/meta-wearables-webapp/references/display-guidelines.md) |
+| Web App performance guidelines | [Performance guidelines](https://github.com/facebook/meta-wearables-webapp/blob/main/plugins/meta-wearables-webapp/references/performance-guidelines.md) |
+| Terms | [Meta Wearables terms](https://wearables.developer.meta.com/docs/terms) |
+| Acceptable use | [Meta Wearables acceptable-use policy](https://wearables.developer.meta.com/docs/acceptable-use-policy) |
+| Wearables MCP | [Meta Wearables MCP endpoint](https://mcp.developer.meta.com/wearables) |
+
 ## On-device intelligence
 
 | Topic | Official source |

@@ -69,6 +69,10 @@ or TestFlight upload into a universal production or App Review claim.
     extensions, signing, and exact TestFlight build. Run fresh-install/update
     and recovery tasks, then state the remaining App Review/production gaps.
 
+## Fast path
+
+Map each requested claim to one lowest-cost test or inspection. Run deterministic tests first, then escalate only when the claim crosses a process, device, signing, or system boundary; reuse stable fixture IDs and preserve unavailable gates instead of manufacturing a passing substitute.
+
 ## Output contract
 
 Return:

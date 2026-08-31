@@ -1,0 +1,70 @@
+schema_version: 1
+handoff_id: meta-wearables-handoff-example
+status: draft
+outcome: "Show a short glance card and preserve the result in the phone fallback."
+selected_route: native-dat-ios
+fallback_surface: phone-fallback
+
+target:
+  project_root: "<sibling-project-path>"
+  platform: ios
+  app_target: "<xcode-target>"
+  os_min: "<deployment-target>"
+  package_or_artifact: "<exact-spm-product>"
+  revision: "<package-revision>"
+  runtime_identity: to-verify
+  phone_os: to-verify
+  companion_version: to-verify
+  firmware: to-verify
+  mode: to-verify
+  channel: to-verify
+
+api_rows:
+  - IOS-CORE-001
+  - IOS-REG-001
+  - IOS-SESSION-001
+  - IOS-DISPLAY-001
+evidence_tasks:
+  - SRC-01
+  - CFG-01
+  - BUILD-01
+  - MOCK-03
+  - DAT-DISP-01
+  - REC-01
+owner_roles:
+  - meta-dat-ios-integration
+  - meta-dat-display
+  - meta-wearables-app-architecture
+  - meta-wearables-device-proof
+  - meta-wearables-on-device-compliance
+
+data_contract:
+  processing_location: phone-local
+  inputs: [display_content]
+  network: "none unless separately approved"
+  storage_retention: "phone-local result only; delete according to product policy"
+  consent_trigger: "before registration or any camera/audio/sensor input"
+  deletion: "clear derived result and release capability on stop or fallback"
+  raw_data_boundary: "no raw media/audio/sensor data in shared state or logs"
+
+lifecycle:
+  state_owner: "WearableCoordinator"
+  session_epoch: "one monotonically increasing epoch per coordinator"
+  stop_order: [child_capability, stream_or_listener, session, phone_fallback_task]
+  cancellation: "cancel stale work, reject old-epoch events, and return typed fallback"
+  thermal_disconnect_doff: "stop capability, preserve phone outcome, and record recovery state"
+
+tests:
+  reducer: [duplicate_action, stale_epoch, unsupported, timeout, fallback]
+  mock_or_browser: [registration, permission_denied, display_action, clear, disconnect]
+  build: ["not-run"]
+  connected: ["not-run"]
+  physical: ["not-run"]
+  signed_release: ["not-run"]
+
+open_gates:
+  - exact_xcode_target_and_spm_resolution
+  - runtime_device_identity_and_supports_display_result
+  - named_physical_display_run
+  - signed_release_channel
+next_proof_task: "Create the sibling target, resolve the package, then run BUILD-01 before DAT-DISP-01."

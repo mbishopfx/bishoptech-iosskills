@@ -34,6 +34,10 @@ Shape the project around the user outcome and the Apple surface that owns it. Ke
 11. If implementation is requested, create the smallest target/module slice that satisfies the outcome. Preserve the existing project shape, avoid circular dependencies, and keep system/extension entry points thin. If only planning or audit was requested, stop after producing the route and verification ledger.
 12. Verify proportionally and report evidence by boundary: source, compile, unit/UI test, preview/fixture, simulator, physical device, two-device/accessory/vehicle, system invocation, signed artifact, TestFlight/App Store, and production. Record device, OS, build, target, configuration, task, result, and artifact path for each claim.
 
+## Fast path
+
+Draw the target dependency graph and mark its first compile-critical path. Prefer the existing target, package, scheme, and configuration; add a target or extension only when ownership or a system-host requirement demands it. Validate the graph before implementing feature code so a wrong target does not become the expensive discovery step.
+
 ## Target selection matrix
 
 | Requirement | First route to evaluate | Boundary to record |

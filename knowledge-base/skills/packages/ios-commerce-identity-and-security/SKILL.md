@@ -26,6 +26,10 @@ Use this skill to keep purchase, payment, identity, secrets, device-user authent
 7. Minimize sensitive data. Keep tokens/private keys out of source, logs, analytics, URLs, screenshots, UserDefaults, ordinary model fields, and error messages. Use Keychain configuration appropriate to the threat model and define deletion, migration, reinstall, backup, restore, and access-group behavior.
 8. Verify with deterministic fixtures first, then signed sandbox/TestFlight/physical-device and server evidence. Record environment, Apple Account/merchant/product configuration, device, OS, transaction/credential state, server response, and remaining release gaps; do not generalize local StoreKit or simulator results to production.
 
+## Fast path
+
+Start with a trust-and-authority ledger: actor, credential, system/server authority, replay boundary, user confirmation, and final commit. Prove one happy path plus denial, replay, cancellation, and offline recovery before adding optional providers or polishing secondary screens.
+
 ## Framework boundaries
 
 ### StoreKit and PassKit

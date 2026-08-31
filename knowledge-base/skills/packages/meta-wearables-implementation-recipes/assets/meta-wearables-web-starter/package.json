@@ -1,0 +1,8 @@
+{
+  "name": "meta-wearables-web-starter",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  }
+}

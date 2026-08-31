@@ -1,0 +1,122 @@
+schema_version: 1
+handoff_id: tiny-detour-ios-dat-display-2026-08-22
+status: draft
+outcome: "During a user-started Tiny Detour session, offer one bounded creative mission from a glasses camera observation, show a short glanceable card when the connected runtime supports Display, and preserve a phone/audio fallback when the wearable route is unavailable."
+selected_route: native-display
+fallback_surface: phone-fallback
+
+source_snapshot:
+  surface_manifest: meta-wearables-public-surface-2026-08-22
+  surface_manifest_revision: 4
+  dat_ios_release: 0.9.0
+  dat_ios_revision: 9b1b83d791dfebff7afd452e924a256819094b64
+  source_tree_receipt: "CHECKS 23 DRIFT 0"
+  source_revision_receipt: "CHECKS 5 DRIFT 0"
+  target_list_receipt: "xcodebuild -list passed; SideQuest, SideQuestTests, TinyDetourActivity"
+  target_settings_receipt: "xcodebuild -showBuildSettings passed for Debug"
+  build_test_receipt: "run_ios_target_preflight.py test mode passed; xcodebuild test reported 65 tests in 3 suites on iOS 26.4 simulator"
+
+target:
+  project_root: sibling/bishoptech-sidequest
+  platform: ios
+  app_target: SideQuest
+  os_min: iOS 26.0
+  package_or_artifact: "MetaWearablesDAT 0.9.0: MWDATCore, MWDATCamera, MWDATDisplay"
+  revision: 9b1b83d791dfebff7afd452e924a256819094b64
+  runtime_identity: simulator-only; glasses runtime not-run
+  phone_os: iOS 26.4 simulator; physical phone not-run
+  companion_version: not-run
+  firmware: not-run
+  mode: developer-mode configuration; account verification not-run
+  channel: local Debug; release-channel verification not-run
+
+api_rows:
+  - IOS-CORE-001
+  - IOS-REG-001
+  - IOS-PERM-001
+  - IOS-DEVICE-001
+  - IOS-SESSION-001
+  - IOS-CAMERA-001
+  - IOS-MEDIA-001
+  - IOS-AUDIO-001
+  - IOS-DISPLAY-001
+  - IOS-DEVICE-OPS-001
+  - IOS-MOCK-001
+  - IOS-DIAG-001
+
+evidence_tasks:
+  - SRC-01
+  - CFG-01
+  - BUILD-01
+  - DAT-REG-01
+  - COMP-TUPLE-01
+  - DAT-SES-01
+  - COMP-CAPABILITY-01
+  - OPS-PAIR-01
+  - DAT-CAM-01
+  - TRN-STREAM-01
+  - DAT-AUD-01
+  - TRN-AUDIO-01
+  - ODC-PHYS-01
+  - DAT-DISP-01
+  - INP-PHYSICAL-01
+  - REC-01
+  - REL-01
+
+owner_roles:
+  - meta-wearables-agentic-team
+  - meta-wearables-full-sdk-audit
+  - meta-dat-ios-integration
+  - meta-dat-api-atlas
+  - meta-dat-camera-audio
+  - meta-dat-display
+  - meta-wearables-app-architecture
+  - meta-wearables-device-proof
+  - meta-wearables-on-device-compliance
+  - meta-wearables-privacy-publishing
+  - meta-wearables-security-attestation
+  - meta-wearables-operational-readiness
+  - meta-wearables-source-refresh
+
+data_contract:
+  processing_location: phone-local
+  inputs:
+    - user-started glasses camera frames through the DAT camera route
+    - phone microphone only during an explicit answer step
+    - optional user-consented HTTPS gateway request for redacted transient analysis
+  network: "The local path remains useful without the gateway; any remote request is bounded, consented, HTTPS-only, and does not carry raw microphone audio."
+  storage_retention: "Store bounded mission metadata and user outcomes locally; do not persist raw glasses frames or temporary audio buffers."
+  consent_trigger: "The user starts the session, enables the selected capture/delivery preference, and separately consents before any gateway vision request."
+  deletion: "Provide local history deletion; discard transient frames after processing and do not save raw audio."
+  raw_data_boundary: "Raw camera/audio remain inside the active phone-owned processing path; shared state and display cards receive sanitized mission data only."
+
+lifecycle:
+  state_owner: TinyDetourHardwareModel
+  session_epoch: "The hardware coordinator owns the active session/camera epoch and rejects stale display or camera events."
+  stop_order: "Stop answer/audio observers and camera/display children before stopping and releasing the parent DeviceSession; clear wearable state before phone fallback."
+  cancellation: "Cancel on user stop, background, doff, disconnect, denial, timeout, thermal/power degradation, and bounded queue failure."
+  thermal_disconnect_doff: "Stop camera work, degrade to phone/audio/manual behavior, surface recovery, and require a fresh eligible session before restarting."
+
+tests:
+  reducer:
+    - "Existing SideQuest capability-flow and state-transition tests"
+    - "Existing local safety, fallback, retention, and response-boundary tests"
+  mock_or_browser:
+    - "MockDeviceKit route identified in the target and manifest; execution not-run in this intake"
+  build:
+    - "The redacted device-proof iOS target receipt runner passed static inspection and test mode for SideQuest; xcodebuild test reported 65 tests in 3 suites on the iOS 26.4 simulator"
+  connected:
+    - "Named connected-device readiness and callback run not-run"
+  physical:
+    - "Ray-Ban Display camera/display/audio/input script not-run"
+  signed_release:
+    - "Signed archive and release-channel review not-run"
+
+open_gates:
+  - "Keep the successful simulator build separate from physical glasses evidence."
+  - "Capture the phone, Meta AI, on-glasses DAT-app, firmware, runtime identity, and mode/channel tuple."
+  - "Run named physical Display capability, camera, audio, input, disconnect, doff, and fallback tasks."
+  - "Keep Gen 2 claims tied to the observed runtime tuple; Gen 3 mapping remains unresolved."
+  - "Inspect signed identity/privacy metadata before any release-channel claim."
+
+next_proof_task: "PRE-TUPLE-01: capture the named phone/Meta AI/on-glasses DAT-app/firmware/runtime/channel tuple, then run the connected registration and capability tasks before the physical Display script."

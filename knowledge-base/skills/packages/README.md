@@ -48,10 +48,63 @@ Packaged artifacts:
 - [Source refresh and availability `.skill`](../dist/ios-source-refresh-and-availability.skill)
 - [Agentic Apple engineering team `.skill`](../dist/ios-agentic-apple-engineering-team.skill)
 
+## Meta Wearables extension packages
+
+- [Meta Wearables agentic team](meta-wearables-agentic-team/SKILL.md) — coordinate route planning, DAT/Web App specialists, evidence, privacy, refresh, and the consolidated team-preflight receipt; load its [machine-readable team manifest](meta-wearables-agentic-team/references/team-manifest.yaml) for exact role ownership and claim gates.
+- [Meta Wearables route planner](meta-wearables-route-planner/SKILL.md) — choose native DAT, native Display, Web App, or phone fallback.
+- [Meta DAT iOS integration](meta-dat-ios-integration/SKILL.md) — integrate package/version, registration, permissions, callbacks, and session lifecycle.
+- [Meta DAT Android integration](meta-dat-android-integration/SKILL.md) — integrate Maven artifacts, Kotlin lifecycle, Manifest/privacy configuration, `DatResult`, `Flow`, R8, and Android proof.
+- [Meta DAT Android API atlas](meta-dat-android-api-atlas/SKILL.md) — map exact Android artifacts, Kotlin/Java symbols, 0.9 migrations, Display/MockDevice/debugging, and Android compile gates.
+- [Meta Wearables developer operations](meta-wearables-developer-operations/SKILL.md) — manage Developer Center organization/project/app identity, versions, channels, testers, telemetry, and recovery with explicit account and release boundaries.
+- [Meta Wearables transport and reliability](meta-wearables-transport-reliability/SKILL.md) — audit Bluetooth/Wi-Fi/local-network, HFP/A2DP, bounded media, thermal, disconnect, and recovery paths without confusing declared configuration with physical proof.
+- [Meta Wearables debugging and observability](meta-wearables-debugging-observability/SKILL.md) — diagnose the first DAT failure with read-only live evidence, platform-specific state maps, and redacted diagnostic bundles.
+- [Meta Wearables input and sensors](meta-wearables-input-sensors/SKILL.md) — route Display, D-pad/EMG, temple, browser-sensor, phone-sensor, lifecycle, privacy, and physical-proof contracts without conflating surfaces.
+- [Meta Wearables security and attestation](meta-wearables-security-attestation/SKILL.md) — audit iOS/Android identity tuples, Meta AI callbacks, Developer Mode versus release attestation, package/signing secrets, redaction, and publishing/on-device boundaries.
+- [Meta Wearables device compatibility](meta-wearables-device-compatibility/SKILL.md) — resolve product labels, DAT/artifact revisions, firmware/companion tuples, version-dependency access, Gen 2 evidence, and Gen 3/regular-SDK uncertainty.
+- [Meta Wearables full-SDK audit](meta-wearables-full-sdk-audit/SKILL.md) — audit all public modules, capabilities, terminology, source conflicts, target dependencies, and evidence gates before calling a request “full.”
+- [Meta DAT API atlas](meta-dat-api-atlas/SKILL.md) — map release-anchored public modules, symbols, upstream skills, samples, debugging, MCP, and DAT/Web App boundaries.
+- [Meta DAT camera and audio](meta-dat-camera-audio/SKILL.md) — route camera/audio streams, ownership, consent, and performance.
+- [Meta DAT Display](meta-dat-display/SKILL.md) — build capability-gated native glasses UI and input.
+- [Meta Wearables Web Apps](meta-wearables-web-apps/SKILL.md) — build the 600×600 public Ray-Ban Display Web App surface.
+- [Meta Wearables device proof](meta-wearables-device-proof/SKILL.md) — freeze reproducible iOS/Android/Web App target preflight and keep mock, browser simulator, connected, physical, signed, and release evidence separate.
+- [Meta Wearables privacy and publishing](meta-wearables-privacy-publishing/SKILL.md) — audit permissions, consent, terms, data flow, and release.
+- [Meta Wearables on-device compliance](meta-wearables-on-device-compliance/SKILL.md) — enforce processing location, raw-data boundaries, thermal/lifecycle fallback, and honest on-device claims.
+- [Meta Wearables operational readiness](meta-wearables-operational-readiness/SKILL.md) — diagnose companion/firmware/on-glasses-DAT-app, mode/channel, thermal/power, provisioning, and bounded recovery behavior.
+- [Meta Wearables application architecture](meta-wearables-app-architecture/SKILL.md) — separate shared product state from iOS/Android/DAT/Web App adapters, fallbacks, concurrency, and test seams.
+- [Meta Wearables implementation recipes](meta-wearables-implementation-recipes/SKILL.md) — turn selected API rows and playbooks into source-aligned Swift, Kotlin/Java, and Web App scaffolding with compile/privacy/fallback gates.
+- [Meta Wearables source refresh](meta-wearables-source-refresh/SKILL.md) — maintain official release, API, device, and access freshness.
+
+### Portable Meta Wearables artifacts
+
+- [Meta Wearables agentic team `.skill`](../dist/meta-wearables-agentic-team.skill)
+- [Meta Wearables route planner `.skill`](../dist/meta-wearables-route-planner.skill)
+- [Meta DAT iOS integration `.skill`](../dist/meta-dat-ios-integration.skill)
+- [Meta DAT Android integration `.skill`](../dist/meta-dat-android-integration.skill)
+- [Meta DAT Android API atlas `.skill`](../dist/meta-dat-android-api-atlas.skill)
+- [Meta Wearables developer operations `.skill`](../dist/meta-wearables-developer-operations.skill)
+- [Meta Wearables transport and reliability `.skill`](../dist/meta-wearables-transport-reliability.skill)
+- [Meta Wearables debugging and observability `.skill`](../dist/meta-wearables-debugging-observability.skill)
+- [Meta Wearables input and sensors `.skill`](../dist/meta-wearables-input-sensors.skill)
+- [Meta Wearables security and attestation `.skill`](../dist/meta-wearables-security-attestation.skill)
+- [Meta Wearables device compatibility `.skill`](../dist/meta-wearables-device-compatibility.skill)
+- [Meta Wearables full-SDK audit `.skill`](../dist/meta-wearables-full-sdk-audit.skill)
+- [Meta DAT API atlas `.skill`](../dist/meta-dat-api-atlas.skill)
+- [Meta DAT camera and audio `.skill`](../dist/meta-dat-camera-audio.skill)
+- [Meta DAT Display `.skill`](../dist/meta-dat-display.skill)
+- [Meta Wearables Web Apps `.skill`](../dist/meta-wearables-web-apps.skill)
+- [Meta Wearables device proof `.skill`](../dist/meta-wearables-device-proof.skill)
+- [Meta Wearables privacy and publishing `.skill`](../dist/meta-wearables-privacy-publishing.skill)
+- [Meta Wearables on-device compliance `.skill`](../dist/meta-wearables-on-device-compliance.skill)
+- [Meta Wearables operational readiness `.skill`](../dist/meta-wearables-operational-readiness.skill)
+- [Meta Wearables application architecture `.skill`](../dist/meta-wearables-app-architecture.skill)
+- [Meta Wearables implementation recipes `.skill`](../dist/meta-wearables-implementation-recipes.skill)
+- [Meta Wearables source refresh `.skill`](../dist/meta-wearables-source-refresh.skill)
+
 ## Package contract
 
 Every package must:
 
+- include a route-specific `Fast path` that identifies the first decision, smallest useful slice, and stop/escalation condition;
 - inspect the target project and deployment target before changing implementation;
 - refresh the relevant official Apple or Swift sources when APIs, availability, or platform behavior matter;
 - route uncertain decisions back to the [knowledge-base map](../../README.md) and its source registry;
@@ -60,6 +113,12 @@ Every package must:
 - preserve the user’s supplied copy, assets, privacy boundary, and requested scope.
 
 These packages are instructions, not proof that any target app compiles, runs on a physical device, passes review, or behaves identically across Apple Intelligence configurations.
+
+Validate and package the complete set from the repository root with
+[`scripts/validate_skill_bundle.py`](../../../scripts/validate_skill_bundle.py)
+and [`scripts/package_skills.py`](../../../scripts/package_skills.py). The
+archive check requires every package resource to be present and byte-aligned
+with its source directory.
 
 ## Related blueprints
 

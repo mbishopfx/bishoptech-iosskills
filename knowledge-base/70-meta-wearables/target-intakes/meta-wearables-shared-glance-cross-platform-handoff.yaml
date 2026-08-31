@@ -1,0 +1,142 @@
+schema_version: 1
+handoff_id: meta-wearables-shared-glance-cross-platform-2026-08-22
+status: draft
+outcome: "Show one short, glanceable result with one deterministic action on native iOS DAT Display, native Android DAT Display, or a Ray-Ban Display Web App, while preserving the same useful phone fallback."
+selected_route: native-display
+secondary_surfaces:
+  - native-dat-ios
+  - native-dat-android
+  - web-app
+fallback_surface: phone-fallback
+
+source_snapshot:
+  surface_manifest: meta-wearables-public-surface-2026-08-22
+  surface_manifest_revision: 6
+  capability_plan: meta-wearables-capability-evidence-plan-2026-08-22
+  dat_ios_release: 0.9.0
+  dat_ios_revision: 9b1b83d791dfebff7afd452e924a256819094b64
+  dat_android_release: 0.9.0
+  dat_android_revision: 81dfb51b9be26de5cd262bb1dcbb4b8d0d6bd2bc
+  web_apps_revision: a2714f862c61b1ce9c6cb624fc7e4938087102db
+  source_tree_receipt: "CHECKS 23 DRIFT 0"
+  source_revision_receipt: "CHECKS 5 DRIFT 0"
+  fixture_suite_receipt: "15 checks passed with selected iOS simulator checkout; live source mode included"
+
+target:
+  project_root: "new sibling project required; the knowledge-base root is not an app"
+  platform: mixed
+  app_target: "iOS target, Android module, and hosted Web App target not selected"
+  os_min: "iOS DAT 0.9.0 requires the selected package minimum; Android min SDK 31; Web App 600x600"
+  package_or_artifact: "iOS MetaWearablesDAT 0.9.0; Android mwdat-core/camera/display/mockdevice 0.9.0; Web Apps toolkit main"
+  revision: "iOS 9b1b83d; Android 81dfb51; Web Apps a2714f8"
+  runtime_identity: "not-run; use exact runtime identity rather than a Gen 2/Gen 3 label"
+  phone_os: not-run
+  companion_version: not-run
+  firmware: not-run
+  mode: "static recipe only; account verification not-run"
+  channel: not-run
+
+api_rows:
+  - IOS-CORE-001
+  - IOS-REG-001
+  - IOS-PERM-001
+  - IOS-DEVICE-001
+  - IOS-SESSION-001
+  - IOS-DISPLAY-001
+  - IOS-DEVICE-OPS-001
+  - IOS-MOCK-001
+  - AND-ARTIFACT-001
+  - AND-CORE-001
+  - AND-DEVICE-001
+  - AND-SESSION-001
+  - AND-DISPLAY-001
+  - AND-OPS-001
+  - AND-MOCK-001
+  - WEB-RUNTIME-001
+  - WEB-INPUT-001
+  - WEB-CONFLICT-001
+  - WEB-SIM-001
+  - WEB-NET-001
+  - WEB-PHYSICAL-001
+
+evidence_tasks:
+  - SRC-01
+  - CFG-01
+  - BUILD-01
+  - MOCK-01
+  - MOCK-02
+  - MOCK-03
+  - WEB-SIM-01
+  - DAT-DISP-01
+  - INP-PHYSICAL-01
+  - COMP-CAPABILITY-01
+  - REC-01
+  - REL-01
+  - WEB-PHYS-01
+  - ODC-SOURCE-01
+  - ODC-STATIC-01
+  - ODC-PHYS-01
+  - ODC-RELEASE-01
+
+owner_roles:
+  - meta-wearables-agentic-team
+  - meta-wearables-full-sdk-audit
+  - meta-wearables-app-architecture
+  - meta-wearables-implementation-recipes
+  - meta-dat-ios-integration
+  - meta-dat-android-integration
+  - meta-dat-display
+  - meta-wearables-web-apps
+  - meta-wearables-input-sensors
+  - meta-wearables-device-proof
+  - meta-wearables-on-device-compliance
+  - meta-wearables-privacy-publishing
+  - meta-wearables-device-compatibility
+  - meta-wearables-operational-readiness
+
+data_contract:
+  processing_location: mixed
+  inputs:
+    - "Sanitized product state from one selected native DAT Display or Web App adapter"
+    - "Explicit user action from native Display input or Web App focus/pinch input"
+    - "Phone-local setup, consent, and fallback state"
+  network: "Native adapters use the phone companion transport; the Web App requires a public HTTPS origin; no remote processing is assumed by this packet."
+  storage_retention: "Keep bounded outcome metadata only; do not persist raw camera frames, raw audio, browser payloads, device identifiers, or credentials in shared state."
+  consent_trigger: "The user starts the outcome and explicitly accepts any capability-specific capture, network, or phone handoff before that adapter starts."
+  deletion: "Discard transient adapter payloads at completion, cancellation, disconnect, doff, timeout, or fallback; expose deletion for any bounded phone history."
+  raw_data_boundary: "Platform SDK objects, DOM events, raw media, transport payloads, and device identifiers remain inside their adapter; the shared reducer receives typed sanitized events only."
+
+lifecycle:
+  state_owner: "Shared outcome coordinator with one platform capability adapter and one monotonically increasing epoch"
+  session_epoch: "Increment on registration, capability selection, cancellation, disconnect, host exit, and fallback; reject events from older epochs."
+  stop_order: "Stop input/listeners and capability children first, clear or replace Display/Web content, then stop the parent DAT session or exit the Web App host, and finally return to the phone fallback."
+  cancellation: "Cancel on user dismissal, permission denial, missing capability, stale event, host exit, timeout, disconnect, doff/fold, thermal/power degradation, queue pressure, or untrusted remote data."
+  thermal_disconnect_doff: "Stop wearable work, preserve the phone outcome, surface a bounded recovery state, and require a fresh eligible target tuple before restart."
+
+tests:
+  reducer:
+    - "Shared-domain Swift Testing suite: 4 tests passed in the static fixture receipt"
+    - "Web App reducer suite: 5 tests passed with stale-event, focus, exit, timeout, and phone-fallback coverage"
+  mock_or_browser:
+    - "iOS DAT MockDevice and test-client starters type-check against the selected simulator XCFrameworks"
+    - "Android target preflight passes static inventory; Android MockDevice compile remains not-run"
+    - "Web App strict metadata/Node preflight passes; browser simulator remains not-run"
+  build:
+    - "iOS native Display/camera/MockDevice/test-client starters type-check; no shared cross-platform target build exists"
+    - "Android Gradle/Maven compile not-run because the selected sibling target and Android build environment are absent"
+  connected:
+    - "Named iOS/Android/Web App registration, launch, capability, and input run not-run"
+  physical:
+    - "Named Ray-Ban Display, Gen 2, and alleged Gen 3 camera/audio/Display/input/recovery script not-run"
+  signed_release:
+    - "Signed artifacts, Developer Center release channels, tester accounts, App Store/Play review, and production delivery not-run"
+
+open_gates:
+  - "Create or identify one sibling project with separate iOS, Android, Web App, and shared-domain targets as needed."
+  - "Select one primary surface for the first implementation and retain the other adapters as explicit follow-on routes."
+  - "Run iOS target preflight, Android target preflight plus authenticated Maven resolution, or Web App origin preflight for the selected target."
+  - "Capture the phone OS, Meta AI version, on-glasses DAT-app version, firmware, runtime identity, capability response, mode, and channel."
+  - "Keep Meta Glasses product naming separate from the unresolved user shorthand Gen 3 until an official runtime mapping and named-device run exist."
+  - "Execute connected and physical Display/input/fallback scripts before making a glasses-support claim."
+
+next_proof_task: "PRE-TUPLE-01: choose the first sibling target and freeze its exact package/artifact/hosted revision, phone/companion/firmware/runtime tuple, processing location, and next connected proof task."

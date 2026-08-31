@@ -28,6 +28,14 @@ Inspect the workspace and the idea:
 6. Choose evidence proportional to risk: source review, unit/preview tests, simulator, physical device, permission reset, system-surface invocation, signed build, App Store/TestFlight, or production verification. Name what each proves and what it cannot prove.
 7. Record the route and source links in the project’s planning artifacts or the [knowledge-base templates](../../../90-templates/design-brief.md) before implementation grows beyond a small slice.
 
+## Fast path
+
+For a normal feature, write a one-page route record before opening every deep dive:
+
+1. Freeze `outcome -> trusted input -> smallest transformation -> user-visible destination`.
+2. Inspect configuration only for the selected lane; if no target exists, label the work bootstrap and stop at route planning.
+3. Choose one smallest vertical slice with one source, one failure path, and one proof task. Defer unrelated frameworks to the rejected-alternatives list.
+
 ## Change boundary
 
 May inspect project structure and add or update scoped planning, route, state, permission, entitlement, and verification documentation. During implementation, may change the selected feature’s modules and directly related configuration only when the user asked to build it. Do not infer authorization for new accounts, cloud storage, analytics, paid services, background execution, health data, production credentials, deployment, or contacting users.

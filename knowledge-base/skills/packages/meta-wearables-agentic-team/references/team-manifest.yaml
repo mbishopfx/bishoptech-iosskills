@@ -1,0 +1,132 @@
+schema_version: 1
+manifest_id: meta-wearables-agent-team-2026-08-22
+manifest_revision: 4
+reviewed_at: "2026-08-30"
+source_manifest_id: meta-wearables-public-surface-2026-08-22
+source_manifest_revision: 6
+authority_note: "This is the local orchestration contract. Official upstream role names and selected package/API sources remain authoritative; a roster entry never proves compilation, account access, physical behavior, or release approval."
+
+source_ai_surfaces:
+  root_files: [AGENTS.md, README.md, install-skills.sh]
+  plugin_manifests:
+    native-dat-ios: plugins/mwdat-ios/.codex-plugin/plugin.json
+    native-dat-android: plugins/mwdat-android/.codex-plugin/plugin.json
+    web-apps: plugins/meta-wearables-webapp/.codex-plugin/plugin.json
+  docs_mcp_endpoint: https://mcp.developer.meta.com/wearables
+
+agent_surface_contract:
+  source_manifest_field: agent_surface_contract
+  source_only: true
+  docs_mcp_endpoint: https://mcp.developer.meta.com/wearables
+  docs_mcp_authentication: none-per-official-repository-readmes
+  docs_mcp_tools: [search_dat_docs, search_webapps_docs]
+  local_callable_in_this_workspace: false
+  expected_surface_ids: [native-dat-ios, native-dat-android, web-apps]
+  route_rule: "Use official local Codex plugin installs for native DAT; use the Web Apps marketplace route; use MCP for live docs lookup only when the client exposes it, otherwise use the pinned repository/full-reference fallback."
+
+surfaces:
+  - id: native-dat-ios
+    label: DAT iOS companion
+    family: dat
+    delivery: native-ios
+    upstream_repository: https://github.com/facebook/meta-wearables-dat-ios
+    upstream_plugin_root: plugins/mwdat-ios/skills
+    local_primary_roles: [meta-dat-ios-integration, meta-dat-api-atlas, meta-dat-camera-audio, meta-dat-display]
+  - id: native-dat-android
+    label: DAT Android companion
+    family: dat
+    delivery: native-android
+    upstream_repository: https://github.com/facebook/meta-wearables-dat-android
+    upstream_plugin_root: plugins/mwdat-android/skills
+    local_primary_roles: [meta-dat-android-integration, meta-dat-android-api-atlas]
+  - id: web-apps
+    label: Meta Wearables Web App on Ray-Ban Display
+    family: webapps
+    delivery: hosted-web-app
+    upstream_repository: https://github.com/facebook/meta-wearables-webapp
+    upstream_plugin_root: plugins/meta-wearables-webapp/skills
+    local_primary_roles: [meta-wearables-web-apps, meta-wearables-input-sensors]
+  - id: phone-fallback
+    label: Phone-first fallback and consent/control plane
+    family: product-architecture
+    delivery: ios-android-web
+    upstream_repository: https://wearables.developer.meta.com/llms.txt?full=true
+    upstream_plugin_root: null
+    local_primary_roles: [meta-wearables-app-architecture, meta-wearables-on-device-compliance]
+
+upstream_role_handoffs:
+  - {surface: native-dat-ios, role: camera-streaming, upstream_path: plugins/mwdat-ios/skills/camera-streaming, primary_local_role: meta-dat-camera-audio, local_handoff: [meta-dat-camera-audio, meta-wearables-implementation-recipes, meta-wearables-device-proof]}
+  - {surface: native-dat-ios, role: dat-conventions, upstream_path: plugins/mwdat-ios/skills/dat-conventions, primary_local_role: meta-dat-api-atlas, local_handoff: [meta-dat-api-atlas, meta-wearables-source-refresh]}
+  - {surface: native-dat-ios, role: debugging, upstream_path: plugins/mwdat-ios/skills/debugging, primary_local_role: meta-dat-api-atlas, local_handoff: [meta-dat-api-atlas, meta-wearables-debugging-observability, meta-wearables-device-proof]}
+  - {surface: native-dat-ios, role: display-access, upstream_path: plugins/mwdat-ios/skills/display-access, primary_local_role: meta-dat-display, local_handoff: [meta-dat-display, meta-wearables-input-sensors, meta-wearables-device-proof]}
+  - {surface: native-dat-ios, role: getting-started, upstream_path: plugins/mwdat-ios/skills/getting-started, primary_local_role: meta-dat-ios-integration, local_handoff: [meta-dat-ios-integration, meta-wearables-device-proof]}
+  - {surface: native-dat-ios, role: live-debugging-mcp, upstream_path: plugins/mwdat-ios/skills/live-debugging-mcp, primary_local_role: meta-dat-api-atlas, local_handoff: [meta-dat-api-atlas, meta-wearables-debugging-observability, meta-wearables-device-proof]}
+  - {surface: native-dat-ios, role: mockdevice-testing, upstream_path: plugins/mwdat-ios/skills/mockdevice-testing, primary_local_role: meta-wearables-device-proof, local_handoff: [meta-wearables-device-proof, meta-dat-ios-integration]}
+  - {surface: native-dat-ios, role: permissions-registration, upstream_path: plugins/mwdat-ios/skills/permissions-registration, primary_local_role: meta-dat-ios-integration, local_handoff: [meta-dat-ios-integration, meta-wearables-privacy-publishing, meta-wearables-security-attestation]}
+  - {surface: native-dat-ios, role: sample-app-guide, upstream_path: plugins/mwdat-ios/skills/sample-app-guide, primary_local_role: meta-dat-api-atlas, local_handoff: [meta-dat-api-atlas, meta-dat-ios-integration, meta-wearables-implementation-recipes]}
+  - {surface: native-dat-ios, role: session-lifecycle, upstream_path: plugins/mwdat-ios/skills/session-lifecycle, primary_local_role: meta-dat-ios-integration, local_handoff: [meta-dat-ios-integration, meta-wearables-app-architecture, meta-wearables-device-proof]}
+  - {surface: native-dat-android, role: camera-streaming, upstream_path: plugins/mwdat-android/skills/camera-streaming, primary_local_role: meta-dat-android-integration, local_handoff: [meta-dat-android-integration, meta-dat-android-api-atlas, meta-wearables-device-proof]}
+  - {surface: native-dat-android, role: dat-conventions, upstream_path: plugins/mwdat-android/skills/dat-conventions, primary_local_role: meta-dat-android-api-atlas, local_handoff: [meta-dat-android-api-atlas, meta-wearables-source-refresh]}
+  - {surface: native-dat-android, role: debugging, upstream_path: plugins/mwdat-android/skills/debugging, primary_local_role: meta-dat-android-api-atlas, local_handoff: [meta-dat-android-api-atlas, meta-wearables-debugging-observability, meta-wearables-device-proof]}
+  - {surface: native-dat-android, role: display-access, upstream_path: plugins/mwdat-android/skills/display-access, primary_local_role: meta-dat-android-integration, local_handoff: [meta-dat-android-integration, meta-dat-android-api-atlas, meta-wearables-device-proof]}
+  - {surface: native-dat-android, role: getting-started, upstream_path: plugins/mwdat-android/skills/getting-started, primary_local_role: meta-dat-android-integration, local_handoff: [meta-dat-android-integration, meta-wearables-device-proof]}
+  - {surface: native-dat-android, role: live-debugging-mcp, upstream_path: plugins/mwdat-android/skills/live-debugging-mcp, primary_local_role: meta-dat-android-api-atlas, local_handoff: [meta-dat-android-api-atlas, meta-wearables-debugging-observability, meta-wearables-device-proof]}
+  - {surface: native-dat-android, role: mockdevice-testing, upstream_path: plugins/mwdat-android/skills/mockdevice-testing, primary_local_role: meta-dat-android-integration, local_handoff: [meta-dat-android-integration, meta-wearables-device-proof]}
+  - {surface: native-dat-android, role: permissions-registration, upstream_path: plugins/mwdat-android/skills/permissions-registration, primary_local_role: meta-dat-android-integration, local_handoff: [meta-dat-android-integration, meta-wearables-privacy-publishing, meta-wearables-security-attestation]}
+  - {surface: native-dat-android, role: sample-app-guide, upstream_path: plugins/mwdat-android/skills/sample-app-guide, primary_local_role: meta-dat-android-api-atlas, local_handoff: [meta-dat-android-api-atlas, meta-dat-android-integration, meta-wearables-implementation-recipes]}
+  - {surface: native-dat-android, role: session-lifecycle, upstream_path: plugins/mwdat-android/skills/session-lifecycle, primary_local_role: meta-dat-android-integration, local_handoff: [meta-dat-android-integration, meta-wearables-app-architecture, meta-wearables-device-proof]}
+  - {surface: web-apps, role: add-device-sensors, upstream_path: plugins/meta-wearables-webapp/skills/add-device-sensors, primary_local_role: meta-wearables-web-apps, local_handoff: [meta-wearables-web-apps, meta-wearables-input-sensors, meta-wearables-on-device-compliance]}
+  - {surface: web-apps, role: add-gestures, upstream_path: plugins/meta-wearables-webapp/skills/add-gestures, primary_local_role: meta-wearables-web-apps, local_handoff: [meta-wearables-web-apps, meta-wearables-input-sensors, meta-wearables-device-proof]}
+  - {surface: web-apps, role: add-local-storage, upstream_path: plugins/meta-wearables-webapp/skills/add-local-storage, primary_local_role: meta-wearables-web-apps, local_handoff: [meta-wearables-web-apps, meta-wearables-on-device-compliance, meta-wearables-privacy-publishing]}
+  - {surface: web-apps, role: add-offline, upstream_path: plugins/meta-wearables-webapp/skills/add-offline, primary_local_role: meta-wearables-web-apps, local_handoff: [meta-wearables-web-apps, meta-wearables-app-architecture, meta-wearables-device-proof]}
+  - {surface: web-apps, role: add-text-input, upstream_path: plugins/meta-wearables-webapp/skills/add-text-input, primary_local_role: meta-wearables-web-apps, local_handoff: [meta-wearables-web-apps, meta-wearables-input-sensors, meta-wearables-device-proof]}
+  - {surface: web-apps, role: add-ui, upstream_path: plugins/meta-wearables-webapp/skills/add-ui, primary_local_role: meta-wearables-web-apps, local_handoff: [meta-wearables-web-apps, meta-wearables-input-sensors]}
+  - {surface: web-apps, role: connect-api, upstream_path: plugins/meta-wearables-webapp/skills/connect-api, primary_local_role: meta-wearables-web-apps, local_handoff: [meta-wearables-web-apps, meta-wearables-on-device-compliance, meta-wearables-privacy-publishing]}
+  - {surface: web-apps, role: create-webapp, upstream_path: plugins/meta-wearables-webapp/skills/create-webapp, primary_local_role: meta-wearables-web-apps, local_handoff: [meta-wearables-web-apps, meta-wearables-implementation-recipes]}
+  - {surface: web-apps, role: passcode-for-testing, upstream_path: plugins/meta-wearables-webapp/skills/passcode-for-testing, primary_local_role: meta-wearables-web-apps, local_handoff: [meta-wearables-web-apps, meta-wearables-privacy-publishing, meta-wearables-security-attestation]}
+  - {surface: web-apps, role: publish-to-vercel, upstream_path: plugins/meta-wearables-webapp/skills/publish-to-vercel, primary_local_role: meta-wearables-web-apps, local_handoff: [meta-wearables-web-apps, meta-wearables-privacy-publishing, meta-wearables-device-proof]}
+  - {surface: web-apps, role: qr-code, upstream_path: plugins/meta-wearables-webapp/skills/qr-code, primary_local_role: meta-wearables-web-apps, local_handoff: [meta-wearables-web-apps, meta-wearables-device-proof]}
+  - {surface: web-apps, role: test-on-device, upstream_path: plugins/meta-wearables-webapp/skills/test-on-device, primary_local_role: meta-wearables-web-apps, local_handoff: [meta-wearables-web-apps, meta-wearables-device-proof]}
+
+team_roles:
+  - {id: meta-wearables-agentic-team, category: orchestration, surfaces: [native-dat-ios, native-dat-android, web-apps, phone-fallback], primary_output: role-delegation-and-evidence-ledger, hard_gate: exact-route-and-open-gates}
+  - {id: meta-wearables-route-planner, category: routing, surfaces: [native-dat-ios, native-dat-android, web-apps, phone-fallback], primary_output: route-decision-and-rejected-alternatives, hard_gate: terminology-and-capability-resolution}
+  - {id: meta-wearables-full-sdk-audit, category: coverage, surfaces: [native-dat-ios, native-dat-android, web-apps, phone-fallback], primary_output: full-surface-capability-and-conflict-matrix, hard_gate: manifest-plan-and-source-conflict-audit}
+  - {id: meta-dat-ios-integration, category: platform-integration, surfaces: [native-dat-ios], primary_output: ios-package-registration-permission-and-session-contract, hard_gate: selected-package-and-target-config}
+  - {id: meta-dat-api-atlas, category: platform-api, surfaces: [native-dat-ios], primary_output: ios-symbol-module-sample-and-mcp-map, hard_gate: exact-package-api-resolution}
+  - {id: meta-dat-camera-audio, category: capability, surfaces: [native-dat-ios, phone-fallback], primary_output: camera-audio-ownership-and-privacy-contract, hard_gate: route-consent-and-stop-order}
+  - {id: meta-dat-display, category: capability, surfaces: [native-dat-ios], primary_output: native-display-state-input-and-fallback-contract, hard_gate: runtime-display-capability}
+  - {id: meta-dat-android-integration, category: platform-integration, surfaces: [native-dat-android], primary_output: android-artifact-gradle-manifest-and-datresult-contract, hard_gate: selected-artifact-and-target-config}
+  - {id: meta-dat-android-api-atlas, category: platform-api, surfaces: [native-dat-android], primary_output: android-symbol-artifact-migration-and-debug-map, hard_gate: exact-maven-artifact-resolution}
+  - {id: meta-wearables-web-apps, category: platform-integration, surfaces: [web-apps], primary_output: hosted-600x600-https-webapp-contract, hard_gate: hosted-origin-and-runtime-feature-status}
+  - {id: meta-wearables-app-architecture, category: architecture, surfaces: [native-dat-ios, native-dat-android, web-apps, phone-fallback], primary_output: shared-domain-platform-adapter-and-state-contract, hard_gate: platform-boundary-and-fallback}
+  - {id: meta-wearables-input-sensors, category: capability, surfaces: [native-dat-ios, native-dat-android, web-apps, phone-fallback], primary_output: input-sensor-permission-epoch-and-physical-proof-contract, hard_gate: source-or-runtime-sensor-gate}
+  - {id: meta-wearables-device-proof, category: evidence, surfaces: [native-dat-ios, native-dat-android, web-apps], primary_output: preflight-and-evidence-ledger, hard_gate: exact-target-tuple}
+  - {id: meta-wearables-implementation-recipes, category: implementation, surfaces: [native-dat-ios, native-dat-android, web-apps, phone-fallback], primary_output: source-aligned-scaffold-and-next-proof-task, hard_gate: selected-api-and-preflight}
+  - {id: meta-wearables-on-device-compliance, category: compliance, surfaces: [native-dat-ios, native-dat-android, web-apps, phone-fallback], primary_output: processing-location-consent-retention-thermal-and-fallback-contract, hard_gate: data-path-and-lifecycle-declaration}
+  - {id: meta-wearables-privacy-publishing, category: privacy-release, surfaces: [native-dat-ios, native-dat-android, web-apps], primary_output: permission-disclosure-terms-and-publishing-contract, hard_gate: current-policy-and-metadata-review}
+  - {id: meta-wearables-transport-reliability, category: reliability, surfaces: [native-dat-ios, native-dat-android, web-apps], primary_output: transport-audio-queue-thermal-and-recovery-contract, hard_gate: negotiated-link-and-recovery-evidence}
+  - {id: meta-wearables-operational-readiness, category: operations, surfaces: [native-dat-ios, native-dat-android, web-apps], primary_output: compatibility-tuple-provisioning-and-recovery-packet, hard_gate: companion-firmware-and-channel-tuple}
+  - {id: meta-wearables-developer-operations, category: account-operations, surfaces: [native-dat-ios, native-dat-android, web-apps], primary_output: developer-center-project-version-channel-and-tester-packet, hard_gate: authorized-account-state}
+  - {id: meta-wearables-security-attestation, category: security, surfaces: [native-dat-ios, native-dat-android, web-apps], primary_output: redacted-identity-callback-attestation-and-origin-contract, hard_gate: credential-callback-and-mode-boundary}
+  - {id: meta-wearables-debugging-observability, category: diagnosis, surfaces: [native-dat-ios, native-dat-android, web-apps], primary_output: read-only-first-failure-and-redacted-diagnostic-bundle, hard_gate: app-visible-debug-boundary}
+  - {id: meta-wearables-device-compatibility, category: compatibility, surfaces: [native-dat-ios, native-dat-android, web-apps], primary_output: model-firmware-companion-artifact-and-capability-tuple, hard_gate: official-mapping-and-named-runtime}
+  - {id: meta-wearables-source-refresh, category: source-maintenance, surfaces: [native-dat-ios, native-dat-android, web-apps], primary_output: source-receipt-migration-and-impact-map, hard_gate: exact-ref-and-tree-check}
+
+device_claim_gates:
+  - {id: ray-ban-display, required_manifest_term: ray-ban-display, minimum_evidence: physical, required_tasks: [DAT-DISP-01, WEB-PHYS-01], prohibited_shortcuts: [product-label-only, supportsDisplay-only, browser-simulator-only]}
+  - {id: gen-2, required_manifest_term: gen-2, minimum_evidence: physical, required_tasks: [COMP-TUPLE-01, COMP-CAPABILITY-01, COMP-RELEASE-01], prohibited_shortcuts: [retail-label-only,-registration-only, neighboring-model-substitution]}
+  - {id: gen-3, required_manifest_term: gen-3, minimum_evidence: physical, required_tasks: [COMP-GEN3-01, COMP-TUPLE-01, COMP-CAPABILITY-01], prohibited_shortcuts: [enum-alias, product-announcement-only, mock-only, browser-only]}
+
+handoff_contract:
+  required_fields: [outcome, selected_route, source_snapshot, target_tuple, selected_local_roles, upstream_role_handoffs, implementation_boundary, privacy_and_processing_contract, fallback, evidence_ledger, open_gates, next_proof_task]
+  evidence_order: [source, access-gated, static, fixture, mock, build, browser-sim, connected, physical, signed, release-channel, production]
+  non_claims: [source-is-not-build, mock-is-not-physical, browser-is-not-glasses, registration-is-not-capability, developer-mode-is-not-release, gen-label-is-not-runtime-mapping, attestation-is-not-local-processing]
+  required_separation: [native-dat-ios, native-dat-android, web-apps, phone-fallback, glasses-native, phone-local, remote, mixed, unknown]
+
+source_refs:
+  full_reference: https://wearables.developer.meta.com/llms.txt?full=true
+  dat_ios_repository: https://github.com/facebook/meta-wearables-dat-ios
+  dat_android_repository: https://github.com/facebook/meta-wearables-dat-android
+  web_apps_repository: https://github.com/facebook/meta-wearables-webapp
+  wearables_mcp: https://mcp.developer.meta.com/wearables

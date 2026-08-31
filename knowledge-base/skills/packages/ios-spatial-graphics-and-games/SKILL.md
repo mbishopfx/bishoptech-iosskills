@@ -26,6 +26,10 @@ Use this skill to choose the smallest Apple graphics or game layer that meets th
 7. Make input and accessibility plural: touch, controller, keyboard/trackpad, system gestures, voice or alternative controls as appropriate; semantic labels, readable summaries, reduced motion, captions, contrast, non-color feedback, and a non-AR/non-spatial route for core actions.
 8. Verify in layers: compile the real target, run deterministic scene/game fixtures, test state transitions and asset failures, then use the oldest supported and target physical devices. Record OS build, device, scene/lighting/environment, asset set, frame time, dropped frames, memory, GPU/CPU use, battery, thermal state, and input/accessibility observations.
 
+## Fast path
+
+Select the renderer and one frame-budgeted vertical slice with a capability gate and a 2D or phone fallback. Measure the update, render, input, and resource path on the target device class before adding assets, networking, multiplayer, or a second scene.
+
 ## Framework boundaries
 
 ### ARKit, RealityKit, and visionOS

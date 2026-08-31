@@ -47,6 +47,36 @@ Every skill should declare:
 - [iOS source refresh and availability-maintenance package](packages/ios-source-refresh-and-availability/SKILL.md)
 - [Agentic Apple engineering team package](packages/ios-agentic-apple-engineering-team/SKILL.md)
 
+## Meta Wearables extension packages
+
+These workspace-scoped packages coordinate native iOS DAT, native Display, Ray-Ban Display Web Apps, implementation scaffolding, mock/simulator testing, physical-device proof, privacy/publishing, and source refresh. They are an extension team, not a replacement for the Apple roles above.
+
+Their portable `.skill` archives are listed in the [package index](packages/README.md) and stored under [dist](dist).
+
+- [Meta Wearables agentic team](packages/meta-wearables-agentic-team/SKILL.md) — use its [team manifest](packages/meta-wearables-agentic-team/references/team-manifest.yaml) for exact upstream-role coverage and device claim gates.
+- [Meta Wearables route planner](packages/meta-wearables-route-planner/SKILL.md)
+- [Meta DAT iOS integration](packages/meta-dat-ios-integration/SKILL.md)
+- [Meta DAT Android integration](packages/meta-dat-android-integration/SKILL.md)
+- [Meta DAT Android API atlas](packages/meta-dat-android-api-atlas/SKILL.md)
+- [Meta Wearables developer operations](packages/meta-wearables-developer-operations/SKILL.md)
+- [Meta Wearables transport and reliability](packages/meta-wearables-transport-reliability/SKILL.md)
+- [Meta Wearables debugging and observability](packages/meta-wearables-debugging-observability/SKILL.md)
+- [Meta Wearables input and sensors](packages/meta-wearables-input-sensors/SKILL.md)
+- [Meta Wearables security and attestation](packages/meta-wearables-security-attestation/SKILL.md)
+- [Meta Wearables device compatibility](packages/meta-wearables-device-compatibility/SKILL.md)
+- [Meta Wearables full-SDK audit](packages/meta-wearables-full-sdk-audit/SKILL.md) — includes the machine-checked terminology contract.
+- [Meta DAT API atlas](packages/meta-dat-api-atlas/SKILL.md)
+- [Meta DAT camera and audio](packages/meta-dat-camera-audio/SKILL.md)
+- [Meta DAT Display](packages/meta-dat-display/SKILL.md)
+- [Meta Wearables Web Apps](packages/meta-wearables-web-apps/SKILL.md)
+- [Meta Wearables device proof](packages/meta-wearables-device-proof/SKILL.md)
+- [Meta Wearables privacy and publishing](packages/meta-wearables-privacy-publishing/SKILL.md)
+- [Meta Wearables on-device compliance](packages/meta-wearables-on-device-compliance/SKILL.md)
+- [Meta Wearables operational readiness](packages/meta-wearables-operational-readiness/SKILL.md)
+- [Meta Wearables application architecture](packages/meta-wearables-app-architecture/SKILL.md)
+- [Meta Wearables implementation recipes](packages/meta-wearables-implementation-recipes/SKILL.md)
+- [Meta Wearables source refresh](packages/meta-wearables-source-refresh/SKILL.md)
+
 ## Sources
 
 - [Apple Developer Documentation](https://developer.apple.com/documentation/)

@@ -31,6 +31,10 @@ Do not begin with decorative styling. First identify the user outcome, route, st
 7. Create previews or fixture-driven tests for representative states, including long text, empty data, errors, and accessibility-sensitive variants.
 8. Implement the smallest coherent slice, preserve the target project’s architecture, and compile/test the target when the user asked for implementation.
 
+## Fast path
+
+Start with one state-driven screen slice: model state -> semantic view -> primary action -> loading/error/empty states -> preview or test. Expand breakpoints, input modes, and secondary flows only after that contract is stable and observable.
+
 ## Change boundary
 
 May inspect the project files, assets, target settings, and existing UI needed for the requested surface. May change the named SwiftUI views, supporting state models, previews, tests, and directly related resources. Do not add a backend, package dependency, account flow, permission, entitlement, or broad redesign unless the route requires it and the request authorizes it.

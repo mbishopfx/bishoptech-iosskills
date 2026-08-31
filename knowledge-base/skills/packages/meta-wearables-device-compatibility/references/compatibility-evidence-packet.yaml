@@ -1,0 +1,118 @@
+schema_version: 1
+packet_id: meta-wearables-compatibility-example
+status: draft
+
+source_snapshot:
+  retrieval_date: "2026-08-22"
+  full_reference: https://wearables.developer.meta.com/llms.txt?full=true&product=dat
+  version_dependency_access: access-gated
+  repository_revisions:
+    dat_ios: to-verify
+    dat_android: to-verify
+    web_apps: to-verify
+  source_notes:
+    - "Use the versioned package/changelog and the authenticated version-dependency page before closing support."
+
+target:
+  consumer_label: "Ray-Ban Meta Gen 2"
+  generation_label: gen-2
+  retail_product_or_sku: to-verify
+  route: native-dat-ios
+  package_or_artifact: to-verify
+  sdk_revision: to-verify
+  phone_os_build: to-verify
+  meta_ai_version: to-verify
+  device_type_observed: unknown
+  firmware: unknown
+  on_glasses_dat_app: unknown
+  link: unknown
+  permission_compatibility: unknown
+  account_mode: not-run
+  evidence_level: source
+  processing_claim: unknown
+
+capabilities:
+  - name: camera-photo
+    status: to-verify
+    evidence_level: source
+    operation: not-run
+    processing_location: unknown
+    fallback: phone-fallback
+    next_action: "Run the named camera/photo operation after the target tuple is frozen."
+  - name: native-display
+    status: to-verify
+    evidence_level: source
+    operation: not-run
+    processing_location: unknown
+    fallback: phone-fallback
+    next_action: "Run the Display capability, input, clear, disconnect, and recovery script only on a Display-capable target."
+
+evidence:
+  - id: COMP-SOURCE-01
+    status: source
+    operation: "Freeze official URLs, revisions, retrieval date, and access state."
+    artifact_or_record: source-snapshot
+    proves: source-scope
+    does_not_prove: target-support
+  - id: COMP-STATIC-01
+    status: not-run
+    operation: "Inspect the selected Xcode package or Android Gradle graph and capability symbols."
+    artifact_or_record: not-run
+    proves: target-api-addressability
+    does_not_prove: physical-behavior
+  - id: COMP-VERSION-01
+    status: access-gated
+    operation: "Read the authenticated version-dependency table or record the unavailable result."
+    artifact_or_record: version-dependencies-access-gated
+    proves: version-values-only-when-observed
+    does_not_prove: physical-behavior
+  - id: COMP-TUPLE-01
+    status: not-run
+    operation: "Pair the named target and record runtime identity, firmware, companion, link, permissions, and account mode."
+    artifact_or_record: not-run
+    proves: named-connected-state
+    does_not_prove: capability-success
+  - id: COMP-CAPABILITY-01
+    status: not-run
+    operation: "Exercise each requested capability with a negative path and recovery result."
+    artifact_or_record: not-run
+    proves: named-capability-result
+    does_not_prove: other-model-support
+  - id: COMP-FIRMWARE-01
+    status: not-run
+    operation: "Capture before/after firmware, first failure, recovery attempt, and post-state when drift is suspected."
+    artifact_or_record: not-run
+    proves: firmware-drift-isolation
+    does_not_prove: universal-support-policy
+  - id: COMP-GEN3-01
+    status: not-run
+    operation: "Require an official mapping, observed runtime identity, and repeated named-target operation before a Gen 3 claim."
+    artifact_or_record: not-run
+    proves: gen3-only-when-closed
+    does_not_prove: gen3-from-label-or-enum
+  - id: COMP-RELEASE-01
+    status: not-run
+    operation: "Repeat the selected compatibility operation on the signed release/channel artifact."
+    artifact_or_record: not-run
+    proves: release-path-compatibility
+    does_not_prove: public-production-approval
+
+open_gates:
+  - authenticated-version-dependency-table
+  - exact-target-package-or-artifact
+  - named-runtime-device-identity
+  - physical-capability-run
+  - signed-release-path
+
+next_proof_task:
+  id: COMP-STATIC-01
+  action: "Freeze the target's exact package/artifact, source revision, toolchain, permissions, and capability symbols."
+  owner_role: meta-wearables-device-compatibility
+
+redaction:
+  client_token: present-redacted
+  application_id: present-redacted
+  package_token: present-redacted
+  raw_device_identifier: omitted
+  serial_or_mac: omitted
+  tester_or_project_id: present-redacted

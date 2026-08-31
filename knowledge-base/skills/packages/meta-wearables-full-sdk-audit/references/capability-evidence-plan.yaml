@@ -1,0 +1,315 @@
+schema_version: 1
+plan_id: meta-wearables-capability-evidence-plan-2026-08-22
+manifest_id: meta-wearables-public-surface-2026-08-22
+authority_note: "This plan connects source-routed capabilities to implementation owners, privacy/data paths, fallbacks, and evidence tasks. It is a planning contract; exact generated API, account state, target builds, physical behavior, and release outcomes remain authoritative at their own evidence level."
+
+evidence_levels:
+  - source
+  - static
+  - build
+  - mock
+  - browser-sim
+  - connected
+  - physical
+  - signed
+  - release-channel
+  - production
+
+task_catalog:
+  - id: SRC-01
+    levels: [source]
+    purpose: "Pin official source URLs, revisions, release, retrieval date, and source conflicts."
+  - id: CFG-01
+    levels: [static]
+    purpose: "Inspect identity, callback, permissions, privacy/configuration, and route wiring."
+  - id: BUILD-01
+    levels: [build]
+    purpose: "Build and test the exact selected target against its resolved package/artifact."
+  - id: DAT-REG-01
+    levels: [connected, physical]
+    purpose: "Exercise registration, callback return, permission state, and recovery on the named route."
+  - id: COMP-SOURCE-01
+    levels: [source]
+    purpose: "Classify public compatibility/version evidence and its access state."
+  - id: GEN-STATIC-01
+    levels: [static]
+    purpose: "Separate product wording, SDK model identity, and requested generation labels."
+  - id: COMP-TUPLE-01
+    levels: [connected, physical]
+    purpose: "Record the product/runtime/phone/companion/firmware/DAT-app/artifact tuple."
+  - id: DAT-SES-01
+    levels: [connected, physical]
+    purpose: "Exercise session start, state/error observation, stop, disconnect, and recreation."
+  - id: COMP-CAPABILITY-01
+    levels: [connected, physical]
+    purpose: "Observe the named device capability predicate and the requested operation."
+  - id: OPS-PAIR-01
+    levels: [connected, physical]
+    purpose: "Record companion, firmware, on-glasses DAT-app, mode/channel, and pairing readiness."
+  - id: DBG-PATH-01
+    levels: [connected]
+    purpose: "Capture the first app-visible readiness/device/session failure and bounded recovery path."
+  - id: DAT-CAM-01
+    levels: [physical]
+    purpose: "Exercise named-glasses camera preview/photo/recording and clean stop behavior."
+  - id: TRN-STREAM-01
+    levels: [connected, physical]
+    purpose: "Observe stream transport, queue/backpressure, interruption, and recovery behavior."
+  - id: MOCK-03
+    levels: [mock]
+    purpose: "Exercise deterministic camera/media stop, denial, disconnect, and unsupported fixtures."
+  - id: REC-01
+    levels: [connected, physical]
+    purpose: "Run missing-device, denial, timeout, stale-session, thermal/power, and companion recovery."
+  - id: DAT-AUD-01
+    levels: [physical]
+    purpose: "Exercise the documented audio route, consent, interruption, and route restoration."
+  - id: TRN-AUDIO-01
+    levels: [connected, physical]
+    purpose: "Observe HFP/A2DP or phone-audio routing without conflating transport surfaces."
+  - id: ODC-PHYS-01
+    levels: [physical]
+    purpose: "Verify the claimed processing location, raw-data boundary, thermal behavior, and fallback on the named target."
+  - id: DAT-DISP-01
+    levels: [physical]
+    purpose: "Exercise native Display capability, rendering, focus/action, clear, disconnect, and teardown."
+  - id: INP-PHYSICAL-01
+    levels: [physical]
+    purpose: "Exercise named physical Display/button/D-pad/gesture/input behavior."
+  - id: REL-01
+    levels: [signed, release-channel]
+    purpose: "Inspect the signed archive/bundle, identity, entitlements/privacy metadata, and channel eligibility."
+  - id: WEB-SIM-01
+    levels: [browser-sim]
+    purpose: "Run the Web App simulator layout, focus, input, loading, error, and performance checks."
+  - id: WEB-PHYS-01
+    levels: [physical]
+    purpose: "Launch the hosted Web App on the named Display target and exercise input, exit, and fallback."
+  - id: INP-SOURCE-01
+    levels: [source]
+    purpose: "Classify native, Web App, browser, and phone input/sensor source boundaries."
+  - id: INP-BROWSER-01
+    levels: [browser-sim]
+    purpose: "Exercise Web App browser sensor/input behavior in the simulator with permission and secure-context state."
+  - id: INP-RECOVERY-01
+    levels: [connected, physical]
+    purpose: "Exercise duplicate, stale, denied, stopped, timeout, and fallback input/sensor events."
+  - id: INP-STATIC-01
+    levels: [static]
+    purpose: "Inspect sensor/input permissions, secure context, target configuration, and declared processing path."
+  - id: INP-MOCK-01
+    levels: [mock]
+    purpose: "Exercise deterministic input/sensor reducer, epoch, duplicate, stale, and unsupported fixtures."
+  - id: INP-CONNECTED-01
+    levels: [connected]
+    purpose: "Observe input/sensor events on the named connected runtime without generalizing to other models."
+  - id: INP-RELEASE-01
+    levels: [signed, release-channel]
+    purpose: "Recheck input/sensor declarations, origin, identity, and release-channel behavior."
+  - id: MOCK-01
+    levels: [mock]
+    purpose: "Exercise deterministic registration and permission fixtures."
+  - id: MOCK-02
+    levels: [mock]
+    purpose: "Exercise deterministic session lifecycle, reconnect, stop, and stale-event fixtures."
+  - id: DBG-SOURCE-01
+    levels: [source]
+    purpose: "Pin the debug-server/MCP role and evidence boundary."
+  - id: DBG-CONN-01
+    levels: [connected]
+    purpose: "Record the read-only debug connection/readiness baseline."
+  - id: DBG-EVENT-01
+    levels: [connected]
+    purpose: "Capture a narrow typed event/error digest with redaction."
+  - id: DBG-BUNDLE-01
+    levels: [connected]
+    purpose: "Export a redacted diagnostic handoff without raw media, tokens, or identifiers."
+  - id: ODC-SOURCE-01
+    levels: [source]
+    purpose: "Classify the claimed processing location and on-device vocabulary from official sources."
+  - id: ODC-STATIC-01
+    levels: [static]
+    purpose: "Inspect consent, storage/network, privacy, retention, thermal, and fallback configuration."
+  - id: ODC-RELEASE-01
+    levels: [signed, release-channel]
+    purpose: "Recheck processing disclosures, privacy metadata, and release-channel data boundaries."
+  - id: SEC-SOURCE-01
+    levels: [source]
+    purpose: "Pin identity, callback, attestation, origin, and credential-boundary requirements."
+  - id: SEC-STATIC-01
+    levels: [static]
+    purpose: "Inspect redacted bundle/package identity, callback, signing inputs, origin, and privacy files."
+  - id: SEC-ATTEST-01
+    levels: [connected]
+    purpose: "Observe the selected Developer Mode or account/attestation boundary without exposing credentials."
+  - id: SEC-RELEASE-01
+    levels: [signed, release-channel]
+    purpose: "Verify signed identity, attestation/channel inputs, origin, and redaction before distribution."
+  - id: COMP-VERSION-01
+    levels: [static, connected]
+    purpose: "Record authenticated or unavailable version-dependency evidence explicitly."
+  - id: COMP-FIRMWARE-01
+    levels: [connected, physical]
+    purpose: "Observe firmware/companion/DAT-app compatibility and drift on the named tuple."
+  - id: COMP-RELEASE-01
+    levels: [signed, release-channel]
+    purpose: "Verify compatibility and release-channel prerequisites for the exact artifact and target."
+  - id: PROD-01
+    levels: [production]
+    purpose: "Exercise the exact approved production route only after prior evidence levels pass."
+
+capabilities:
+  - id: configuration-and-registration
+    surfaces: [native-dat-ios, native-dat-android, web-apps]
+    owner_roles: [meta-dat-ios-integration, meta-dat-android-integration, meta-wearables-web-apps, meta-wearables-security-attestation]
+    implementation_route: "platform-specific registration adapters with a phone control-plane fallback"
+    privacy_path: phone-control-plane
+    fallback: "Explicit not-registered, denied, unavailable, and phone-only states; never silently open the companion."
+    claim_boundary: "Configuration and source evidence do not prove account authorization, registration success, or hardware capability."
+    preflight_tasks: [PRE-SOURCE-01, PRE-IOS-01, PRE-ANDROID-01, PRE-WEB-01, PRE-IDENTITY-01]
+    required_levels: [source, static, build, connected]
+    evidence_tasks: [SRC-01, CFG-01, BUILD-01, DAT-REG-01, COMP-SOURCE-01]
+    next_gate: build
+  - id: device-selection-and-compatibility
+    surfaces: [native-dat-ios, native-dat-android]
+    owner_roles: [meta-wearables-route-planner, meta-wearables-device-compatibility, meta-wearables-device-proof]
+    implementation_route: "runtime device selector plus explicit capability and compatibility predicates"
+    privacy_path: phone-device-metadata
+    fallback: "Keep the requested feature unavailable or phone-only until the exact runtime tuple is eligible."
+    claim_boundary: "Gen 2, Gen 3, or a product label is not a runtime capability predicate."
+    preflight_tasks: [PRE-SOURCE-01, PRE-IOS-01, PRE-ANDROID-01, PRE-TUPLE-01]
+    required_levels: [source, static, build, connected]
+    evidence_tasks: [SRC-01, GEN-STATIC-01, BUILD-01, COMP-TUPLE-01, DAT-SES-01, COMP-CAPABILITY-01]
+    next_gate: connected
+  - id: session-lifecycle
+    surfaces: [native-dat-ios, native-dat-android]
+    owner_roles: [meta-dat-ios-integration, meta-dat-android-integration, meta-wearables-app-architecture, meta-wearables-operational-readiness]
+    implementation_route: "epoch-owned session coordinator with child capability teardown before parent stop"
+    privacy_path: phone-session-control
+    fallback: "Cancel capability work, reject stale events, clear wearable state, and return to the phone route."
+    claim_boundary: "A source or mock lifecycle does not prove real link, firmware, thermal, or reconnect behavior."
+    preflight_tasks: [PRE-SOURCE-01, PRE-IOS-01, PRE-ANDROID-01, PRE-DATA-01]
+    required_levels: [source, static, build, mock, connected]
+    evidence_tasks: [SRC-01, CFG-01, BUILD-01, MOCK-02, DAT-SES-01, OPS-PAIR-01, DBG-PATH-01, REC-01]
+    next_gate: build
+  - id: camera-photo
+    surfaces: [native-dat-ios, native-dat-android]
+    owner_roles: [meta-dat-camera-audio, meta-wearables-implementation-recipes, meta-wearables-transport-reliability, meta-wearables-device-proof]
+    implementation_route: "0.9 Camera-owned stream adapter with bounded media processing and phone-camera fallback"
+    privacy_path: glasses-camera-to-phone-processing
+    fallback: "Stop and release on denial, doff, background, thermal, disconnect, or queue pressure; offer phone capture."
+    claim_boundary: "Mock frames and a compiled camera adapter do not prove glasses optics, transport, or physical capture."
+    preflight_tasks: [PRE-SOURCE-01, PRE-IOS-01, PRE-ANDROID-01, PRE-DATA-01, PRE-TUPLE-01, PRE-BUILD-01]
+    required_levels: [source, static, build, mock, connected, physical]
+    evidence_tasks: [SRC-01, CFG-01, BUILD-01, MOCK-03, DAT-CAM-01, TRN-STREAM-01, COMP-CAPABILITY-01, REC-01]
+    next_gate: build
+  - id: audio-hfp-a2dp
+    surfaces: [native-dat-ios, native-dat-android]
+    owner_roles: [meta-dat-camera-audio, meta-wearables-transport-reliability, meta-wearables-privacy-publishing]
+    implementation_route: "explicit phone-audio/HFP/A2DP route adapter with consent and restoration policy"
+    privacy_path: glasses-or-phone-audio-to-phone-app
+    fallback: "Use phone microphone/manual input or playback without capture when the intended glasses route is unavailable."
+    claim_boundary: "Phone AudioRecord, iOS HFP, and any undocumented glasses microphone path are not interchangeable APIs."
+    preflight_tasks: [PRE-SOURCE-01, PRE-IOS-01, PRE-ANDROID-01, PRE-DATA-01, PRE-TUPLE-01, PRE-BUILD-01]
+    required_levels: [source, static, build, connected, physical]
+    evidence_tasks: [SRC-01, CFG-01, BUILD-01, DAT-AUD-01, TRN-AUDIO-01, ODC-PHYS-01, REC-01]
+    next_gate: connected
+  - id: native-display
+    surfaces: [native-dat-ios, native-dat-android]
+    owner_roles: [meta-dat-display, meta-wearables-input-sensors, meta-wearables-device-proof]
+    implementation_route: "runtime-gated native Display adapter with compact focus/action UI and phone mirror"
+    privacy_path: glasses-display-from-phone-app
+    fallback: "Render the same outcome on the phone when Display capability, input, legibility, link, or release state is unavailable."
+    claim_boundary: "Display source/API and mock proof do not prove optics, legibility, button/D-pad timing, or physical rendering."
+    preflight_tasks: [PRE-SOURCE-01, PRE-IOS-01, PRE-ANDROID-01, PRE-IDENTITY-01, PRE-DATA-01, PRE-TUPLE-01, PRE-BUILD-01, PRE-ARCHIVE-01]
+    required_levels: [source, static, build, mock, connected, physical, signed, release-channel]
+    evidence_tasks: [SRC-01, CFG-01, BUILD-01, MOCK-03, DAT-DISP-01, INP-PHYSICAL-01, COMP-CAPABILITY-01, REC-01, REL-01]
+    next_gate: physical
+  - id: web-app-display
+    surfaces: [web-apps]
+    owner_roles: [meta-wearables-web-apps, meta-wearables-input-sensors, meta-wearables-device-proof]
+    implementation_route: "hosted HTTPS Web App with 600x600 additive Display surface and phone fallback"
+    privacy_path: hosted-web-app-to-display
+    fallback: "Keep a phone URL/manual route and mark the hosted feature unavailable until the named target passes."
+    claim_boundary: "A desktop page or browser simulator does not prove hosted URL, firmware, Display launch, or physical input."
+    preflight_tasks: [PRE-SOURCE-01, PRE-WEB-01, PRE-TUPLE-01]
+    required_levels: [source, static, browser-sim, connected, physical]
+    evidence_tasks: [SRC-01, CFG-01, WEB-SIM-01, WEB-PHYS-01, COMP-CAPABILITY-01, REC-01]
+    next_gate: browser-sim
+  - id: web-app-conflict-features
+    surfaces: [web-apps]
+    owner_roles: [meta-wearables-web-apps, meta-wearables-input-sensors, meta-wearables-source-refresh]
+    implementation_route: "feature-isolated Web App adapters for text, offline, back, gestures, and sensors"
+    privacy_path: hosted-web-app-input-and-storage
+    fallback: "Use phone/manual input, online-only behavior, standard navigation, or omit the feature until source conflict closes."
+    claim_boundary: "Toolkit guidance and the full-reference index currently conflict; no feature is promoted by browser behavior alone."
+    preflight_tasks: [PRE-SOURCE-01, PRE-WEB-01, PRE-DATA-01]
+    required_levels: [source, static, browser-sim, physical]
+    evidence_tasks: [SRC-01, INP-SOURCE-01, INP-STATIC-01, INP-BROWSER-01, WEB-SIM-01, WEB-PHYS-01, INP-RECOVERY-01]
+    next_gate: browser-sim
+  - id: native-sensors
+    surfaces: [native-dat-ios, native-dat-android]
+    owner_roles: [meta-wearables-input-sensors, meta-wearables-on-device-compliance, meta-wearables-device-proof]
+    implementation_route: "source-specific native/Web/phone sensor adapters behind a normalized event reducer"
+    privacy_path: sensor-source-specific
+    fallback: "Use phone Core Motion/Core Location or manual input only when product consent and route policy allow it."
+    claim_boundary: "The current public DAT snapshot does not establish a dedicated native IMU/EMG/temple API."
+    preflight_tasks: [PRE-SOURCE-01, PRE-IOS-01, PRE-ANDROID-01, PRE-TUPLE-01, PRE-BUILD-01]
+    required_levels: [source, static, build, mock, browser-sim, connected, physical, signed, release-channel]
+    evidence_tasks: [SRC-01, INP-SOURCE-01, INP-STATIC-01, BUILD-01, INP-MOCK-01, INP-BROWSER-01, INP-CONNECTED-01, INP-PHYSICAL-01, INP-RECOVERY-01, INP-RELEASE-01]
+    next_gate: source
+  - id: mock-and-simulator
+    surfaces: [native-dat-ios, native-dat-android, web-apps]
+    owner_roles: [meta-wearables-device-proof, meta-dat-ios-integration, meta-dat-android-integration, meta-wearables-web-apps]
+    implementation_route: "deterministic reducer/adapter fixtures plus Web App browser simulator"
+    privacy_path: fixture-only
+    fallback: "Use fixture and phone-only paths for development; never label them physical glasses evidence."
+    claim_boundary: "Mocks and browser simulation prove controlled logic/layout only, not radio, optics, firmware, audio, or physical input."
+    preflight_tasks: [PRE-SOURCE-01, PRE-IOS-01, PRE-ANDROID-01, PRE-WEB-01, PRE-BUILD-01]
+    required_levels: [source, static, build, mock, browser-sim]
+    evidence_tasks: [SRC-01, CFG-01, BUILD-01, MOCK-01, MOCK-02, MOCK-03, WEB-SIM-01]
+    next_gate: build
+  - id: debug-and-observability
+    surfaces: [native-dat-ios, native-dat-android, web-apps]
+    owner_roles: [meta-wearables-debugging-observability, meta-wearables-transport-reliability, meta-wearables-device-proof]
+    implementation_route: "read-only app-visible diagnostic baseline with narrow event digest and redacted handoff"
+    privacy_path: redacted-app-visible-diagnostics
+    fallback: "Return first-failure state and local recovery guidance without raw media, tokens, serials, or private payloads."
+    claim_boundary: "A debug connection or log digest does not prove companion internals, recovery success, or physical behavior."
+    preflight_tasks: [PRE-SOURCE-01, PRE-IOS-01, PRE-ANDROID-01, PRE-WEB-01, PRE-DATA-01]
+    required_levels: [source, static, connected]
+    evidence_tasks: [SRC-01, CFG-01, DBG-SOURCE-01, DBG-CONN-01, DBG-EVENT-01, DBG-BUNDLE-01]
+    next_gate: connected
+  - id: processing-and-on-device-compliance
+    surfaces: [native-dat-ios, native-dat-android, web-apps]
+    owner_roles: [meta-wearables-on-device-compliance, meta-wearables-privacy-publishing, meta-wearables-app-architecture]
+    implementation_route: "per-data-type processing contract with bounded local storage/network and explicit fallback"
+    privacy_path: capability-specific-processing-location
+    fallback: "Stop, minimize, delete, or route to phone/manual processing when consent, thermal, network, or lifecycle conditions fail."
+    claim_boundary: "Phone-local processing is not automatically glasses-native or fully on-device."
+    preflight_tasks: [PRE-SOURCE-01, PRE-IOS-01, PRE-ANDROID-01, PRE-WEB-01, PRE-DATA-01, PRE-TUPLE-01]
+    required_levels: [source, static, build, physical, signed, release-channel]
+    evidence_tasks: [SRC-01, ODC-SOURCE-01, ODC-STATIC-01, BUILD-01, ODC-PHYS-01, ODC-RELEASE-01, REL-01]
+    next_gate: static
+  - id: identity-attestation-and-origin
+    surfaces: [native-dat-ios, native-dat-android, web-apps]
+    owner_roles: [meta-wearables-security-attestation, meta-wearables-developer-operations, meta-wearables-privacy-publishing]
+    implementation_route: "redacted platform identity/callback/origin contract with mode and channel separation"
+    privacy_path: redacted-identity-and-origin
+    fallback: "Stop registration/release claims and expose an explicit access/configuration state when identity is incomplete."
+    claim_boundary: "Static identity files do not prove account authorization, attestation, physical capability, or production approval."
+    preflight_tasks: [PRE-SOURCE-01, PRE-IOS-01, PRE-ANDROID-01, PRE-WEB-01, PRE-IDENTITY-01, PRE-ARCHIVE-01]
+    required_levels: [source, static, signed, release-channel]
+    evidence_tasks: [SRC-01, SEC-SOURCE-01, SEC-STATIC-01, SEC-ATTEST-01, SEC-RELEASE-01, REL-01]
+    next_gate: signed
+  - id: firmware-companion-and-release-compatibility
+    surfaces: [native-dat-ios, native-dat-android, web-apps]
+    owner_roles: [meta-wearables-device-compatibility, meta-wearables-operational-readiness, meta-wearables-device-proof]
+    implementation_route: "complete compatibility tuple with bounded update/recovery and release-channel handoff"
+    privacy_path: phone-device-health-and-release-control
+    fallback: "Keep the feature unavailable or phone-only; surface update-required, incompatible, thermal, or channel state explicitly."
+    claim_boundary: "Public release availability and product naming do not establish firmware compatibility, Gen 3 mapping, or release eligibility."
+    preflight_tasks: [PRE-SOURCE-01, PRE-IOS-01, PRE-ANDROID-01, PRE-WEB-01, PRE-TUPLE-01, PRE-ARCHIVE-01]
+    required_levels: [source, static, connected, physical, signed, release-channel]
+    evidence_tasks: [SRC-01, COMP-VERSION-01, COMP-TUPLE-01, COMP-FIRMWARE-01, COMP-RELEASE-01, OPS-PAIR-01, REC-01, REL-01]
+    next_gate: connected

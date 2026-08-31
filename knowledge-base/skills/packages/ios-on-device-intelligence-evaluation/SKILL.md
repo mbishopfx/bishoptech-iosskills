@@ -52,6 +52,10 @@ Use this skill to choose the narrowest intelligence route and keep availability,
 - App Intents exposes typed actions/entities to Siri, Shortcuts, Spotlight, widgets, and system intelligence. Validate parameters and authorization exactly as for an in-app action; system discoverability is not permission to perform a side effect.
 - Private Cloud Compute or another server model is a separate architecture. Trace what leaves the device, account/entitlement/network/cost, disclosure, retention, provider policy, and fallback. Never call a server route on-device proof.
 
+## Fast path
+
+Establish a deterministic baseline before tuning a model. Compare a representative fixture set covering valid output, malformed output, refusal, missing context, and oversized context, and promote only fields that pass schema, safety, and human-review gates. Expand the fixture set only when a failure reveals a new risk class.
+
 ## Evaluation and safety contract
 
 For each evaluation record:

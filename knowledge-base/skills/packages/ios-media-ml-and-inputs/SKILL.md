@@ -27,6 +27,10 @@ Use this skill to turn a camera frame, audio stream, imported asset, model, NFC 
 7. Define privacy and retention before logging or persistence. Prefer local processing, redact media/text/audio/model outputs from diagnostics, delete raw inputs when no longer needed, and do not add analytics, upload, account access, or telemetry without a product reason and authorization.
 8. Verify in layers: compile against the actual SDK, test deterministic fixtures, test denied/interrupted/unavailable states, then exercise the real camera/microphone/audio route/NFC tag/Apple account on representative physical devices. Record device, OS, model, fixture, latency, dropped inputs, memory, battery, and thermal observations instead of claiming generic “real-time” or “on-device” behavior.
 
+## Fast path
+
+Prove the bounded lifecycle with a fixture source before live capture: one input -> one validated output -> cancellation and teardown. Add only the permission and physical route required by that slice, and measure queue, memory, and backpressure behavior rather than recording a successful frame as completion.
+
 ## Framework boundaries
 
 ### Media and image processing

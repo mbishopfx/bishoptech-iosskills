@@ -29,6 +29,10 @@ Record the strongest level actually observed:
 
 Never write “works,” “private,” “accessible,” “fast,” or “release-ready” without naming the target, OS, device, build/configuration, environment, operation, and evidence level.
 
+## Fast path
+
+Run change-impact triage across privacy, required-reason APIs, performance, accessibility, artifact integrity, and distribution. Execute only the affected evidence lanes, capture a baseline and delta, and reserve a full release audit for changes that cross a release or system boundary.
+
 ## Workflow
 
 ### 1. Convert the claim into an operation
@@ -95,6 +99,12 @@ Next gate:
 ```
 
 Do not include secrets, raw model prompts/responses, health/contact/call payloads, private tokens, or unnecessary user media in the report. Redact logs and screenshots.
+
+## Hard boundaries
+
+- Never call a privacy manifest, accessibility audit, performance baseline, archive, or TestFlight upload a universal privacy, accessibility, speed, approval, or production guarantee.
+- Never print credentials, sensitive payloads, or unnecessary identifiers while collecting diagnostics or release evidence.
+- Never add tracking, remote processing, broad permissions, or release metadata merely to make a check pass; record the missing boundary instead.
 
 ## Related routes
 

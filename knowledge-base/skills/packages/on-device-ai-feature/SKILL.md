@@ -30,6 +30,10 @@ Inspect the target project and data boundary:
 7. Store generated drafts/proposals separately from trusted domain truth. Show source context or uncertainty where the user needs it, and provide edit, reject, retry, and manual fallback paths.
 8. Evaluate representative inputs, adversarial/safety cases, empty and oversized context, multiple languages, device classes, and prompt/schema versions. Track quality and latency without presenting a small fixture set as universal model behavior.
 
+## Fast path
+
+Lock the deterministic contract first: input provenance, schema, availability check, validator, approval, commit, and fallback. Build one fixture and one reviewable proposal, then defer prompt polish or model expansion until rejection, cancellation, and privacy paths pass.
+
 ## Change boundary
 
 May inspect and change the named feature, prompt/schema/tool contracts, local model integration, state machine, review UI, tests/fixtures, and directly related privacy/availability handling. Do not send data to a server, add a cloud model, collect telemetry, request broad permissions, or execute side effects merely to make an AI demo work unless the user explicitly authorizes that expansion.

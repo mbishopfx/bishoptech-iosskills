@@ -23,6 +23,10 @@ Use this skill to select the narrowest Apple-owned surface and keep user intent,
 6. Keep shared state minimal and versioned. Use atomic or coordinated writes; keep secrets in Keychain; write redacted projections for widgets/extensions/system surfaces.
 7. Verify the smallest target slice first, then test the real system surface and physical device. Report what previews, simulator, signed device, and release evidence each prove.
 
+## Fast path
+
+Choose one system-owned entry point and its deep link, then write `app state -> handoff -> host state -> return/recovery`. Build the in-app fallback and one invocation test before adding another extension, provider, widget, or background trigger.
+
 ## Hard boundaries
 
 - Balance every successful `startAccessingSecurityScopedResource()` with `stopAccessingSecurityScopedResource()`.
