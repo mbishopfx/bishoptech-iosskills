@@ -1,6 +1,35 @@
 # Official Source Registry
 
-Research date for this first registry: **2026-08-19**. Apple’s documentation is living documentation. Re-open the source before relying on a version-sensitive API.
+Research date for the current Apple registry: **2026-09-14**. Apple’s documentation is living documentation. Re-open the source before relying on a version-sensitive API.
+
+## iOS 27 / Xcode 27 refresh
+
+| Topic | Official source |
+| --- | --- |
+| Xcode 27, Swift 6.4, and SDKs | [Xcode 27 release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes) |
+| iOS/iPadOS 27 changes | [iOS and iPadOS 27 release notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes) |
+| SwiftUI 2027 overview | [What’s new in SwiftUI](https://developer.apple.com/swiftui/whats-new/) |
+| Toolbar overflow and visibility | [ToolbarContent visibilityPriority](https://developer.apple.com/documentation/swiftui/toolbarcontent/visibilitypriority%28_%3A%29), [ToolbarOverflowMenu](https://developer.apple.com/documentation/swiftui/toolbaroverflowmenu), and [topBarPinnedTrailing](https://developer.apple.com/documentation/swiftui/toolbaritemplacement/topbarpinnedtrailing) |
+| Toolbar minimization and status bar | [toolbarMinimizationBehavior(_:for:)](https://developer.apple.com/documentation/swiftui/view/toolbarminimizationbehavior%28_%3Afor%3A%29) and [toolbarColorScheme(_:for:)](https://developer.apple.com/documentation/swiftui/view/toolbarcolorscheme%28_%3Afor%3A%29) |
+| SwiftUI Document API | [Document](https://developer.apple.com/documentation/swiftui/document), [ReadableDocument](https://developer.apple.com/documentation/swiftui/readabledocument), [WritableDocument](https://developer.apple.com/documentation/swiftui/writabledocument), and [DocumentGroup](https://developer.apple.com/documentation/swiftui/documentgroup) |
+| Reordering and swipe coordination | [reorderContainer(for:isEnabled:move:)](https://developer.apple.com/documentation/swiftui/view/reordercontainer%28for%3Aisenabled%3Amove%3A%29), [reorderable()](https://developer.apple.com/documentation/swiftui/dynamicviewcontent/reorderable%28%29), and [swipeActionsContainer()](https://developer.apple.com/documentation/swiftui/view/swipeactionscontainer%28%29) |
+| AsyncImage and text selection | [AsyncImage](https://developer.apple.com/documentation/swiftui/asyncimage), [asyncImageURLSession(_:)](https://developer.apple.com/documentation/swiftui/view/asyncimageurlsession%28_%3A%29), and [textSelection(_:)](https://developer.apple.com/documentation/swiftui/view/textselection%28_%3A%29) |
+| MetricKit Swift API | [MetricManager](https://developer.apple.com/documentation/metrickit/metricmanager), [MetricReport](https://developer.apple.com/documentation/metrickit/metricreport), [DiagnosticReport](https://developer.apple.com/documentation/metrickit/diagnosticreport), and [MetricKit updates](https://developer.apple.com/documentation/updates/metrickit) |
+
+### HIG platform and design-resource refresh
+
+| Topic | Official source |
+| --- | --- |
+| Design principles | [Purpose, agency, responsibility, familiarity, flexibility, simplicity, craft, and delight](https://developer.apple.com/design/human-interface-guidelines/design-principles) |
+| iOS | [Designing for iOS](https://developer.apple.com/design/human-interface-guidelines/designing-for-ios) |
+| iPadOS | [Designing for iPadOS](https://developer.apple.com/design/human-interface-guidelines/designing-for-ipados) |
+| macOS | [Designing for macOS](https://developer.apple.com/design/human-interface-guidelines/designing-for-macos) |
+| watchOS | [Designing for watchOS](https://developer.apple.com/design/human-interface-guidelines/designing-for-watchos) |
+| Games | [Designing for games](https://developer.apple.com/design/human-interface-guidelines/designing-for-games) |
+| iPhone Duo | [Designing for iPhone Duo](https://developer.apple.com/design/human-interface-guidelines/designing-for-iphone-duo) — hardware-sensitive and `to-verify` where the exact SDK/device route is not exercised |
+| Design resources | [Apple Design Resources](https://developer.apple.com/design/resources/) — iOS/iPadOS/macOS UI kits, SF Symbols, Icon Composer, and device templates |
+| Materials and depth | [Materials](https://developer.apple.com/design/human-interface-guidelines/materials) |
+| Accessibility | [Accessibility](https://developer.apple.com/design/human-interface-guidelines/accessibility) |
 
 ## Design and SwiftUI
 

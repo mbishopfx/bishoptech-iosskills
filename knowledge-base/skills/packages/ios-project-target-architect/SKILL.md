@@ -13,6 +13,7 @@ Shape the project around the user outcome and the Apple surface that owns it. Ke
 
 - Inspect the real repository and preserve existing dirty work. Locate the `.xcodeproj` or `.xcworkspace`, `Package.swift` files, schemes, build configurations, deployment targets, supported destinations, target membership, source/resource folders, entitlements, `Info.plist` files, privacy manifests, extensions, App Groups, tests, fixtures, and generated artifacts.
 - Read the [project-shape foundation](../../../00-foundations/03-project-shape-and-module-boundaries.md), [target and extension route matrix](../../../40-framework-routes/11-project-target-and-extension-route-matrix.md), [Xcode target/module plan](../../../90-templates/xcode-target-and-module-plan.md), [target-aware feature scaffold](../../../90-templates/target-aware-feature-scaffold.md), and [configuration/artifact checklist](../../../60-verification/06-target-configuration-and-artifact-checklist.md).
+- For iOS 27 native surfaces, also read the [iOS 27 native design brief](../../../90-templates/ios27-native-design-brief.md), [iOS 27 performance and on-device proof](../../../90-templates/ios27-performance-and-on-device-proof.md), and [iOS 27 SwiftUI and SDK refresh](../../../10-swiftui/13-ios27-swiftui-refresh.md).
 - Refresh the exact official Apple or Swift page for any API, target type, platform condition, entitlement, privacy requirement, build setting, or system surface you intend to use. Mark unresolved symbols or availability as `to-verify`; do not infer them from a framework name.
 
 ## Route workflow
@@ -104,6 +105,8 @@ Return these artifacts in the project or knowledge base:
 - [Project and target route matrix](../../../40-framework-routes/11-project-target-and-extension-route-matrix.md)
 - [Xcode target/module plan](../../../90-templates/xcode-target-and-module-plan.md)
 - [Target-aware feature scaffold](../../../90-templates/target-aware-feature-scaffold.md)
+- [iOS 27 native design brief](../../../90-templates/ios27-native-design-brief.md)
+- [iOS 27 performance and on-device proof](../../../90-templates/ios27-performance-and-on-device-proof.md)
 - [Target configuration and artifact checklist](../../../60-verification/06-target-configuration-and-artifact-checklist.md)
 - [Capability route planner](../ios-capability-route-planner/SKILL.md)
 

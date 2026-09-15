@@ -26,7 +26,7 @@ Inspect the workspace and the idea:
 4. List every permission, entitlement, Info.plist usage description, account/developer capability, background mode, device requirement, language/region condition, and OS availability that the route may need. Mark each as “to verify,” never as implied by the framework name.
 5. Design unavailable, denied, offline, empty, stale, interrupted, rate-limited, and partial-success paths before the happy path. Preserve a manual or local-first route when it can satisfy the underlying goal.
 6. Choose evidence proportional to risk: source review, unit/preview tests, simulator, physical device, permission reset, system-surface invocation, signed build, App Store/TestFlight, or production verification. Name what each proves and what it cannot prove.
-7. Record the route and source links in the project’s planning artifacts or the [knowledge-base templates](../../../90-templates/design-brief.md) before implementation grows beyond a small slice.
+7. Record the route and source links in the project’s planning artifacts or the [knowledge-base templates](../../../90-templates/design-brief.md) before implementation grows beyond a small slice. For iOS 27 work, use the [native design brief](../../../90-templates/ios27-native-design-brief.md) and [performance/on-device proof template](../../../90-templates/ios27-performance-and-on-device-proof.md).
 
 ## Fast path
 
@@ -82,3 +82,13 @@ Keep the route concise enough to use as a build plan, but specific enough that a
 - [SwiftData](https://developer.apple.com/documentation/swiftdata/)
 - [StoreKit](https://developer.apple.com/documentation/storekit)
 - [Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/)
+- [Xcode 27 release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes)
+- [iOS and iPadOS 27 release notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes)
+- [Design principles](https://developer.apple.com/design/human-interface-guidelines/design-principles)
+- [Designing for iOS](https://developer.apple.com/design/human-interface-guidelines/designing-for-ios)
+- [Designing for iPadOS](https://developer.apple.com/design/human-interface-guidelines/designing-for-ipados)
+- [Designing for macOS](https://developer.apple.com/design/human-interface-guidelines/designing-for-macos)
+- [Designing for watchOS](https://developer.apple.com/design/human-interface-guidelines/designing-for-watchos)
+- [Designing for games](https://developer.apple.com/design/human-interface-guidelines/designing-for-games)
+- [Designing for iPhone Duo](https://developer.apple.com/design/human-interface-guidelines/designing-for-iphone-duo)
+- [Apple Design Resources](https://developer.apple.com/design/resources/)

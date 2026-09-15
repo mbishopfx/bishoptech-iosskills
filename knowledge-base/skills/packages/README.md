@@ -1,6 +1,6 @@
 # Workspace Skill Packages
 
-These are reusable, workspace-scoped Codex skill packages for the iOS 26 knowledge base. They turn the source-linked blueprints into task instructions without installing or mutating global Codex configuration.
+These are reusable, workspace-scoped Codex skill packages for the iOS 27 knowledge base. They turn the source-linked blueprints into task instructions without installing or mutating global Codex configuration. The package contract keeps iOS 26 compatibility and historical claims explicit where a route has not moved to iOS 27.
 
 Use the [public skill catalog](../../../docs/skills-catalog.md) for a role-by-role explanation of each package, its features, expected output, and handoff.
 
@@ -101,6 +101,8 @@ Packaged artifacts:
 - [Meta Wearables source refresh `.skill`](../dist/meta-wearables-source-refresh.skill)
 
 ## Package contract
+
+The current SwiftUI/API refresh is centralized in the [iOS 27 SwiftUI and SDK refresh](../../10-swiftui/13-ios27-swiftui-refresh.md) route and the [source-refresh reference](ios-source-refresh-and-availability/references/ios-27-swiftui-refresh.md). Load those references for iOS 27 symbols, beta/fallback boundaries, and the Xcode 27 SDK/type-check gate before copying a new API into another package. Use the [native design](../../90-templates/ios27-native-design-brief.md) and [performance/on-device proof](../../90-templates/ios27-performance-and-on-device-proof.md) templates for cross-cutting handoffs.
 
 Every package must:
 

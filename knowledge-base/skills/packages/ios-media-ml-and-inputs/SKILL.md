@@ -14,7 +14,8 @@ Use this skill to turn a camera frame, audio stream, imported asset, model, NFC 
 - Inspect the actual Xcode targets, deployment target, device family, scene/lifecycle model, capabilities, entitlements, `Info.plist` usage descriptions, model assets, media formats, persistence, and existing capture/playback adapters.
 - Read the [knowledge-base map](../../../README.md), [media/camera/sensor route](../../../40-framework-routes/02-media-camera-and-sensors.md), [media and ML deep dive](../../../42-framework-deep-dives/07-media-vision-ml-and-nfc.md), and [media/ML recipes](../../../70-code-recipes/21-media-vision-ml-and-nfc-recipes.md).
 - For AI availability and fallback, read [privacy, availability, safety, and fallback](../../../30-on-device-ai/06-privacy-availability-and-fallback.md). For proof levels, read the [build/device/release checklist](../../../60-verification/01-build-device-and-release-checklist.md) and [permission/entitlement/privacy checklist](../../../60-verification/04-permission-entitlement-and-privacy-checklist.md).
-- Refresh the exact official Apple pages in the Sources section before relying on an API spelling, availability annotation, entitlement, codec, model runtime, music access rule, NFC behavior, or iOS 26 claim.
+- Read the [iOS 27 performance and on-device proof template](../../../90-templates/ios27-performance-and-on-device-proof.md) for measured hardware/performance and processing-location claims, and the [iOS 27 native design brief](../../../90-templates/ios27-native-design-brief.md) for capture/review UI.
+- Refresh the exact official Apple pages in the Sources section before relying on an API spelling, availability annotation, entitlement, codec, model runtime, music access rule, NFC behavior, or iOS 26/27 claim.
 
 ## Route workflow
 
@@ -80,6 +81,8 @@ For implementation, change only the requested target and directly related adapte
 - [Privacy, availability, safety, and fallback](../../../30-on-device-ai/06-privacy-availability-and-fallback.md)
 - [Permission, entitlement, and privacy checklist](../../../60-verification/04-permission-entitlement-and-privacy-checklist.md)
 - [Build, device, and release checklist](../../../60-verification/01-build-device-and-release-checklist.md)
+- [iOS 27 performance and on-device proof](../../../90-templates/ios27-performance-and-on-device-proof.md)
+- [iOS 27 native design brief](../../../90-templates/ios27-native-design-brief.md)
 
 ## Sources
 
@@ -108,3 +111,5 @@ For implementation, change only the requested target and directly related adapte
 - [ShazamKit](https://developer.apple.com/documentation/shazamkit)
 - [SHSession](https://developer.apple.com/documentation/shazamkit/shsession)
 - [Matching audio using the built-in microphone](https://developer.apple.com/documentation/shazamkit/matching-audio-using-the-built-in-microphone)
+- [Xcode 27 release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes)
+- [iOS and iPadOS 27 release notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes)

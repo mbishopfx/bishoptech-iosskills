@@ -1,5 +1,9 @@
 # On-Device AI Feature Brief
 
+Pair this with the [iOS 27 performance and on-device proof template](ios27-performance-and-on-device-proof.md)
+when the feature makes on-device, privacy, latency, memory, energy, or
+real-time claims.
+
 ## User outcome
 
 - Person and context:
@@ -77,3 +81,4 @@
 - [Speech](https://developer.apple.com/documentation/speech/)
 - [Translation](https://developer.apple.com/documentation/translation)
 - [App Intents](https://developer.apple.com/documentation/appintents/)
+- [iOS 27 performance and on-device proof](ios27-performance-and-on-device-proof.md)

@@ -23,7 +23,7 @@ generic code generator and not a promise of Apple approval.
   the [availability and device-proof matrix](../../../40-framework-routes/08-framework-availability-and-device-matrix.md),
   and only the relevant deep dives, design routes, recipes, and proof matrix.
 - Refresh the exact official Apple/Swift sources before relying on a symbol,
-  availability annotation, entitlement, system surface, HIG rule, or iOS 26
+  availability annotation, entitlement, system surface, HIG rule, or iOS 26/27
   behavior. Treat the installed SDK headers and Xcode diagnostics as a second
   authority for the target being built.
 - Load the specialist package that matches the work; use the [role routing
@@ -95,11 +95,17 @@ Select roles in proportion to risk instead of running the entire team for every 
 6. Design the native screen and system handoff. Use Liquid Glass only for a
    functional related group; keep hierarchy, contrast, accessibility, and a
    non-glass fallback intact.
+   For iOS 27 work, load the [iOS 27 native design brief](../../../90-templates/ios27-native-design-brief.md)
+   and record the target-specific HIG matrix before polishing material or
+   spatial depth.
 7. Implement the smallest reversible slice with an explicit source revision,
    request/task epoch, cancellation path, and stale-result guard.
 8. Run the proportional test/audit/device/release passes. Do not promote a
    compile, preview, simulator run, AI proposal, archive, or system callback to
    a stronger evidence level.
+   Use the [iOS 27 performance and on-device proof](../../../90-templates/ios27-performance-and-on-device-proof.md)
+   template for MetricKit, workload, processing-location, privacy, and thermal
+   claims.
 9. Return the standard handoff below and identify the next smallest proof gap.
 
 ## Output contract
@@ -169,6 +175,9 @@ Read only the packages needed for the current route:
 - [Privacy, performance, and release proof](../ios-privacy-performance-release-proof/SKILL.md)
 - [Testing and release assurance](../ios-testing-and-release-assurance/SKILL.md)
 - [Source refresh and availability maintenance](../ios-source-refresh-and-availability/SKILL.md)
+- [iOS 27 SwiftUI and SDK refresh](../../../10-swiftui/13-ios27-swiftui-refresh.md)
+- [iOS 27 native design brief](../../../90-templates/ios27-native-design-brief.md)
+- [iOS 27 performance and on-device proof](../../../90-templates/ios27-performance-and-on-device-proof.md)
 
 ## Open-source bundle boundary
 
@@ -202,3 +211,13 @@ complete. Before publishing a larger bundle set:
 - [XCTest](https://developer.apple.com/documentation/xctest)
 - [Accessibility fundamentals](https://developer.apple.com/documentation/swiftui/accessibility-fundamentals)
 - [Testing a release build](https://developer.apple.com/documentation/xcode/testing-a-release-build)
+- [Xcode 27 release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes)
+- [iOS and iPadOS 27 release notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes)
+- [Design principles](https://developer.apple.com/design/human-interface-guidelines/design-principles)
+- [Designing for iOS](https://developer.apple.com/design/human-interface-guidelines/designing-for-ios)
+- [Designing for iPadOS](https://developer.apple.com/design/human-interface-guidelines/designing-for-ipados)
+- [Designing for macOS](https://developer.apple.com/design/human-interface-guidelines/designing-for-macos)
+- [Designing for watchOS](https://developer.apple.com/design/human-interface-guidelines/designing-for-watchos)
+- [Designing for games](https://developer.apple.com/design/human-interface-guidelines/designing-for-games)
+- [Designing for iPhone Duo](https://developer.apple.com/design/human-interface-guidelines/designing-for-iphone-duo)
+- [Apple Design Resources](https://developer.apple.com/design/resources/)

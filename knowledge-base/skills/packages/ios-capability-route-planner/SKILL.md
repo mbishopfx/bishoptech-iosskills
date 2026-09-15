@@ -13,16 +13,17 @@ Turn an idea into a capability route and evidence plan before framework choices 
 
 - Inspect the actual repository and target: Xcode project/workspace, schemes, deployment target, platforms/device families, modules, persistence, networking, extensions, entitlements, `Info.plist`, privacy manifest, assets, existing system surfaces, and current tests.
 - Read the [knowledge-base map](../../../README.md), [capability-first Apple SDK atlas](../../../40-framework-routes/10-capability-first-apple-sdk-atlas.md), [framework availability and device-proof matrix](../../../40-framework-routes/08-framework-availability-and-device-matrix.md), and the relevant [deep-dive indexes](../../../41-framework-deep-dives/README.md), [device/system routes](../../../42-framework-deep-dives/README.md), and [system framework routes](../../../43-system-framework-deep-dives/README.md).
-- For design work, read the [native screen composition atlas](../../../21-design-deep-dives/08-native-screen-composition-atlas.md), [functional Liquid Glass interactions](../../../20-liquid-glass/05-functional-glass-interactions.md), and [accessibility/adaptation recipes](../../../70-code-recipes/12-accessibility-adaptive-and-native-design-recipes.md).
+- For design work, read the [native screen composition atlas](../../../21-design-deep-dives/08-native-screen-composition-atlas.md), [functional Liquid Glass interactions](../../../20-liquid-glass/05-functional-glass-interactions.md), [accessibility/adaptation recipes](../../../70-code-recipes/12-accessibility-adaptive-and-native-design-recipes.md), and the [iOS 27 native design brief](../../../90-templates/ios27-native-design-brief.md).
+- For iOS 27 SwiftUI, performance, or on-device claims, read the [iOS 27 SwiftUI and SDK refresh](../../../10-swiftui/13-ios27-swiftui-refresh.md) and [performance/on-device proof template](../../../90-templates/ios27-performance-and-on-device-proof.md).
 - For intelligence work, read the [AI feature lifecycle](../../../30-on-device-ai/09-ai-feature-lifecycle-and-availability.md), [AI evaluation discipline](../../../30-on-device-ai/10-on-device-ai-evaluation-and-model-update-discipline.md), and [reviewable multimodal pipeline](../../../31-on-device-ai-recipes/06-reviewable-multimodal-ai-pipeline.md).
-- Refresh the exact official Apple/Swift pages in the [source registry](../../../sources/official-source-registry.md) before relying on a symbol, availability condition, entitlement, system surface, or iOS 26 behavior.
+- Refresh the exact official Apple/Swift pages in the [source registry](../../../sources/official-source-registry.md) before relying on a symbol, availability condition, entitlement, system surface, or iOS 26/27 behavior.
 
 ## Route workflow
 
 1. State the outcome in one sentence. Record the entry point, primary action, accepted result, consequence of error, offline requirement, privacy sensitivity, and supported platforms.
 2. Classify the capability: present/edit, persist/sync, capture/analyze, communicate, locate/map/weather, use protected data, control a device, transact/authenticate, expose to the system, share/export, run in the background, build spatial/graphics/game content, or extend to a companion surface.
 3. Select the narrowest Apple route. Prefer SwiftUI/UIKit/system-owned surfaces, PhotosUI/file import, Vision/Core ML, Speech/Translation, MapKit/Core Location, HealthKit/Contacts/EventKit, StoreKit/PassKit/AuthenticationServices, App Intents/WidgetKit/ActivityKit, and the relevant device/companion framework before inventing a custom service.
-4. Name concrete symbols and rejected alternatives. Record why the route owns the capability, what it does not own, and which API signatures/availability annotations still require an Xcode check.
+4. Name concrete symbols and rejected alternatives. Record why the route owns the capability, what it does not own, and which API signatures/availability annotations still require an Xcode 27 SDK check.
 5. Draw the handoff: `input -> framework observation/operation -> normalized app evidence -> deterministic validation -> domain truth -> derived presentation -> system/companion handoff`.
 6. Build the state matrix before the happy path. Include checking, ready, denied, restricted, unsupported, unavailable, not-ready, loading, partial, stale, interrupted, cancelled, expired, empty, invalid, conflict, and completed states where relevant.
 7. List every permission, usage description, entitlement, background mode, App Group, associated domain, merchant/account/service setup, language/asset condition, hardware requirement, and server dependency. Mark unknowns `to-verify` rather than inferring them from a framework name.
@@ -94,6 +95,9 @@ Return a compact table or document with these fields:
 - [System surfaces and background](../ios-system-surfaces-and-background/SKILL.md)
 - [Companion and communications](../ios-companion-communications/SKILL.md)
 - [Device and release proof](../ios-device-release-proof/SKILL.md)
+- [iOS 27 SwiftUI and SDK refresh](../../../10-swiftui/13-ios27-swiftui-refresh.md)
+- [iOS 27 native design brief](../../../90-templates/ios27-native-design-brief.md)
+- [iOS 27 performance and on-device proof](../../../90-templates/ios27-performance-and-on-device-proof.md)
 
 ## Sources
 
@@ -101,6 +105,16 @@ Return a compact table or document with these fields:
 - [SwiftUI](https://developer.apple.com/documentation/swiftui/)
 - [Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/)
 - [Adopting Liquid Glass](https://developer.apple.com/documentation/TechnologyOverviews/adopting-liquid-glass)
+- [Design principles](https://developer.apple.com/design/human-interface-guidelines/design-principles)
+- [Designing for iOS](https://developer.apple.com/design/human-interface-guidelines/designing-for-ios)
+- [Designing for iPadOS](https://developer.apple.com/design/human-interface-guidelines/designing-for-ipados)
+- [Designing for macOS](https://developer.apple.com/design/human-interface-guidelines/designing-for-macos)
+- [Designing for watchOS](https://developer.apple.com/design/human-interface-guidelines/designing-for-watchos)
+- [Designing for games](https://developer.apple.com/design/human-interface-guidelines/designing-for-games)
+- [Designing for iPhone Duo](https://developer.apple.com/design/human-interface-guidelines/designing-for-iphone-duo)
+- [Apple Design Resources](https://developer.apple.com/design/resources/)
+- [Xcode 27 release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes)
+- [iOS and iPadOS 27 release notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes)
 - [Foundation Models](https://developer.apple.com/documentation/foundationmodels/)
 - [Vision](https://developer.apple.com/documentation/vision/)
 - [Speech](https://developer.apple.com/documentation/speech/)

@@ -1,6 +1,6 @@
-# Reusable iOS Skill Blueprints
+# Reusable iOS 27 Skill Blueprints
 
-These Markdown files are readable blueprints for Codex skills or project-specific agent instructions. They are intentionally source-linked and evidence-aware. The workspace-scoped [skill packages](packages/README.md) turn the strongest blueprints into reusable `SKILL.md` instructions without mutating global Codex configuration.
+These Markdown files are readable blueprints for Codex skills or project-specific agent instructions. They are intentionally source-linked and evidence-aware. The current Apple route is iOS 27/Xcode 27 documentation with explicit iOS 26 fallbacks. The workspace-scoped [skill packages](packages/README.md) turn the strongest blueprints into reusable `SKILL.md` instructions without mutating global Codex configuration.
 
 For the public role map, feature descriptions, handoffs, and evidence vocabulary, see the [complete skill catalog](../../docs/skills-catalog.md).
 
@@ -23,6 +23,12 @@ Every skill should declare:
 - [On-device AI feature](on-device-ai-feature.md)
 - [Apple SDK route selection](apple-sdk-route.md)
 - [Agentic Apple engineering team](packages/ios-agentic-apple-engineering-team/SKILL.md)
+
+## iOS 27 planning templates
+
+- [Native design brief](../90-templates/ios27-native-design-brief.md)
+- [Performance and on-device proof](../90-templates/ios27-performance-and-on-device-proof.md)
+- [Reusable template index](../90-templates/README.md)
 
 ## Workspace-scoped packages
 

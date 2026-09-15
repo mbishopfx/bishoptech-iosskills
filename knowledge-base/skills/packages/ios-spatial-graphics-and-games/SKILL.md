@@ -13,7 +13,8 @@ Use this skill to choose the smallest Apple graphics or game layer that meets th
 
 - Inspect the actual Xcode targets, platform/device family, deployment target, scene roles, camera usage description, capabilities, entitlements, asset formats, controller/input routes, persistence, Game Center configuration, and existing renderer/game loop.
 - Read the [knowledge-base map](../../../README.md), [spatial graphics and games route](../../../40-framework-routes/06-spatial-graphics-and-games.md), [RealityKit/ARKit/spatial deep dive](../../../42-framework-deep-dives/04-realitykit-arkit-and-spatial.md), [Metal/SpriteKit/game deep dive](../../../42-framework-deep-dives/05-metal-spritekit-and-game-routes.md), and [spatial/graphics/game recipes](../../../70-code-recipes/18-spatial-graphics-and-game-recipes.md).
-- For proof levels, read the [build/device/release checklist](../../../60-verification/01-build-device-and-release-checklist.md) and [accessibility checklist](../../../60-verification/02-accessibility-and-adaptability-checklist.md). Refresh the exact official Apple pages in the Sources section before relying on availability, scene roles, device support, input behavior, or Game Center rules.
+- For proof levels, read the [build/device/release checklist](../../../60-verification/01-build-device-and-release-checklist.md), [accessibility checklist](../../../60-verification/02-accessibility-and-adaptability-checklist.md), and [iOS 27 performance and on-device proof](../../../90-templates/ios27-performance-and-on-device-proof.md). Use the [iOS 27 native design brief](../../../90-templates/ios27-native-design-brief.md) for the games HIG route, safe-area/aspect-ratio matrix, input adaptation, and non-spatial fallback.
+- Refresh the exact official Apple pages in the Sources section before relying on availability, scene roles, device support, input behavior, or Game Center rules.
 
 ## Route workflow
 
@@ -77,6 +78,8 @@ For implementation, change only the requested target and directly related adapte
 - [Spatial, graphics, and game recipes](../../../70-code-recipes/18-spatial-graphics-and-game-recipes.md)
 - [Accessibility and adaptability checklist](../../../60-verification/02-accessibility-and-adaptability-checklist.md)
 - [Build, device, and release checklist](../../../60-verification/01-build-device-and-release-checklist.md)
+- [iOS 27 native design brief](../../../90-templates/ios27-native-design-brief.md)
+- [iOS 27 performance and on-device proof](../../../90-templates/ios27-performance-and-on-device-proof.md)
 
 ## Sources
 
@@ -110,3 +113,6 @@ For implementation, change only the requested target and directly related adapte
 - [GKMatch](https://developer.apple.com/documentation/gamekit/gkmatch)
 - [Improving your game’s graphics performance and settings](https://developer.apple.com/documentation/metal/improving-your-games-graphics-performance-and-settings)
 - [Core Haptics](https://developer.apple.com/documentation/corehaptics)
+- [Designing for games](https://developer.apple.com/design/human-interface-guidelines/designing-for-games)
+- [Design principles](https://developer.apple.com/design/human-interface-guidelines/design-principles)
+- [Apple Design Resources](https://developer.apple.com/design/resources/)

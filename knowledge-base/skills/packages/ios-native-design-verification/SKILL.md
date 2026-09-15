@@ -1,6 +1,6 @@
 ---
 name: ios-native-design-verification
-description: Design, implement, or review Apple-native SwiftUI and iOS 26 Liquid Glass surfaces with adaptive layout, semantic controls, accessibility, purposeful motion, and evidence-bound visual verification. Use when a screen should feel native without copying Apple branding or relying on screenshots alone.
+description: Design, implement, or review Apple-native SwiftUI and iOS 26+ Liquid Glass surfaces, including the iOS 27 SDK lane, with adaptive layout, semantic controls, accessibility, purposeful motion, and evidence-bound visual verification. Use when a screen should feel native without copying Apple branding or relying on screenshots alone.
 ---
 
 # iOS Native Design and Liquid Glass Verification
@@ -14,7 +14,8 @@ Use this skill to make an original product feel at home on Apple platforms throu
 - Inspect the actual Xcode target, deployment target, platform/device family, scene/lifecycle model, root view, navigation, state/observation model, assets, supplied copy, localization, and existing UIKit bridges.
 - Read the [knowledge-base map](../../../README.md), [SwiftUI mental model](../../../10-swiftui/00-swiftui-mental-model.md), [state and observation](../../../10-swiftui/01-state-observation-and-data-flow.md), [layout, typography, and controls](../../../10-swiftui/02-layout-typography-and-controls.md), [navigation and routing](../../../10-swiftui/03-navigation-and-routing.md), [accessibility and adaptable UI](../../../10-swiftui/05-accessibility-and-adaptable-ui.md), and [Liquid Glass principles](../../../20-liquid-glass/00-liquid-glass-principles.md).
 - Read [system-first Liquid Glass adoption](../../../20-liquid-glass/01-system-first-adoption.md), [custom glass effects](../../../20-liquid-glass/02-custom-glass-effects.md), [glass containers and morphing](../../../20-liquid-glass/03-glass-containers-and-morphing.md), and the [native screen/design recipes](../../../20-liquid-glass/04-native-screen-recipes.md).
-- Refresh the exact official SwiftUI, Liquid Glass, accessibility, and Human Interface Guidelines pages in the Sources section before relying on an API, iOS 26 behavior, material effect, availability annotation, or accessibility convention.
+- Read the [iOS 27 native design brief](../../../90-templates/ios27-native-design-brief.md) and [iOS 27 SwiftUI and SDK refresh](../../../10-swiftui/13-ios27-swiftui-refresh.md) before a new SDK-sensitive surface.
+- Refresh the exact official SwiftUI, Liquid Glass, accessibility, and Human Interface Guidelines pages in the Sources section before relying on an API, iOS 26/27 behavior, material effect, availability annotation, or accessibility convention.
 
 ## Design workflow
 
@@ -28,6 +29,11 @@ Use this skill to make an original product feel at home on Apple platforms throu
 8. Add motion, morphing, and haptics only when they explain state, spatial identity, or action confirmation. Provide reduced-motion/reduced-effects behavior and preserve the task when animation is skipped or interrupted.
 9. Build a preview/fixture matrix for long text, empty/loading/error states, dark/light appearance, large text, right-to-left or localized strings where in scope, reduced motion/transparency, high contrast, split view, and compact width. A preview is design evidence, not physical-device proof.
 10. Verify the real target on representative physical devices. Record OS build, device, text size, appearance, accessibility settings, interaction route, scroll/hit behavior, transition interruption, haptic result, material legibility, performance, and remaining release gaps.
+
+11. For iOS 27 work, complete the template’s target/platform matrix and record
+    the Xcode 27 SDK signature plus the iOS 26 fallback. Treat iPhone Duo,
+    future hardware, beta declarations, and unexercised system surfaces as
+    `to-verify`, not as universal layout requirements.
 
 ## Native and Liquid Glass boundaries
 
@@ -81,6 +87,8 @@ For implementation, change only the requested screen/component and directly rela
 - [Interaction and transition recipes](../../../70-code-recipes/07-interaction-and-transition-recipes.md)
 - [Accessibility and adaptability checklist](../../../60-verification/02-accessibility-and-adaptability-checklist.md)
 - [Build, device, and release checklist](../../../60-verification/01-build-device-and-release-checklist.md)
+- [iOS 27 native design brief](../../../90-templates/ios27-native-design-brief.md)
+- [iOS 27 SwiftUI and SDK refresh](../../../10-swiftui/13-ios27-swiftui-refresh.md)
 
 ## Sources
 
@@ -92,6 +100,16 @@ For implementation, change only the requested screen/component and directly rela
 - [Liquid Glass](https://developer.apple.com/documentation/TechnologyOverviews/liquid-glass)
 - [Adopting Liquid Glass](https://developer.apple.com/documentation/TechnologyOverviews/adopting-liquid-glass)
 - [Applying Liquid Glass to custom views](https://developer.apple.com/documentation/swiftui/applying-liquid-glass-to-custom-views)
+- [Design principles](https://developer.apple.com/design/human-interface-guidelines/design-principles)
+- [Designing for iOS](https://developer.apple.com/design/human-interface-guidelines/designing-for-ios)
+- [Designing for iPadOS](https://developer.apple.com/design/human-interface-guidelines/designing-for-ipados)
+- [Designing for macOS](https://developer.apple.com/design/human-interface-guidelines/designing-for-macos)
+- [Designing for watchOS](https://developer.apple.com/design/human-interface-guidelines/designing-for-watchos)
+- [Designing for games](https://developer.apple.com/design/human-interface-guidelines/designing-for-games)
+- [Designing for iPhone Duo](https://developer.apple.com/design/human-interface-guidelines/designing-for-iphone-duo)
+- [Apple Design Resources](https://developer.apple.com/design/resources/)
+- [Xcode 27 release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes)
+- [iOS and iPadOS 27 release notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes)
 - [GlassEffectContainer](https://developer.apple.com/documentation/swiftui/glasseffectcontainer)
 - [Glass](https://developer.apple.com/documentation/swiftui/glass)
 - [Accessibility modifiers](https://developer.apple.com/documentation/swiftui/view-accessibility)

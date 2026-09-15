@@ -1,6 +1,6 @@
 ---
 name: ios-system-surfaces-and-background
-description: Route, design, implement, or review iOS files/photos, WebKit/PDF, sharing, widgets, Live Activities, app extensions, File Provider, App Groups, and BackgroundTasks including iOS 26 continuous background work. Use when a feature leaves the main app process, touches user-owned documents/media, needs a system surface, or asks for background execution.
+description: Route, design, implement, or review iOS files/photos, WebKit/PDF, sharing, widgets, Live Activities, app extensions, File Provider, App Groups, and BackgroundTasks including iOS 26+ and iOS 27 continuous/background work. Use when a feature leaves the main app process, touches user-owned documents/media, needs a system surface, or asks for background execution.
 ---
 
 # iOS System Surfaces and Background
@@ -11,12 +11,13 @@ Use this skill to select the narrowest Apple-owned surface and keep user intent,
 
 - Inspect the actual Xcode target, deployment target, platform/device family, scene manifest, extension targets, Info.plist usage descriptions, capabilities, entitlements, App Groups, persistence, and existing system-surface adapters.
 - Read the relevant [knowledge-base map](../../../README.md), [system-surface route](../../../40-framework-routes/04-system-surfaces-and-background-work.md), and deep dives for [photos/files/documents](../../../43-system-framework-deep-dives/00-photos-files-and-documents.md), [WebKit/sharing/PDF](../../../43-system-framework-deep-dives/02-webkit-sharing-and-pdf.md), and [extensions/background](../../../43-system-framework-deep-dives/05-extensions-and-background-routes.md).
-- Refresh the exact official Apple pages in the Sources section before relying on an API spelling, iOS 26 availability, entitlement, refresh behavior, or extension rule.
+- Read the [iOS 27 SwiftUI and SDK refresh](../../../10-swiftui/13-ios27-swiftui-refresh.md) when the route uses `Document`, `ReadableDocument`, `WritableDocument`, or other iOS 27 SwiftUI document behavior.
+- Refresh the exact official Apple pages in the Sources section before relying on an API spelling, iOS 26/27 availability, entitlement, refresh behavior, or extension rule.
 
 ## Route workflow
 
 1. State the user outcome and data ownership: app-owned, selected Photos asset, external file, remote provider item, shared projection, live status, or deferred job.
-2. Choose the narrowest route: PhotosUI before PhotoKit for one-off selection; SwiftUI document APIs before custom file browsers; ShareLink/Transferable before custom sharing; WebKit only when embedded web content is needed; PDFKit for PDF semantics; WidgetKit for glanceable timelines; ActivityKit for bounded live status; App Intents/extensions for focused system actions; BackgroundTasks for interruptible work.
+2. Choose the narrowest route: PhotosUI before PhotoKit for one-off selection; iOS 27 `Document`/`ReadableDocument`/`WritableDocument` or the compatible SwiftUI document route before custom file browsers; ShareLink/Transferable before custom sharing; WebKit only when embedded web content is needed; PDFKit for PDF semantics; WidgetKit for glanceable timelines; ActivityKit for bounded live status; App Intents/extensions for focused system actions; BackgroundTasks for interruptible work.
 3. Draw the handoff as `user action -> system picker/surface -> typed input -> validation -> durable checkpoint -> bounded work -> completion|retry|cancel`.
 4. List permissions, usage descriptions, document types, extension points, App Groups, capabilities, entitlements, signing, server/APNs needs, and target-device requirements. Mark each as to-verify.
 5. Model cancellation, no selection, provider refusal, stale/revoked scope, malformed/oversized data, process termination, no destination, stale widget/Live Activity, task expiration, and retry.
@@ -63,6 +64,11 @@ For implementation, change only the requested target and directly related adapte
 - [PhotosUI](https://developer.apple.com/documentation/photosui)
 - [FileDocument](https://developer.apple.com/documentation/swiftui/filedocument)
 - [DocumentGroup](https://developer.apple.com/documentation/swiftui/documentgroup)
+- [Document](https://developer.apple.com/documentation/swiftui/document)
+- [ReadableDocument](https://developer.apple.com/documentation/swiftui/readabledocument)
+- [WritableDocument](https://developer.apple.com/documentation/swiftui/writabledocument)
+- [iOS and iPadOS 27 release notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes)
+- [What’s new in SwiftUI](https://developer.apple.com/swiftui/whats-new/)
 - [UIDocumentPickerViewController](https://developer.apple.com/documentation/uikit/uidocumentpickerviewcontroller)
 - [NSURL security-scoped resources](https://developer.apple.com/documentation/foundation/nsurl)
 - [NSFileCoordinator](https://developer.apple.com/documentation/foundation/nsfilecoordinator)

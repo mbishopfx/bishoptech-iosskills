@@ -1,5 +1,13 @@
 # Research log
 
+## 2026-09-14 iOS 27 SwiftUI and SDK source refresh
+
+- Rechecked Apple’s [Xcode 27 release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes), [iOS and iPadOS 27 release notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes), and [What’s new in SwiftUI](https://developer.apple.com/swiftui/whats-new/).
+- Added the [iOS 27 SwiftUI and SDK refresh](../knowledge-base/10-swiftui/13-ios27-swiftui-refresh.md) and source-refresh package reference covering toolbar overflow/minimization, `Document`/`ReadableDocument`/`WritableDocument`, reorderable containers, `swipeActionsContainer`, `AsyncImage` caching/session control, interactive text selection, macro-backed `@State`, and the `MetricManager` async-sequence route.
+- Updated the Apple package/index titles and cross-cutting route language to treat iOS 27/Xcode 27 as the current documentation lane while preserving iOS 26 compatibility and historical claims. The current `xcode-select` exposes Xcode 27.0, the iOS 27.0 SDK, and Swift 6.4 for a targeted symbol-level type-check; Xcode 26.4 remains the explicit earlier-toolchain fallback.
+- Added reusable [iOS 27 native design](../knowledge-base/90-templates/ios27-native-design-brief.md) and [performance/on-device proof](../knowledge-base/90-templates/ios27-performance-and-on-device-proof.md) templates, plus the HIG platform/resource matrix. They explicitly separate Liquid Glass’s functional depth from content/decorative layers and separate SDK compile evidence from runtime/device/performance claims.
+- The available simulator runtime is iOS 26.4; app-target build, iOS 27 simulator, physical-device, archive, TestFlight, App Store, and production evidence remain open gates.
+
 The README is the visual entry point. This page keeps the expansion record discoverable without turning the project homepage into a changelog.
 
 ## Current state

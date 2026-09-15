@@ -12,6 +12,7 @@ Use this skill to separate documentation, compile, simulator, physical-device, s
 - Inspect the actual `.xcodeproj`/`.xcworkspace`, scheme, target/deployment target, build settings, Info.plist, entitlements, bundle IDs, provisioning/signing, package dependencies, device family, and feature configuration.
 - Read the [evidence vocabulary](../../../00-foundations/05-evidence-and-verification-language.md), [build/device/release checklist](../../../60-verification/01-build-device-and-release-checklist.md), [permission/entitlement/privacy checklist](../../../60-verification/04-permission-entitlement-and-privacy-checklist.md), and [system-surface checklist](../../../60-verification/05-system-surface-checklist.md).
 - Read the selected route/deep dive from the [knowledge-base map](../../../README.md) and refresh exact official Apple documentation for version-sensitive claims.
+- Use the [iOS 27 native design brief](../../../90-templates/ios27-native-design-brief.md) for Liquid Glass/platform evidence and the [iOS 27 performance and on-device proof](../../../90-templates/ios27-performance-and-on-device-proof.md) for SDK, runtime, performance, and processing-location claims.
 
 ## Evidence ladder
 
@@ -47,6 +48,7 @@ List the requested claims before running commands and assign each the lowest evi
 ## Route-specific gates
 
 - SwiftUI/Liquid Glass: Dynamic Type, localization, VoiceOver/focus/actions, reduced motion/transparency, hit regions, contrast/legibility, adaptive layouts, and real device ergonomics.
+- iOS 27 SDK: keep Xcode 27/iOS 27 SDK type-check evidence separate from the selected deployment target, simulator runtime, physical iOS 27 device, signed archive, and release evidence. A local Xcode 27 SDK alone proves none of those downstream boundaries.
 - On-device AI: model/language availability, privacy/offline behavior, typed-output validation, prompt/tool side-effect boundaries, latency/memory/thermal measurement, fallback, and reviewable output.
 - Camera/sensors/radio/GPU: usage description, capability/support check, session lifecycle, queue/backpressure/teardown, frame or sample budgets, battery/thermal, actual hardware.
 - Files/photos/WebKit/PDF/extensions: user intent, security scope/bookmarks, coordinated access, data redaction, host/extension process, cancellation, provider state, and cleanup.
@@ -97,6 +99,9 @@ Do not include secrets, raw health/contact/call payloads, private tokens, or unn
 - [Configuring app groups](https://developer.apple.com/documentation/xcode/configuring-app-groups)
 - [Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/)
 - [SwiftUI accessibility fundamentals](https://developer.apple.com/documentation/swiftui/accessibility-fundamentals)
+- [Xcode 27 release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes)
+- [iOS and iPadOS 27 release notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes)
+- [MetricManager](https://developer.apple.com/documentation/metrickit/metricmanager)
 - [Foundation Models](https://developer.apple.com/documentation/foundationmodels/)
 - [AVFoundation](https://developer.apple.com/documentation/avfoundation/)
 - [ARKit](https://developer.apple.com/documentation/arkit)

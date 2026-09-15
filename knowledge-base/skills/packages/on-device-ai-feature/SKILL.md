@@ -16,6 +16,8 @@ Inspect the target project and data boundary:
 - locate the deployment target, device family, model resources, entitlements, Info.plist privacy keys, package dependencies, existing persistence, and any network/server route;
 - identify the source data, sensitivity, user-visible outcome, acceptable uncertainty, side effects, and fallback expectation;
 - read the relevant [AI route selector](../../../30-on-device-ai/00-ai-route-selector.md), [Foundation Models mental model](../../../30-on-device-ai/01-foundation-models-mental-model.md), [privacy/availability/fallback guidance](../../../30-on-device-ai/06-privacy-availability-and-fallback.md), and [evaluation, safety, and fallback recipe](../../../31-on-device-ai-recipes/05-evaluation-safety-and-fallback.md);
+- read the [iOS 27 performance and on-device proof template](../../../90-templates/ios27-performance-and-on-device-proof.md) and record whether each operation is device-native, phone-local, remote, or mixed;
+- when the feature has a native SwiftUI surface, read the [iOS 27 native design brief](../../../90-templates/ios27-native-design-brief.md) and the [iOS 27 SwiftUI and SDK refresh](../../../10-swiftui/13-ios27-swiftui-refresh.md);
 - refresh the official [Foundation Models](https://developer.apple.com/documentation/foundationmodels/), [SystemLanguageModel](https://developer.apple.com/documentation/foundationmodels/systemlanguagemodel), [guided generation](https://developer.apple.com/documentation/foundationmodels/generating-swift-data-structures-with-guided-generation), [tool calling](https://developer.apple.com/documentation/foundationmodels/expanding-generation-with-tool-calling), [context window](https://developer.apple.com/documentation/foundationmodels/managing-the-context-window), [prompting](https://developer.apple.com/documentation/foundationmodels/prompting-an-on-device-foundation-model), and [output safety](https://developer.apple.com/documentation/foundationmodels/improving-the-safety-of-generative-model-output) pages;
 - use the narrower [Core ML](https://developer.apple.com/documentation/coreml/), [Vision](https://developer.apple.com/documentation/vision/), [Speech](https://developer.apple.com/documentation/speech/), [Translation](https://developer.apple.com/documentation/translation), or [Natural Language](https://developer.apple.com/documentation/naturallanguage) route when its measurable output is the actual requirement.
 
@@ -66,6 +68,8 @@ If the work is documentation or a route sketch, say so. If the simulator or a mo
 - [Foundation Models code recipes](../../../70-code-recipes/01-foundation-model-recipes.md)
 - [AI feature brief](../../../90-templates/ai-feature-brief.md)
 - [AI evaluation and safety checklist](../../../60-verification/03-ai-evaluation-and-safety-checklist.md)
+- [iOS 27 performance and on-device proof](../../../90-templates/ios27-performance-and-on-device-proof.md)
+- [iOS 27 native design brief](../../../90-templates/ios27-native-design-brief.md)
 - [Permission, entitlement, and privacy checklist](../../../60-verification/04-permission-entitlement-and-privacy-checklist.md)
 
 ## Sources
@@ -82,3 +86,6 @@ If the work is documentation or a route sketch, say so. If the simulator or a mo
 - [Speech](https://developer.apple.com/documentation/speech/)
 - [Translation](https://developer.apple.com/documentation/translation)
 - [Natural Language](https://developer.apple.com/documentation/naturallanguage)
+- [Xcode 27 release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes)
+- [iOS and iPadOS 27 release notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes)
+- [MetricKit](https://developer.apple.com/documentation/metrickit)

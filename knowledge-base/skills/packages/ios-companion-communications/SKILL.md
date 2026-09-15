@@ -11,6 +11,7 @@ Use this skill to keep paired-device, vehicle, App Clip, push, call, audio, serv
 
 - Inspect the actual iPhone/Watch/App Clip/CarPlay targets, bundle identifiers, deployment targets, scene manifests, entitlements, capabilities, associated domains, App Groups, APNs environment, server contract, and audio/session adapters.
 - Read the [networking/companion route](../../../40-framework-routes/07-networking-and-collaboration.md), [Watch/CarPlay/App Clip deep dive](../../../43-system-framework-deep-dives/04-watch-carplay-and-app-clips.md), [Watch Connectivity state deep dive](../../../42-framework-deep-dives/06-watch-connectivity-and-multiplatform.md), and [communication surfaces card](../../../44-system-services/01-commerce-and-communication-surfaces.md).
+- Use the [iOS 27 native design brief](../../../90-templates/ios27-native-design-brief.md) for the watchOS and platform-adaptation matrix; keep watchOS glanceability, Crown/input, paired-device state, and iPhone/iPad/macOS layouts distinct.
 - Refresh the exact official framework pages in the Sources section before relying on current OS/region/device availability, an entitlement, push rule, or system-owned UI behavior.
 
 ## Routing workflow
@@ -58,6 +59,7 @@ During implementation, preserve target boundaries and do not add server accounts
 - [Watch Connectivity and multiplatform state](../../../42-framework-deep-dives/06-watch-connectivity-and-multiplatform.md)
 - [System-surface checklist](../../../60-verification/05-system-surface-checklist.md)
 - [Build/device/release checklist](../../../60-verification/01-build-device-and-release-checklist.md)
+- [iOS 27 native design brief](../../../90-templates/ios27-native-design-brief.md)
 
 ## Sources
 
@@ -79,3 +81,8 @@ During implementation, preserve target boundaries and do not add server accounts
 - [PKPushRegistry](https://developer.apple.com/documentation/pushkit/pkpushregistry)
 - [Responding to VoIP Notifications from PushKit](https://developer.apple.com/documentation/pushkit/responding-to-voip-notifications-from-pushkit)
 - [UserNotifications](https://developer.apple.com/documentation/usernotifications)
+- [Designing for watchOS](https://developer.apple.com/design/human-interface-guidelines/designing-for-watchos)
+- [Designing for iOS](https://developer.apple.com/design/human-interface-guidelines/designing-for-ios)
+- [Designing for iPadOS](https://developer.apple.com/design/human-interface-guidelines/designing-for-ipados)
+- [Designing for macOS](https://developer.apple.com/design/human-interface-guidelines/designing-for-macos)
+- [Design principles](https://developer.apple.com/design/human-interface-guidelines/design-principles)

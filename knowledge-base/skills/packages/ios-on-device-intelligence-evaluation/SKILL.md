@@ -14,6 +14,7 @@ Use this skill to choose the narrowest intelligence route and keep availability,
 - Inspect the actual Xcode targets, deployment target, device family, model resources, language assets, entitlements, usage descriptions, persistence, network/server routes, and current AI adapter.
 - Read the [AI route selector](../../../30-on-device-ai/00-ai-route-selector.md), [Foundation Models mental model](../../../30-on-device-ai/01-foundation-models-mental-model.md), [privacy/availability/fallback guidance](../../../30-on-device-ai/06-privacy-availability-and-fallback.md), [availability/proof matrix](../../../30-on-device-ai/08-on-device-ai-availability-and-proof-matrix.md), and [evaluation/safety/fallback recipe](../../../31-on-device-ai-recipes/05-evaluation-safety-and-fallback.md).
 - Read the [on-device AI feature package](../on-device-ai-feature/SKILL.md) and the narrower [media/ML/input package](../ios-media-ml-and-inputs/SKILL.md) when capture, Vision, Core ML, audio, or NFC state is part of the route.
+- Read the [iOS 27 performance and on-device proof template](../../../90-templates/ios27-performance-and-on-device-proof.md) for processing-location, workload, MetricKit, privacy, energy, and thermal evidence, and the [iOS 27 native design brief](../../../90-templates/ios27-native-design-brief.md) for the review surface.
 - Refresh the exact official Apple pages in the Sources section before relying on model availability, device/region/language behavior, API spelling, output safety, tool calling, context limits, or privacy claims.
 
 ## Route workflow
@@ -28,6 +29,12 @@ Use this skill to choose the narrowest intelligence route and keep availability,
 8. Store generated drafts, observations, predictions, transcripts, translations, and classifications separately from trusted domain truth. Show source context/uncertainty when it matters, allow edit/reject/retry, redact logs, and define raw-input/output retention and deletion.
 9. Evaluate representative, empty, oversized, multilingual, adversarial, safety-sensitive, low-quality, and stale-input fixtures. Record quality, abstention/refusal, correction rate, latency, memory, battery, thermal state, dropped inputs, and device/OS/model configuration.
 10. Verify the actual physical device and target language/model configuration for any claim that depends on Apple Intelligence availability, camera/microphone/sensor behavior, on-device performance, or system-surface invocation. A simulator, mock, preview, or successful compile is narrower evidence.
+
+11. If the target moves to the iOS 27 SDK, record the Xcode 27/Swift 6.4
+    toolchain and exact API type-check separately from model readiness,
+    physical-device behavior, network observation, and release evidence. Do
+    not collapse “compiled with an on-device framework” into “processed on
+    device.”
 
 ## Framework boundaries
 
@@ -101,6 +108,8 @@ For implementation, change only the requested target and directly related adapte
 - [Evaluation, safety, and fallback](../../../31-on-device-ai-recipes/05-evaluation-safety-and-fallback.md)
 - [AI evaluation and safety checklist](../../../60-verification/03-ai-evaluation-and-safety-checklist.md)
 - [Permission, entitlement, and privacy checklist](../../../60-verification/04-permission-entitlement-and-privacy-checklist.md)
+- [iOS 27 performance and on-device proof](../../../90-templates/ios27-performance-and-on-device-proof.md)
+- [iOS 27 native design brief](../../../90-templates/ios27-native-design-brief.md)
 
 ## Sources
 
@@ -124,3 +133,6 @@ For implementation, change only the requested target and directly related adapte
 - [Natural Language](https://developer.apple.com/documentation/naturallanguage)
 - [Sound Analysis](https://developer.apple.com/documentation/soundanalysis)
 - [App Intents](https://developer.apple.com/documentation/appintents/)
+- [Xcode 27 release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes)
+- [iOS and iPadOS 27 release notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes)
+- [MetricKit](https://developer.apple.com/documentation/metrickit)

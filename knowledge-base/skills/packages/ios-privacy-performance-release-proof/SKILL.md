@@ -11,6 +11,8 @@ Use this skill to turn an iOS feature claim into a traceable privacy, test, perf
 
 - Inspect the `.xcodeproj`/`.xcworkspace`, schemes, test plans, targets, deployment target, SDK/toolchain, build configurations, Info.plist values, entitlements, capabilities, bundle identifiers, package dependencies, extensions, and supported device families.
 - Read the [framework availability and device-proof matrix](../../../40-framework-routes/08-framework-availability-and-device-matrix.md), [source-review checklist](../../../60-verification/00-source-review-checklist.md), [build/device/release checklist](../../../60-verification/01-build-device-and-release-checklist.md), [accessibility checklist](../../../60-verification/02-accessibility-and-adaptability-checklist.md), [AI evaluation checklist](../../../60-verification/03-ai-evaluation-and-safety-checklist.md), and [system-surface checklist](../../../60-verification/05-system-surface-checklist.md).
+- Use the [iOS 27 performance and on-device proof template](../../../90-templates/ios27-performance-and-on-device-proof.md) for workload, processing-location, MetricKit, privacy, and claim wording records.
+- Read the [iOS 27 SwiftUI and SDK refresh](../../../10-swiftui/13-ios27-swiftui-refresh.md) when the performance or API route is iOS 27-specific.
 - Refresh the exact [official source registry](../../../sources/official-source-registry.md) and current Apple pages before making an API, availability, policy, or App Store claim.
 
 ## Evidence ladder
@@ -58,7 +60,12 @@ Write the observable operation first: create a privacy report, resolve an App En
 - Use `Logger` with reverse-DNS subsystem/category names for actionable diagnostics. Redact prompts, model output, images, audio, health/contact data, credentials, tokens, and unnecessary identifiers.
 - Use `OSSignposter` intervals/events with stable names and per-operation IDs for Instruments timelines. Record the workload, warm/cold state, device, OS, build, and measurement tool.
 - Use XCTest performance metrics for controlled regressions, including hitch, clock, memory, and signpost measurements where relevant. Define a baseline and an acceptable change; never turn one run into a universal guarantee.
-- Use MetricKit for system-collected reports from real devices. For an iOS 26 deployment target, verify the SDK/API availability before selecting the route: Apple documents `MXMetricManager` for iOS 13+, while current documentation describes the Swift-first `MetricManager` async-sequence API for iOS 27 and later. Add availability/fallback handling rather than compiling a future-only symbol unconditionally.
+- Use MetricKit for system-collected reports from real devices. When the
+  target is built with the iOS 27 SDK, prefer the Swift-first `MetricManager`
+  async sequences (`metricReports` and `diagnosticReports`) documented for
+  iOS 27. For an iOS 26 deployment lane, retain the `MXMetricManager`
+  subscriber fallback and gate the new route explicitly. A targeted SDK
+  type-check or simulated payload does not prove physical-device delivery.
 - Treat debug Instruments traces, XCTest baselines, real-device daily MetricKit payloads, and product-wide performance claims as different evidence classes.
 
 ### 5. Run accessibility and system-surface tasks
@@ -115,6 +122,7 @@ Do not include secrets, raw model prompts/responses, health/contact/call payload
 - [AI evaluation and safety checklist](../../../60-verification/03-ai-evaluation-and-safety-checklist.md)
 - [System-surface checklist](../../../60-verification/05-system-surface-checklist.md)
 - [Official source registry](../../../sources/official-source-registry.md)
+- [iOS 27 performance and on-device proof](../../../90-templates/ios27-performance-and-on-device-proof.md)
 
 ## Sources
 
@@ -136,6 +144,8 @@ Do not include secrets, raw model prompts/responses, health/contact/call payload
 - [MXMetricManager](https://developer.apple.com/documentation/metrickit/mxmetricmanager)
 - [MetricManager](https://developer.apple.com/documentation/metrickit/metricmanager)
 - [MetricKit updates](https://developer.apple.com/documentation/updates/metrickit)
+- [Xcode 27 release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes)
+- [iOS and iPadOS 27 release notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes)
 - [Performing accessibility testing for your app](https://developer.apple.com/documentation/accessibility/performing-accessibility-testing-for-your-app)
 - [VoiceOver](https://developer.apple.com/documentation/accessibility/voiceover)
 - [Optimizing your app for Assistive Access](https://developer.apple.com/documentation/accessibility/optimizing-your-app-for-assistive-access)

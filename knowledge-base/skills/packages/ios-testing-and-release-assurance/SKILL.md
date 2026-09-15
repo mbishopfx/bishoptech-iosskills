@@ -24,6 +24,7 @@ or TestFlight upload into a universal production or App Review claim.
   evidence, device, and release routing; load [release-audit.md](references/release-audit.md)
   when the task reaches archive/TestFlight; load [evaluation-fixtures.md](references/evaluation-fixtures.md)
   when evaluating AI or the role bundle itself.
+- Use the [iOS 27 native design brief](../../../90-templates/ios27-native-design-brief.md) and [iOS 27 performance and on-device proof](../../../90-templates/ios27-performance-and-on-device-proof.md) when a test plan covers Liquid Glass depth, platform adaptation, MetricKit, or on-device claims.
 - Refresh the official Swift Testing, XCTest, XCUIAutomation, accessibility,
   Xcode test-plan, performance, release-build, and distribution pages listed in
   Sources before relying on a version-sensitive API or behavior.
@@ -61,7 +62,9 @@ or TestFlight upload into a universal production or App Review claim.
    user review. Keep quality scoring and human calibration separate from
    deterministic validation.
 9. **Run performance and system gates.** Fix the workload, baseline, device,
-   OS, power/network/model state, test plan, and configuration. Record extension,
+   OS, power/network/model state, test plan, SDK, and configuration. For an
+   iOS 27 SDK lane, type-check the selected declarations and record the
+   `MetricManager` versus `MXMetricManager` fallback separately. Record extension,
    widget, App Intent, notification, background, accessory, or account evidence
    at the owning system boundary.
 10. **Audit the signed release.** Inspect archive target membership, bundle IDs,
@@ -136,3 +139,6 @@ production. List skipped/excluded/known-issue tests as scope, not passes.
 - [Distributing your app for beta testing and releases](https://developer.apple.com/documentation/xcode/distributing-your-app-for-beta-testing-and-releases)
 - [Adopting Liquid Glass](https://developer.apple.com/documentation/technologyoverviews/adopting-liquid-glass)
 - [Foundation Models](https://developer.apple.com/documentation/foundationmodels)
+- [Xcode 27 release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes)
+- [iOS and iPadOS 27 release notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes)
+- [MetricManager](https://developer.apple.com/documentation/metrickit/metricmanager)

@@ -1,6 +1,6 @@
 # Skill catalog
 
-This catalog explains the purpose, feature set, and handoff for every role-oriented package in the BishopTech iOS 26 Skills Lab.
+This catalog explains the purpose, feature set, and handoff for every role-oriented package in the BishopTech iOS 27 Skills Lab. iOS 26 remains the compatibility and historical fallback lane where a target has not moved to Xcode 27.
 
 The packages are not generic “write some Swift” prompts. Each role is expected to inspect the real project, consult the relevant official Apple or Swift sources, preserve availability and entitlement gates, state uncertainty, and return evidence that another role can verify.
 
@@ -10,9 +10,9 @@ The packages are not generic “write some Swift” prompts. Each role is expect
 | --- | --- |
 | “Turn this app idea into the right Apple architecture.” | [Agentic Apple engineering team](../knowledge-base/skills/packages/ios-agentic-apple-engineering-team/SKILL.md), then [capability route planner](../knowledge-base/skills/packages/ios-capability-route-planner/SKILL.md) |
 | “Which framework, target, extension, entitlement, or system surface should we use?” | [Apple SDK route](../knowledge-base/skills/packages/apple-sdk-route/SKILL.md) and [project, target, and module architect](../knowledge-base/skills/packages/ios-project-target-architect/SKILL.md) |
-| “Make this feel native, adaptive, accessible, and Liquid Glass.” | [SwiftUI native design](../knowledge-base/skills/packages/swiftui-native-design/SKILL.md), [Liquid Glass design](../knowledge-base/skills/packages/liquid-glass-design/SKILL.md), and [native design verification](../knowledge-base/skills/packages/ios-native-design-verification/SKILL.md) |
+| “Make this feel native, adaptive, accessible, and Liquid Glass.” | [SwiftUI native design](../knowledge-base/skills/packages/swiftui-native-design/SKILL.md), [Liquid Glass design](../knowledge-base/skills/packages/liquid-glass-design/SKILL.md), [native design verification](../knowledge-base/skills/packages/ios-native-design-verification/SKILL.md), and the [iOS 27 native design brief](../knowledge-base/90-templates/ios27-native-design-brief.md) |
 | “Add Apple Intelligence, Foundation Models, Core ML, Vision, speech, or another local model.” | [On-device AI feature](../knowledge-base/skills/packages/on-device-ai-feature/SKILL.md) and [on-device intelligence evaluation](../knowledge-base/skills/packages/ios-on-device-intelligence-evaluation/SKILL.md) |
-| “Test, audit, profile, run on hardware, archive, or ship.” | [Testing and release assurance](../knowledge-base/skills/packages/ios-testing-and-release-assurance/SKILL.md), [device and release proof](../knowledge-base/skills/packages/ios-device-release-proof/SKILL.md), and [privacy, performance, and release proof](../knowledge-base/skills/packages/ios-privacy-performance-release-proof/SKILL.md) |
+| “Test, audit, profile, run on hardware, archive, or ship.” | [Testing and release assurance](../knowledge-base/skills/packages/ios-testing-and-release-assurance/SKILL.md), [device and release proof](../knowledge-base/skills/packages/ios-device-release-proof/SKILL.md), [privacy, performance, and release proof](../knowledge-base/skills/packages/ios-privacy-performance-release-proof/SKILL.md), and the [iOS 27 performance/on-device proof template](../knowledge-base/90-templates/ios27-performance-and-on-device-proof.md) |
 | “Apple changed something; refresh the route and packages.” | [Source refresh and availability maintenance](../knowledge-base/skills/packages/ios-source-refresh-and-availability/SKILL.md) |
 | “Build an iOS app for Meta glasses or the Ray-Ban Display.” | [Meta Wearables agentic team](../knowledge-base/skills/packages/meta-wearables-agentic-team/SKILL.md), then [Meta route planner](../knowledge-base/skills/packages/meta-wearables-route-planner/SKILL.md) |
 

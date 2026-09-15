@@ -1,13 +1,13 @@
 ---
 name: liquid-glass-design
-description: Create or review native iOS 26 Liquid Glass interfaces using system surfaces first, justified custom effects, adaptable hierarchy, and device-aware verification.
+description: Create or review native iOS 26+ Liquid Glass interfaces, including the iOS 27 SwiftUI overlay, using system surfaces first, justified custom effects, adaptable hierarchy, and device-aware verification.
 metadata:
   short-description: Build native Liquid Glass interfaces
 ---
 
 # Liquid Glass Design
 
-Use this skill when a SwiftUI or UIKit surface should participate in iOS 26 Liquid Glass. The goal is an original product that feels native because it follows Apple’s hierarchy, materials, controls, motion, and accessibility conventions—not a replica of Apple’s branded screens.
+Use this skill when a SwiftUI or UIKit surface should participate in iOS 26+ Liquid Glass or iOS 27 SwiftUI system-surface behavior. The goal is an original product that feels native because it follows Apple’s hierarchy, materials, controls, motion, and accessibility conventions—not a replica of Apple’s branded screens.
 
 ## Read before acting
 
@@ -16,6 +16,8 @@ Inspect the target view hierarchy and target settings first:
 - identify the content layer, functional controls, navigation/container surface, scrolling behavior, custom backgrounds, and current SDK/deployment target;
 - check whether the system already supplies the glass treatment for the navigation bar, tab bar, toolbar, search, sheet, or control;
 - read [Liquid Glass principles](../../../20-liquid-glass/00-liquid-glass-principles.md), [system-first adoption](../../../20-liquid-glass/01-system-first-adoption.md), [custom glass effects](../../../20-liquid-glass/02-custom-glass-effects.md), and [containers and morphing](../../../20-liquid-glass/03-glass-containers-and-morphing.md);
+- read the [iOS 27 SwiftUI and SDK refresh](../../../10-swiftui/13-ios27-swiftui-refresh.md) when the surface uses new toolbar, document, collection, text-selection, or image APIs;
+- use the [iOS 27 native design brief](../../../90-templates/ios27-native-design-brief.md) to record HIG platform adaptation, content/functional/decorative layers, depth decisions, and reduced-effects evidence;
 - refresh Apple’s [Liquid Glass overview](https://developer.apple.com/documentation/TechnologyOverviews/liquid-glass), [adopting Liquid Glass](https://developer.apple.com/documentation/TechnologyOverviews/adopting-liquid-glass), [applying Liquid Glass to custom views](https://developer.apple.com/documentation/swiftui/applying-liquid-glass-to-custom-views), [GlassEffectContainer](https://developer.apple.com/documentation/swiftui/glasseffectcontainer), [Glass](https://developer.apple.com/documentation/swiftui/glass), and the [Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/) before using update-sensitive APIs.
 
 ## Implementation route
@@ -31,6 +33,21 @@ Inspect the target view hierarchy and target settings first:
 ## Fast path
 
 Audit in this order: system-managed bars -> content hierarchy -> functional controls -> custom glass. Keep custom effects only where they encode a real relationship, and validate one interaction plus contrast, Dynamic Type, and reduced-effects behavior before considering a broad restyle.
+
+## iOS 27 overlay
+
+Treat Liquid Glass as the iOS 26+ system-first baseline and the iOS 27
+SwiftUI APIs as an overlay, not a reason to replace system bars with custom
+glass. Prefer `ToolbarOverflowMenu`, `visibilityPriority`,
+`topBarPinnedTrailing`, and `toolbarMinimizationBehavior` for toolbar behavior;
+let the system coordinate the shared glass background. When custom glass is
+needed, choose the documented `Glass` variant (`regular`, `clear`, or an
+identity/no-effect fallback), group related shapes with `GlassEffectContainer`,
+and test reduced transparency, reduced motion, increased contrast, Dynamic
+Type, localization, and content scrolling behind the functional layer. Recheck
+beta/final declarations against the selected Xcode 27 SDK; the repository’s
+targeted probe has type-checked the listed toolbar declarations, but that does
+not prove an app target or runtime behavior.
 
 ## Change boundary
 
@@ -63,6 +80,8 @@ Do not call a surface “Apple replica quality” solely because it resembles a 
 - [Native screen recipes](../../../20-liquid-glass/04-native-screen-recipes.md)
 - [SwiftUI and Liquid Glass code recipes](../../../70-code-recipes/00-swiftui-and-liquid-glass-recipes.md)
 - [Accessibility and adaptability checklist](../../../60-verification/02-accessibility-and-adaptability-checklist.md)
+- [iOS 27 SwiftUI and SDK refresh](../../../10-swiftui/13-ios27-swiftui-refresh.md)
+- [iOS 27 native design brief](../../../90-templates/ios27-native-design-brief.md)
 
 ## Sources
 
@@ -72,3 +91,13 @@ Do not call a surface “Apple replica quality” solely because it resembles a 
 - [GlassEffectContainer](https://developer.apple.com/documentation/swiftui/glasseffectcontainer)
 - [Glass](https://developer.apple.com/documentation/swiftui/glass)
 - [Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/)
+- [Materials](https://developer.apple.com/design/human-interface-guidelines/materials)
+- [Accessibility](https://developer.apple.com/design/human-interface-guidelines/accessibility)
+- [Design principles](https://developer.apple.com/design/human-interface-guidelines/design-principles)
+- [Designing for iOS](https://developer.apple.com/design/human-interface-guidelines/designing-for-ios)
+- [Designing for iPadOS](https://developer.apple.com/design/human-interface-guidelines/designing-for-ipados)
+- [Designing for macOS](https://developer.apple.com/design/human-interface-guidelines/designing-for-macos)
+- [Designing for watchOS](https://developer.apple.com/design/human-interface-guidelines/designing-for-watchos)
+- [Designing for games](https://developer.apple.com/design/human-interface-guidelines/designing-for-games)
+- [Designing for iPhone Duo](https://developer.apple.com/design/human-interface-guidelines/designing-for-iphone-duo)
+- [Apple Design Resources](https://developer.apple.com/design/resources/)

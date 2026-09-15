@@ -8,12 +8,15 @@ changed, commands, evidence level, and unsupported claims.
 ## Fixture A: native Liquid Glass dashboard
 
 **Prompt:** Build a SwiftUI dashboard with a chart, a filter control, a detail
-sheet, and an optional on-device explanation. Make it feel native to iOS 26.
+sheet, and an optional on-device explanation. Make it feel native to iOS 27,
+with an explicit iOS 26 fallback.
 
 **Accept when the response:**
 
 - chooses standard SwiftUI chart/control/navigation routes before custom views;
 - treats Liquid Glass as functional grouping and preserves a no-glass fallback;
+- records the target-specific HIG route and uses the iOS 27 native-design
+  template to explain content, functional, and decorative layers;
 - includes Dynamic Type, VoiceOver, Reduce Motion/Transparency, localization,
   loading/empty/stale/error states, and chart accessibility;
 - makes the AI explanation typed, source-linked, cancellable, stale-safe, and

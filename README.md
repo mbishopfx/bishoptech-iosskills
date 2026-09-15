@@ -1,4 +1,4 @@
-# BishopTech iOS 26 Skills Lab
+# BishopTech iOS 27 Skills Lab
 
 <p align="left">
   <a href="https://github.com/mbishopfx/bishoptech-iosskills/stargazers"><img src="https://img.shields.io/github/stars/mbishopfx/bishoptech-iosskills?style=flat-square&label=stars" alt="GitHub stars"></a>
@@ -9,7 +9,7 @@
 
 > Turn an LLM into a disciplined Apple-native engineering team.
 
-An official-source-grounded knowledge base and portable skill bundle for building high-quality iOS apps with Swift, SwiftUI, Liquid Glass, Apple Intelligence, on-device AI, the wider Apple SDK, and Meta Wearables companion/display experiences.
+An official-source-grounded knowledge base and portable skill bundle for building high-quality iOS apps with Swift, SwiftUI, Liquid Glass, Apple Intelligence, on-device AI, the wider Apple SDK, and Meta Wearables companion/display experiences. The current Apple lane tracks the iOS 27/Xcode 27 documentation while preserving iOS 26 fallbacks and evidence boundaries.
 
 <p align="center">
   <img src="docs/agentic-team-map.svg" width="100%" alt="Apple-native agentic engineering team map from app brief through release proof">

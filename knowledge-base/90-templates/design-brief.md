@@ -1,5 +1,9 @@
 # Native iOS Design Brief
 
+For an iOS 27/HIG-sensitive surface, start with the more complete [iOS 27
+native design brief](ios27-native-design-brief.md), then use this shorter brief
+for the implementation handoff.
+
 ## Product outcome
 
 - Person and context:
@@ -68,5 +72,14 @@
 
 - [SwiftUI](https://developer.apple.com/documentation/swiftui/)
 - [Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/)
+- [iOS 27 native design brief](ios27-native-design-brief.md)
+- [Design principles](https://developer.apple.com/design/human-interface-guidelines/design-principles)
+- [Designing for iOS](https://developer.apple.com/design/human-interface-guidelines/designing-for-ios)
+- [Designing for iPadOS](https://developer.apple.com/design/human-interface-guidelines/designing-for-ipados)
+- [Designing for macOS](https://developer.apple.com/design/human-interface-guidelines/designing-for-macos)
+- [Designing for watchOS](https://developer.apple.com/design/human-interface-guidelines/designing-for-watchos)
+- [Designing for games](https://developer.apple.com/design/human-interface-guidelines/designing-for-games)
+- [Designing for iPhone Duo](https://developer.apple.com/design/human-interface-guidelines/designing-for-iphone-duo)
+- [Apple Design Resources](https://developer.apple.com/design/resources/)
 - [Adopting Liquid Glass](https://developer.apple.com/documentation/TechnologyOverviews/adopting-liquid-glass)
 - [Applying Liquid Glass to custom views](https://developer.apple.com/documentation/swiftui/applying-liquid-glass-to-custom-views)

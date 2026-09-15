@@ -1,5 +1,41 @@
 # Source Freshness Log
 
+## 2026-09-14 iOS 27/Xcode 27 SwiftUI, HIG, and proof refresh
+
+Checked the official Apple source for:
+
+- Xcode 27, Swift 6.4, and the iOS/iPadOS 27 SDK lane;
+- SwiftUI toolbar visibility/overflow/pinning/minimization and status-bar
+  color-scheme behavior;
+- the `Document`, `ReadableDocument`, and `WritableDocument` APIs and their
+  `DocumentGroup`/file-coordination boundary;
+- reorderable containers, `swipeActionsContainer`, `AsyncImage` caching and
+  URL-session control, interactive `.textSelection`, and the macro-backed
+  `@State` behavior;
+- MetricKit’s `MetricManager` async sequences and the recommended-new-adoption
+  boundary for the original `MXMetricManager` subscriber APIs;
+- Liquid Glass system-first adoption, materials, custom effects, grouping,
+  accessibility, and reduced-effects behavior as the iOS 26+ design baseline;
+- HIG design principles and the iOS, iPadOS, macOS, watchOS, games, iPhone
+  Duo, and Apple Design Resources routes.
+
+The current `xcode-select` is Xcode 27.0 with the iOS 27.0 SDK and Swift 6.4.
+Xcode 26.4 with the iOS 26.4 SDK and Swift 6.3 remains an explicit
+earlier-toolchain fallback. A targeted symbol probe passed with the selected
+Xcode 27 toolchain. Local installation paths are intentionally omitted from
+the portable record. The available simulator runtime is iOS 26.4, so app-target
+build, iOS 27 simulator, physical-device, archive, TestFlight, App Store, and
+production evidence remain separate open gates. iPhone Duo remains
+hardware-sensitive and `to-verify` without the exact supported device path.
+
+## iOS 27 refresh triggers
+
+Recheck the [iOS 27 SwiftUI and SDK refresh](../10-swiftui/13-ios27-swiftui-refresh.md)
+when Xcode 27 changes beta/final API names, a target moves its deployment
+target, a new SDK changes document concurrency annotations, MetricKit delivery,
+toolbar behavior, or Liquid Glass accessibility behavior, or a real project
+exposes an availability/compiler diagnostic.
+
 ## 2026-08-19 initial scout
 
 Checked official Apple documentation for:

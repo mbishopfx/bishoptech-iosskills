@@ -20,6 +20,10 @@ artifacts.
   references, and current distributable archive.
 - Read [refresh-ledger.md](references/refresh-ledger.md) and
   [provenance-and-evidence.md](references/provenance-and-evidence.md).
+- For iOS 27 SwiftUI or MetricKit changes, read
+  [ios-27-swiftui-refresh.md](references/ios-27-swiftui-refresh.md) and the
+  linked [iOS 27 SwiftUI and SDK refresh](../../../10-swiftui/13-ios27-swiftui-refresh.md).
+- For HIG or Liquid Glass changes, read the [iOS 27 native design brief](../../../90-templates/ios27-native-design-brief.md) and [iOS 27 performance and on-device proof](../../../90-templates/ios27-performance-and-on-device-proof.md) when the change affects accessibility, platform adaptation, performance, or processing location.
 - Reopen the exact official Apple/Swift pages and installed SDK interfaces. Use
   official primary sources for availability, entitlement, privacy, HIG, and
   release claims. Treat secondary examples as discovery only.
@@ -76,8 +80,9 @@ For each changed capability, record:
   production evidence level;
 - official source URL and last-reviewed SDK/toolchain/date.
 
-Do not write “available on iOS 26” when the feature also depends on a device,
-entitlement, account, region, model asset, extension, or system host.
+Do not write “available on iOS 26” or “available on iOS 27” when the feature
+also depends on a device, entitlement, account, region, model asset, extension,
+or system host.
 
 ## Skill-bundle maintenance
 
@@ -87,6 +92,8 @@ When a route change affects a skill:
 - keep the core workflow concise and move detailed variants into one-level
   references;
 - link the affected knowledge-base route and official source near the claim;
+- route iOS 27 SwiftUI, MetricKit, and Liquid Glass changes through the
+  versioned refresh reference so iOS 26 fallbacks remain visible;
 - update role-routing, output templates, quality gates, and evaluation fixtures;
 - refresh the `.skill` archive through the official package validator;
 - inspect archive names/paths and ensure no workspace-private path, secret,
@@ -134,6 +141,17 @@ Next refresh trigger:
 - [Swift](https://swift.org/documentation/)
 - [The Swift Programming Language](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/)
 - [Xcode release notes](https://developer.apple.com/documentation/xcode-release-notes)
+- [Xcode 27 release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes)
+- [iOS and iPadOS 27 release notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes)
+- [What’s new in SwiftUI](https://developer.apple.com/swiftui/whats-new/)
 - [SDK and software release notes](https://developer.apple.com/documentation/xcode-release-notes)
 - [Running your app on simulated or physical devices](https://developer.apple.com/documentation/xcode/running-your-app-on-simulated-or-physical-devices)
 - [Testing a release build](https://developer.apple.com/documentation/xcode/testing-a-release-build)
+- [Design principles](https://developer.apple.com/design/human-interface-guidelines/design-principles)
+- [Designing for iOS](https://developer.apple.com/design/human-interface-guidelines/designing-for-ios)
+- [Designing for iPadOS](https://developer.apple.com/design/human-interface-guidelines/designing-for-ipados)
+- [Designing for macOS](https://developer.apple.com/design/human-interface-guidelines/designing-for-macos)
+- [Designing for watchOS](https://developer.apple.com/design/human-interface-guidelines/designing-for-watchos)
+- [Designing for games](https://developer.apple.com/design/human-interface-guidelines/designing-for-games)
+- [Designing for iPhone Duo](https://developer.apple.com/design/human-interface-guidelines/designing-for-iphone-duo)
+- [Apple Design Resources](https://developer.apple.com/design/resources/)

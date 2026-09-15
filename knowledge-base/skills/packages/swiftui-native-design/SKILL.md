@@ -16,6 +16,8 @@ Inspect the target project before proposing architecture or edits:
 - locate the actual `.xcodeproj`, `.xcworkspace`, package manifest, app target, deployment target, and existing module boundaries;
 - find the current root view, navigation model, state/observation approach, assets, supplied copy, and any UIKit or platform-specific bridge;
 - read the relevant pages in the [knowledge-base map](../../../README.md), especially [SwiftUI mental model](../../../10-swiftui/00-swiftui-mental-model.md), [state and observation](../../../10-swiftui/01-state-observation-and-data-flow.md), [layout, typography, and controls](../../../10-swiftui/02-layout-typography-and-controls.md), [navigation and routing](../../../10-swiftui/03-navigation-and-routing.md), and [accessibility](../../../10-swiftui/05-accessibility-and-adaptable-ui.md);
+- read the [iOS 27 SwiftUI and SDK refresh](../../../10-swiftui/13-ios27-swiftui-refresh.md) when using a version-sensitive toolbar, document, collection, image, text-selection, or state API;
+- use the [iOS 27 native design brief](../../../90-templates/ios27-native-design-brief.md) for HIG platform adaptation, Liquid Glass spatial hierarchy, accessibility, and proof planning;
 - refresh the official [SwiftUI](https://developer.apple.com/documentation/swiftui/), [managing user interface state](https://developer.apple.com/documentation/swiftui/managing-user-interface-state), [navigation](https://developer.apple.com/documentation/swiftui/navigation), [accessibility fundamentals](https://developer.apple.com/documentation/swiftui/accessibility-fundamentals), and [Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/) pages when an API or behavior is version-sensitive.
 
 Do not begin with decorative styling. First identify the user outcome, route, state owner, domain data, system surface, and failure states.
@@ -34,6 +36,21 @@ Do not begin with decorative styling. First identify the user outcome, route, st
 ## Fast path
 
 Start with one state-driven screen slice: model state -> semantic view -> primary action -> loading/error/empty states -> preview or test. Expand breakpoints, input modes, and secondary flows only after that contract is stable and observable.
+
+## iOS 27 SwiftUI lane
+
+When the target builds with the iOS 27 SDK, prefer the documented system
+routes for toolbar overflow and minimization (`visibilityPriority`,
+`ToolbarOverflowMenu`, `topBarPinnedTrailing`, and
+`toolbarMinimizationBehavior`), the `Document`/`ReadableDocument`/
+`WritableDocument` document model, reorderable containers,
+`swipeActionsContainer`, HTTP-aware `AsyncImage`, and interactive text
+selection. Gate each route by deployment target and final SDK; preserve the
+iOS 26 or earlier fallback and label beta declarations `to-verify`. Do not
+move domain state into `@State` initializers merely because the iOS 27
+implementation is more lazy, and do not treat new system selection or caching
+behavior as a replacement for explicit accessibility, cancellation, privacy,
+or persistence design.
 
 ## Change boundary
 
@@ -66,6 +83,8 @@ If no project build was run, say the result is documentation/design guidance rat
 - [Apple-native design deep dives](../../../21-design-deep-dives/README.md)
 - [Accessibility and adaptability checklist](../../../60-verification/02-accessibility-and-adaptability-checklist.md)
 - [Build, device, and release checklist](../../../60-verification/01-build-device-and-release-checklist.md)
+- [iOS 27 SwiftUI and SDK refresh](../../../10-swiftui/13-ios27-swiftui-refresh.md)
+- [iOS 27 native design brief](../../../90-templates/ios27-native-design-brief.md)
 
 ## Sources
 
@@ -74,3 +93,13 @@ If no project build was run, say the result is documentation/design guidance rat
 - [Navigation](https://developer.apple.com/documentation/swiftui/navigation)
 - [Accessibility fundamentals](https://developer.apple.com/documentation/swiftui/accessibility-fundamentals)
 - [Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/)
+- [What’s new in SwiftUI](https://developer.apple.com/swiftui/whats-new/)
+- [iOS and iPadOS 27 release notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes)
+- [Design principles](https://developer.apple.com/design/human-interface-guidelines/design-principles)
+- [Designing for iOS](https://developer.apple.com/design/human-interface-guidelines/designing-for-ios)
+- [Designing for iPadOS](https://developer.apple.com/design/human-interface-guidelines/designing-for-ipados)
+- [Designing for macOS](https://developer.apple.com/design/human-interface-guidelines/designing-for-macos)
+- [Designing for watchOS](https://developer.apple.com/design/human-interface-guidelines/designing-for-watchos)
+- [Designing for games](https://developer.apple.com/design/human-interface-guidelines/designing-for-games)
+- [Designing for iPhone Duo](https://developer.apple.com/design/human-interface-guidelines/designing-for-iphone-duo)
+- [Apple Design Resources](https://developer.apple.com/design/resources/)

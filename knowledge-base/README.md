@@ -1,4 +1,9 @@
-# iOS 26 Knowledge Base
+# iOS 27 Knowledge Base
+
+The current Apple lane follows the documented iOS 27/Xcode 27 SDK while
+keeping iOS 26 as the compatibility and historical fallback lane. Versioned
+claims still require the selected target’s deployment target, SDK, device, and
+system evidence.
 
 ## How to use this library
 
@@ -14,6 +19,7 @@ For example, “a private app that scans a receipt, extracts fields, lets the us
 
 ### Build Apple-native interfaces
 
+- [iOS 27 SwiftUI and SDK refresh](10-swiftui/13-ios27-swiftui-refresh.md)
 - [SwiftUI mental model](10-swiftui/00-swiftui-mental-model.md)
 - [State and observation](10-swiftui/01-state-observation-and-data-flow.md)
 - [Layout, typography, and controls](10-swiftui/02-layout-typography-and-controls.md)
@@ -366,7 +372,9 @@ Capability recipes:
 
 - [Verification language](00-foundations/05-evidence-and-verification-language.md)
 - [Design brief](90-templates/design-brief.md)
+- [iOS 27 native design brief](90-templates/ios27-native-design-brief.md)
 - [AI feature brief](90-templates/ai-feature-brief.md)
+- [iOS 27 performance and on-device proof](90-templates/ios27-performance-and-on-device-proof.md)
 - [Source review checklist](60-verification/00-source-review-checklist.md)
 - [Build/device/release checklist](60-verification/01-build-device-and-release-checklist.md)
 - [Accessibility checklist](60-verification/02-accessibility-and-adaptability-checklist.md)
@@ -532,6 +540,7 @@ Capability recipes:
 - [System-surface evidence matrix](60-verification/05-system-surface-checklist.md#surface-specific-evidence-matrix)
 - [Xcode target and module plan](90-templates/xcode-target-and-module-plan.md)
 - [Target-aware feature scaffold brief](90-templates/target-aware-feature-scaffold.md)
+- [All reusable planning templates](90-templates/README.md)
 - [Reusable skill blueprints and workspace packages](skills/README.md)
 - [Workspace skill package index](skills/packages/README.md)
 - [iOS capability route planner package](skills/packages/ios-capability-route-planner/SKILL.md)
