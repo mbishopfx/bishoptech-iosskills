@@ -61,6 +61,7 @@ Start with a trust-and-authority ledger: actor, credential, system/server author
 ## Non-negotiable safety and evidence rules
 
 - Never treat an unverified transaction, local “premium” flag, product ID, payment sheet/token, Wallet pass, Apple credential, biometric callback, Keychain item, DeviceCheck/App Attest signal, client-side certificate check, or successful HTTP response as sufficient entitlement, payment capture, identity, authorization, or absolute security proof.
+- Apple's iOS 27.2 beta notes describe alternative expanded App Tracking Transparency prompts and annual re-prompting for specified EU regions. Treat this as prerelease behavior; recheck the final SDK, Apple policy, region, and consent flow before changing a shipping route.
 - Keep local verification, server verification, and product policy visibly separate. State exactly which proof unlocks which effect and what happens when a service is unavailable or returns an ambiguous result.
 - Do not store credentials, access tokens, private keys, payment data, health/personal data, or attestation material in logs, screenshots, analytics, source control, URLs, UserDefaults, or ordinary SwiftData fields.
 - Do not add an account, payment route, backend, biometric prompt, tracking signal, or integrity telemetry beyond the stated user-facing need. Preserve supplied privacy scope and provide deletion/sign-out/account unlink behavior.
@@ -90,6 +91,10 @@ For implementation, change only the requested target and directly related adapte
 
 ## Sources
 
+- [Current iOS 27/Xcode 27 source registry](../../../sources/official-source-registry.md)
+- [Xcode SDK and system requirements](https://developer.apple.com/xcode/system-requirements)
+- [iOS and iPadOS 27.2 beta release notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27_2-release-notes)
+- [AppTrackingTransparency](https://developer.apple.com/documentation/apptrackingtransparency)
 - [StoreKit](https://developer.apple.com/documentation/storekit)
 - [In-App Purchase](https://developer.apple.com/documentation/storekit/in-app-purchase)
 - [Product](https://developer.apple.com/documentation/storekit/product)

@@ -123,6 +123,10 @@ production. List skipped/excluded/known-issue tests as scope, not passes.
 
 ## Sources
 
+- [Current iOS 27/Xcode 27 source registry](../../../sources/official-source-registry.md)
+- [Xcode SDK and system requirements](https://developer.apple.com/xcode/system-requirements)
+- [Xcode 27.2 beta release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27_2-release-notes)
+- [iOS and iPadOS 27.2 beta release notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27_2-release-notes)
 - [Swift Testing](https://developer.apple.com/documentation/testing)
 - [Defining test functions](https://developer.apple.com/documentation/testing/definingtests)
 - [Expectations and confirmations](https://developer.apple.com/documentation/testing/expectations)

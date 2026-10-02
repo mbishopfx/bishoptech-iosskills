@@ -11,6 +11,10 @@
 
 An official-source-grounded knowledge base and portable skill bundle for building high-quality iOS apps with Swift, SwiftUI, Liquid Glass, Apple Intelligence, on-device AI, the wider Apple SDK, and Meta Wearables companion/display experiences. The current Apple lane tracks the iOS 27/Xcode 27 documentation while preserving iOS 26 fallbacks and evidence boundaries.
 
+## Current Apple SDK lane
+
+As checked on October 1, 2026, Apple lists Xcode 27.2 beta 2 with the iOS/iPadOS 27.2 SDK and Swift 6.4 as its newest prerelease lane; Xcode 27 is the stable iOS/iPadOS 27 SDK lane. Check [Apple's Xcode SDK and system requirements](https://developer.apple.com/xcode/system-requirements) for the live matrix, and confirm the selected project's SDK before relying on prerelease APIs. The [iOS 27 source registry](knowledge-base/sources/official-source-registry.md) records beta gates, source freshness, and local-toolchain evidence; the [SwiftUI iOS 27 guide](knowledge-base/10-swiftui/13-ios27-swiftui-refresh.md) keeps stable routes and fallbacks alongside newer API references.
+
 <p align="center">
   <img src="docs/agentic-team-map.svg" width="100%" alt="Apple-native agentic engineering team map from app brief through release proof">
 </p>
@@ -202,6 +206,7 @@ Ask for a route decision, official sources, availability gates, implementation p
 | [`knowledge-base/`](knowledge-base/README.md) | Source-linked Apple and Swift research organized by route and evidence. |
 | [`knowledge-base/skills/packages/`](knowledge-base/skills/packages/README.md) | Human-readable role packages with references, fixtures, and handoff contracts. |
 | [`knowledge-base/skills/dist/`](knowledge-base/skills/dist) | Portable `.skill` archives for agent workflows. |
+| [`knowledge-base/sources/`](knowledge-base/sources/official-source-registry.md) | Official source registry and freshness log for version-sensitive Apple guidance. |
 | [`docs/skills-catalog.md`](docs/skills-catalog.md) | Purpose, features, outputs, and handoffs for every role. |
 | [`docs/research-log.md`](docs/research-log.md) | Concise expansion record and refresh policy. |
 | [`docs/x-launch-kit.md`](docs/x-launch-kit.md) | Ready-to-post copy, thread structure, topics, and visual asset guidance. |

@@ -47,6 +47,7 @@ Write the observable operation first: create a privacy report, resolve an App En
 - Decide whether `PrivacyInfo.xcprivacy` belongs to the app, framework, static/dynamic SDK, widget, or extension target. Add it to the owning bundle resources and inspect the built artifact.
 - Trace actual data collection, retention, tracking, linkage, remote processing, and third-party SDK behavior. Reconcile `NSPrivacyCollectedDataTypes`, `NSPrivacyAccessedAPITypes`, App Store Connect App Privacy, privacy-policy URLs, permission copy, and observed network behavior.
 - For every required-reason API category, use only Apple’s current approved `NSPrivacyAccessedAPITypeReasons` values. Do not use a manifest to authorize tracking, and do not make the app manifest stand in for an SDK’s own manifest.
+- Apple's iOS 27.2 beta notes describe alternative expanded App Tracking Transparency prompts and annual re-prompting for specified EU regions. Treat this as prerelease guidance; recheck final policy, API behavior, region, and consent requirements before changing a shipping route.
 
 ### 3. Choose the test route
 
@@ -126,6 +127,10 @@ Do not include secrets, raw model prompts/responses, health/contact/call payload
 
 ## Sources
 
+- [Current iOS 27/Xcode 27 source registry](../../../sources/official-source-registry.md)
+- [Xcode SDK and system requirements](https://developer.apple.com/xcode/system-requirements)
+- [iOS and iPadOS 27.2 beta release notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27_2-release-notes)
+- [AppTrackingTransparency](https://developer.apple.com/documentation/apptrackingtransparency)
 - [Privacy manifest files](https://developer.apple.com/documentation/bundleresources/privacy-manifest-files)
 - [Adding a privacy manifest to your app or third-party SDK](https://developer.apple.com/documentation/bundleresources/adding-a-privacy-manifest-to-your-app-or-third-party-sdk)
 - [Describing use of required reason API](https://developer.apple.com/documentation/bundleresources/describing-use-of-required-reason-api)

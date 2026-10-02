@@ -18,8 +18,9 @@ receipts.
 ## Claim wording
 
 - “The current Apple documentation describes…” for source evidence.
-- “The installed Xcode 27.0/iOS 27.0 SDK exposes/typechecks…” or the named
-  earlier SDK for SDK evidence; include the explicit toolchain and target.
+- “The installed Xcode <version> / iOS <SDK> exposes/typechecks…” or the
+  named earlier SDK for SDK evidence; include the explicit toolchain and
+  target. Keep this separate from a newer beta documented on Apple's site.
 - “The named fixture/test passed…” for deterministic evidence.
 - “The named device/OS/build observed…” for physical/system evidence.
 - “The archive/TestFlight gate passed…” for signed/distribution evidence.

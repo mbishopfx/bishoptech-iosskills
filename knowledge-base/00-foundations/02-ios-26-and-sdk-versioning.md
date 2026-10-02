@@ -1,7 +1,10 @@
 # iOS 27, iOS 26, and SDK Versioning
 
-The current refresh lane is iOS 27/Xcode 27. iOS 26 remains a supported
-compatibility and historical lane, not an API claim to replace blindly.
+The current stable major-version lane is iOS 27/Xcode 27. Apple currently lists
+Xcode 27.2 beta 2 with the iOS 27.2 SDK as its newest prerelease lane. Keep the
+prerelease separate from the stable major-version documentation and from the
+toolchain selected on the local machine. iOS 26 remains a supported
+compatibility lane, not an API claim to replace blindly.
 
 ## Four versions to keep separate
 
@@ -40,10 +43,16 @@ When a view is intended for iPhone, iPad, Mac, or another Apple platform, first 
 
 Use the [iOS 27 SwiftUI and SDK refresh](../10-swiftui/13-ios27-swiftui-refresh.md)
 for the current toolbar, document, collection, image/text-selection,
-MetricKit, and Liquid Glass overlay matrix. The selected local toolchain is
-Xcode 27.0 with the iOS 27.0 SDK and Swift 6.4, and the targeted declarations
-have been type-checked there. Xcode 26.4 remains the explicit earlier fallback;
-keep the exact deployment target and fallback beside every guarded API.
+MetricKit, adaptive-arrangement, reserved-region, and Liquid Glass overlay
+matrix. As of 2026-10-01, Apple's requirements page lists Xcode 27.2 beta 2,
+the iOS 27.2 SDK, and Swift 6.4 as the newest prerelease combination. The
+selected local toolchain remains Xcode 27.0 with the iOS 27.0 SDK and Swift
+6.4; that local observation does not prove the newer beta APIs compile. The
+latest documented Xcode 26 fallback is Xcode 26.6 with the iOS 26.5 SDK and
+Swift 6.3. Keep the exact deployment target, selected SDK, beta/final status,
+and fallback beside every guarded API. Recheck Apple's [SDK and system
+requirements](https://developer.apple.com/xcode/system-requirements) before
+version-sensitive work.
 
 ## Sources
 

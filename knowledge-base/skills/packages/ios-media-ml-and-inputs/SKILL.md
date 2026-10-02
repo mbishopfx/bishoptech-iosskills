@@ -86,6 +86,10 @@ For implementation, change only the requested target and directly related adapte
 
 ## Sources
 
+- [Current iOS 27/Xcode 27 source registry](../../../sources/official-source-registry.md)
+- [Xcode SDK and system requirements](https://developer.apple.com/xcode/system-requirements)
+- [Xcode 27.2 beta release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27_2-release-notes)
+- [iOS and iPadOS 27.2 beta release notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27_2-release-notes)
 - [AVKit](https://developer.apple.com/documentation/avkit)
 - [AVPlayerViewController](https://developer.apple.com/documentation/avkit/avplayerviewcontroller)
 - [AVFoundation](https://developer.apple.com/documentation/avfoundation)

@@ -52,6 +52,11 @@ implementation is more lazy, and do not treat new system selection or caching
 behavior as a replacement for explicit accessibility, cancellation, privacy,
 or persistence design.
 
+The September 2026 `ArrangementView` and reserved-region routes are beta-marked
+in Apple's current SwiftUI updates. Read the current source registry and
+recheck the selected final/beta SDK before adopting them; they do not replace
+established navigation, safe areas, or adaptive fallbacks.
+
 ## Change boundary
 
 May inspect the project files, assets, target settings, and existing UI needed for the requested surface. May change the named SwiftUI views, supporting state models, previews, tests, and directly related resources. Do not add a backend, package dependency, account flow, permission, entitlement, or broad redesign unless the route requires it and the request authorizes it.
@@ -88,6 +93,11 @@ If no project build was run, say the result is documentation/design guidance rat
 
 ## Sources
 
+- [Current iOS 27/Xcode 27 source registry](../../../sources/official-source-registry.md)
+- [Xcode SDK and system requirements](https://developer.apple.com/xcode/system-requirements)
+- [SwiftUI updates](https://developer.apple.com/documentation/updates/swiftui)
+- [ArrangementView styles](https://developer.apple.com/documentation/swiftui/view/arrangementviewstyle%28_%3A%29)
+- [SwiftUI GeometryProxy and reserved regions](https://developer.apple.com/documentation/swiftui/geometryproxy)
 - [SwiftUI](https://developer.apple.com/documentation/swiftui/)
 - [Managing user interface state](https://developer.apple.com/documentation/swiftui/managing-user-interface-state)
 - [Navigation](https://developer.apple.com/documentation/swiftui/navigation)

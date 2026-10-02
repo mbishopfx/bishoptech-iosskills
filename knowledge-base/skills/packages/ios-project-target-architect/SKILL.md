@@ -112,6 +112,9 @@ Return these artifacts in the project or knowledge base:
 
 ## Sources
 
+- [Current iOS 27/Xcode 27 source registry](../../../sources/official-source-registry.md)
+- [Xcode SDK and system requirements](https://developer.apple.com/xcode/system-requirements)
+- [Xcode 27.2 beta release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27_2-release-notes)
 - [Configuring a new target](https://developer.apple.com/documentation/xcode/configuring-a-new-target-in-your-project)
 - [Build system](https://developer.apple.com/documentation/xcode/build-system)
 - [Building and running an app](https://developer.apple.com/documentation/xcode/building-and-running-an-app)

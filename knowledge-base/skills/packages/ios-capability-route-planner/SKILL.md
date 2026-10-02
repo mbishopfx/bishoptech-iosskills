@@ -23,7 +23,7 @@ Turn an idea into a capability route and evidence plan before framework choices 
 1. State the outcome in one sentence. Record the entry point, primary action, accepted result, consequence of error, offline requirement, privacy sensitivity, and supported platforms.
 2. Classify the capability: present/edit, persist/sync, capture/analyze, communicate, locate/map/weather, use protected data, control a device, transact/authenticate, expose to the system, share/export, run in the background, build spatial/graphics/game content, or extend to a companion surface.
 3. Select the narrowest Apple route. Prefer SwiftUI/UIKit/system-owned surfaces, PhotosUI/file import, Vision/Core ML, Speech/Translation, MapKit/Core Location, HealthKit/Contacts/EventKit, StoreKit/PassKit/AuthenticationServices, App Intents/WidgetKit/ActivityKit, and the relevant device/companion framework before inventing a custom service.
-4. Name concrete symbols and rejected alternatives. Record why the route owns the capability, what it does not own, and which API signatures/availability annotations still require an Xcode 27 SDK check.
+4. Name concrete symbols and rejected alternatives. Record why the route owns the capability, what it does not own, and which API signatures/availability annotations still require the selected Xcode/SDK check. Keep beta-only adaptive arrangement and reserved-region APIs separate from stable routes.
 5. Draw the handoff: `input -> framework observation/operation -> normalized app evidence -> deterministic validation -> domain truth -> derived presentation -> system/companion handoff`.
 6. Build the state matrix before the happy path. Include checking, ready, denied, restricted, unsupported, unavailable, not-ready, loading, partial, stale, interrupted, cancelled, expired, empty, invalid, conflict, and completed states where relevant.
 7. List every permission, usage description, entitlement, background mode, App Group, associated domain, merchant/account/service setup, language/asset condition, hardware requirement, and server dependency. Mark unknowns `to-verify` rather than inferring them from a framework name.
@@ -101,6 +101,11 @@ Return a compact table or document with these fields:
 
 ## Sources
 
+- [Current iOS 27/Xcode 27 source registry](../../../sources/official-source-registry.md)
+- [Xcode SDK and system requirements](https://developer.apple.com/xcode/system-requirements)
+- [SwiftUI updates](https://developer.apple.com/documentation/updates/swiftui)
+- [ArrangementView styles](https://developer.apple.com/documentation/swiftui/view/arrangementviewstyle%28_%3A%29)
+- [SwiftUI GeometryProxy and reserved regions](https://developer.apple.com/documentation/swiftui/geometryproxy)
 - [Apple Developer Documentation](https://developer.apple.com/documentation/)
 - [SwiftUI](https://developer.apple.com/documentation/swiftui/)
 - [Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/)

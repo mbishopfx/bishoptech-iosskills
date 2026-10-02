@@ -74,6 +74,10 @@ If the work is documentation or a route sketch, say so. If the simulator or a mo
 
 ## Sources
 
+- [Current iOS 27/Xcode 27 source registry](../../../sources/official-source-registry.md)
+- [Xcode SDK and system requirements](https://developer.apple.com/xcode/system-requirements)
+- [Xcode 27.2 beta release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27_2-release-notes)
+- [iOS and iPadOS 27.2 beta release notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27_2-release-notes)
 - [Foundation Models](https://developer.apple.com/documentation/foundationmodels/)
 - [SystemLanguageModel](https://developer.apple.com/documentation/foundationmodels/systemlanguagemodel)
 - [Generating Swift data structures with guided generation](https://developer.apple.com/documentation/foundationmodels/generating-swift-data-structures-with-guided-generation)

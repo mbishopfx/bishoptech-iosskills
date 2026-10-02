@@ -31,9 +31,12 @@ Use this skill to make an original product feel at home on Apple platforms throu
 10. Verify the real target on representative physical devices. Record OS build, device, text size, appearance, accessibility settings, interaction route, scroll/hit behavior, transition interruption, haptic result, material legibility, performance, and remaining release gaps.
 
 11. For iOS 27 work, complete the template’s target/platform matrix and record
-    the Xcode 27 SDK signature plus the iOS 26 fallback. Treat iPhone Duo,
-    future hardware, beta declarations, and unexercised system surfaces as
-    `to-verify`, not as universal layout requirements.
+    the selected Xcode/SDK signature plus the iOS 26 fallback. Compare the
+    stable lane with Apple's newest prerelease references; keep
+    `ArrangementView` and reserved-region APIs beta-gated until the selected
+    SDK and actual device route are verified. Treat iPhone Duo, future
+    hardware, and unexercised system surfaces as `to-verify`, not universal
+    layout requirements.
 
 ## Native and Liquid Glass boundaries
 
@@ -92,6 +95,12 @@ For implementation, change only the requested screen/component and directly rela
 
 ## Sources
 
+- [Current iOS 27/Xcode 27 source registry](../../../sources/official-source-registry.md)
+- [Xcode SDK and system requirements](https://developer.apple.com/xcode/system-requirements)
+- [SwiftUI updates](https://developer.apple.com/documentation/updates/swiftui)
+- [ArrangementView styles](https://developer.apple.com/documentation/swiftui/view/arrangementviewstyle%28_%3A%29)
+- [SwiftUI GeometryProxy and reserved regions](https://developer.apple.com/documentation/swiftui/geometryproxy)
+- [UIKit UIView.ReservedRegion](https://developer.apple.com/documentation/uikit/uiview/reservedregion)
 - [SwiftUI](https://developer.apple.com/documentation/swiftui/)
 - [Managing user interface state](https://developer.apple.com/documentation/swiftui/managing-user-interface-state)
 - [Navigation](https://developer.apple.com/documentation/swiftui/navigation)

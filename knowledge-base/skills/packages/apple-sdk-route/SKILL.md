@@ -17,6 +17,7 @@ Inspect the workspace and the idea:
 - write the outcome in one sentence, then list source/input, transformation, destination, user-controlled side effects, offline requirement, privacy sensitivity, system surfaces, commerce needs, and supported platforms;
 - read the [framework catalog](../../../40-framework-routes/00-framework-catalog.md), [framework selection questionnaire](../../../00-foundations/06-framework-selection-questionnaire.md), [idea-to-route recipe](../../../50-capability-recipes/00-idea-to-route.md), and the relevant framework deep dive from the [knowledge-base map](../../../README.md);
 - refresh the exact official framework pages in the [source registry](../../../sources/official-source-registry.md) before relying on an API name, availability claim, permission key, entitlement, or system behavior.
+- for iOS 27 work, check [Apple's Xcode SDK and system requirements](https://developer.apple.com/xcode/system-requirements) and record the selected local SDK separately from Apple's newest stable and prerelease lanes; keep beta APIs gated on the selected SDK and target.
 
 ## Routing method
 
@@ -75,6 +76,10 @@ Keep the route concise enough to use as a build plan, but specific enough that a
 
 ## Sources
 
+- [Current iOS 27/Xcode 27 source registry](../../../sources/official-source-registry.md)
+- [Xcode SDK and system requirements](https://developer.apple.com/xcode/system-requirements)
+- [Xcode 27.2 beta release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27_2-release-notes)
+- [iOS and iPadOS 27.2 beta release notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27_2-release-notes)
 - [Apple Developer Documentation](https://developer.apple.com/documentation/)
 - [SwiftUI](https://developer.apple.com/documentation/swiftui/)
 - [App Intents](https://developer.apple.com/documentation/appintents/)

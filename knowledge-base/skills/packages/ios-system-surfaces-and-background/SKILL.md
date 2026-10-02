@@ -12,6 +12,7 @@ Use this skill to select the narrowest Apple-owned surface and keep user intent,
 - Inspect the actual Xcode target, deployment target, platform/device family, scene manifest, extension targets, Info.plist usage descriptions, capabilities, entitlements, App Groups, persistence, and existing system-surface adapters.
 - Read the relevant [knowledge-base map](../../../README.md), [system-surface route](../../../40-framework-routes/04-system-surfaces-and-background-work.md), and deep dives for [photos/files/documents](../../../43-system-framework-deep-dives/00-photos-files-and-documents.md), [WebKit/sharing/PDF](../../../43-system-framework-deep-dives/02-webkit-sharing-and-pdf.md), and [extensions/background](../../../43-system-framework-deep-dives/05-extensions-and-background-routes.md).
 - Read the [iOS 27 SwiftUI and SDK refresh](../../../10-swiftui/13-ios27-swiftui-refresh.md) when the route uses `Document`, `ReadableDocument`, `WritableDocument`, or other iOS 27 SwiftUI document behavior.
+- For hardware- or hinge-aware layout, consult the beta-marked `GeometryProxy.reservedRegions`/`UIView.ReservedRegion` routes only after checking the selected SDK and actual target; keep safe-area and non-folding fallbacks.
 - Refresh the exact official Apple pages in the Sources section before relying on an API spelling, iOS 26/27 availability, entitlement, refresh behavior, or extension rule.
 
 ## Route workflow
@@ -61,6 +62,11 @@ For implementation, change only the requested target and directly related adapte
 
 ## Sources
 
+- [Current iOS 27/Xcode 27 source registry](../../../sources/official-source-registry.md)
+- [Xcode SDK and system requirements](https://developer.apple.com/xcode/system-requirements)
+- [SwiftUI updates](https://developer.apple.com/documentation/updates/swiftui)
+- [SwiftUI GeometryProxy and reserved regions](https://developer.apple.com/documentation/swiftui/geometryproxy)
+- [UIKit UIView.ReservedRegion](https://developer.apple.com/documentation/uikit/uiview/reservedregion)
 - [PhotosUI](https://developer.apple.com/documentation/photosui)
 - [FileDocument](https://developer.apple.com/documentation/swiftui/filedocument)
 - [DocumentGroup](https://developer.apple.com/documentation/swiftui/documentgroup)

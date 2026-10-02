@@ -201,6 +201,8 @@ complete. Before publishing a larger bundle set:
 
 ## Sources
 
+- [Current iOS 27/Xcode 27 source registry](../../../sources/official-source-registry.md)
+- [Xcode SDK and system requirements](https://developer.apple.com/xcode/system-requirements)
 - [Apple Developer Documentation](https://developer.apple.com/documentation/)
 - [SwiftUI](https://developer.apple.com/documentation/swiftui/)
 - [Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/)

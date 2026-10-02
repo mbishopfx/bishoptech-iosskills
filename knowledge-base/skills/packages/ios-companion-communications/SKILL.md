@@ -63,6 +63,8 @@ During implementation, preserve target boundaries and do not add server accounts
 
 ## Sources
 
+- [Current iOS 27/Xcode 27 source registry](../../../sources/official-source-registry.md)
+- [Xcode SDK and system requirements](https://developer.apple.com/xcode/system-requirements)
 - [Watch Connectivity](https://developer.apple.com/documentation/watchconnectivity)
 - [WCSession](https://developer.apple.com/documentation/watchconnectivity/wcsession)
 - [WCSessionDelegate](https://developer.apple.com/documentation/watchconnectivity/wcsessiondelegate)

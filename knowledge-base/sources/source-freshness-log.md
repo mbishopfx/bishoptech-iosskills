@@ -1,5 +1,16 @@
 # Source Freshness Log
 
+## 2026-10-01 iOS 27.2 beta and current SwiftUI documentation refresh
+
+Checked the current official Apple sources:
+
+- [Xcode SDK and system requirements](https://developer.apple.com/xcode/system-requirements), [Xcode 27.2 beta release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27_2-release-notes), and [iOS/iPadOS 27.2 beta release notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27_2-release-notes). Apple's requirements page currently lists Xcode 27.2 beta 2 with the iOS 27.2 SDK and Swift 6.4 as the newest prerelease lane. Xcode 27.0 / iOS 27.0 / Swift 6.4 remains the toolchain selected on this machine; `xcrun simctl list runtimes` returned no installed simulator runtimes on this check.
+- The [SwiftUI updates](https://developer.apple.com/documentation/updates/swiftui) page, including its June and September 2026 sections, and the [What’s new in SwiftUI](https://developer.apple.com/swiftui/whats-new/) overview.
+- The beta-marked `ArrangementView`/`ArrangementViewStyle` split and overlay routes, plus `GeometryProxy.reservedRegions` and `UIView.ReservedRegion` for occlusion/division regions such as a camera or hinge. These sources are not evidence that the APIs are available in the locally selected SDK or a shipping runtime.
+- iOS/iPadOS 27.2 beta's AppTrackingTransparency alternative expanded prompt and annual re-prompt behavior for specified EU regions. This remains prerelease guidance and requires a final-release and policy recheck before shipping.
+
+The targeted declarations recorded in the 2026-09-14 entry were previously type-checked with Xcode 27.0. No app target, iOS 27 simulator, physical device, archive, TestFlight, App Store, or production behavior was exercised in this source refresh. Keep that earlier symbol-level result separate from the new beta-only documentation and the current absence of installed simulator runtimes.
+
 ## 2026-09-14 iOS 27/Xcode 27 SwiftUI, HIG, and proof refresh
 
 Checked the official Apple source for:

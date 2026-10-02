@@ -1,18 +1,23 @@
 # iOS 27 SwiftUI and SDK refresh
 
-This route records the current iOS 27 SwiftUI and SDK changes that affect the
-Apple skill bundle. It includes a targeted API type-check against the locally
-installed Xcode 27 SDK; it is not a claim that this documentation workspace is
-an iOS 27 app target or that a physical iOS 27 device/runtime was exercised.
+This route records current iOS 27 SwiftUI and SDK guidance for the Apple skill
+bundle. It includes a targeted API type-check against the locally installed
+Xcode 27.0 SDK and newer beta-only source references; it is not a claim that
+the newer beta APIs compile here, that this workspace is an iOS app target, or
+that a physical iOS 27 device/runtime was exercised.
 
-Reviewed **2026-09-14** against the official [Xcode 27 release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes),
-[iOS and iPadOS 27 release notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes),
+Reviewed **2026-10-01** against [Apple's Xcode SDK/system requirements](https://developer.apple.com/xcode/system-requirements),
+[Xcode 27.2 beta release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27_2-release-notes),
+[iOS and iPadOS 27.2 beta release notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27_2-release-notes),
+the [SwiftUI updates](https://developer.apple.com/documentation/updates/swiftui),
 and [What’s new in SwiftUI](https://developer.apple.com/swiftui/whats-new/).
-The current `xcode-select` points at Xcode 27.0 with the iOS 27.0 SDK and Swift
-6.4. Xcode 26.4 with the iOS 26.4 SDK and Swift 6.3 remains an explicit
-earlier-toolchain fallback. The API probe below was type-checked with the
-selected Xcode 27 toolchain. Local installation paths are intentionally not
-part of the portable repository record.
+Apple currently lists Xcode 27.2 beta 2 with the iOS 27.2 SDK and Swift 6.4
+as its newest prerelease lane. The locally selected toolchain is still Xcode
+27.0 with the iOS 27.0 SDK and Swift 6.4. Xcode 26.6 with the iOS 26.5 SDK and
+Swift 6.3 is the latest documented earlier-version lane. The API probe below
+was type-checked with the selected Xcode 27.0 toolchain; it does not verify
+the newer beta APIs. Local installation paths are intentionally not part of
+the portable repository record.
 
 ## Version lanes
 
@@ -20,9 +25,9 @@ Keep these facts separate in every route:
 
 | Lane | Current source-grounded claim | Implementation boundary | Earlier fallback |
 | --- | --- | --- | --- |
-| Xcode and Swift | Xcode 27 includes Swift 6.4 and the iOS/iPadOS 27 SDKs. | Record Xcode, Swift, SDK, deployment target, and target platform before using a new declaration. | Use the Xcode 26.4/SDK 26.4 lane and existing APIs for targets that have not moved to Xcode 27. |
+| Xcode and Swift | As checked 2026-10-01, Apple lists Xcode 27.2 beta 2 with iOS 27.2 and Swift 6.4; the local Xcode 27.0/iOS 27.0/Swift 6.4 lane is a separate observation. | Record Xcode, Swift, SDK, deployment target, target platform, and prerelease status before using a declaration. Do not infer beta API availability from the locally selected SDK. | Use the Xcode 26.6/iOS 26.5/Swift 6.3 lane where the target has not adopted the iOS 27 SDK, and preserve existing APIs. |
 | Liquid Glass | Standard SwiftUI/UIKit system surfaces adopt the current treatment on iOS 26 and later. | Let navigation, tab, toolbar, search, sheet, and controls own their system appearance; use custom glass only for a small functional group. | Preserve the iOS 26 system-first route and a legible non-glass fallback. |
-| iOS 27 SwiftUI | The APIs in the tables below are documented for iOS 27 or require the iOS 27 SDK build behavior. | Gate source and runtime behavior with the selected deployment target and re-check beta-marked declarations in final Xcode 27. | Use standard controls, legacy document protocols, `List`, or the existing loader/gesture route. |
+| iOS 27 SwiftUI | The established APIs below are documented for iOS 27 or require iOS 27 SDK build behavior. September 2026 `ArrangementView` and reserved-region APIs are explicitly beta-marked. | Gate source and runtime behavior with the selected target; type-check beta APIs only with the matching beta SDK and recheck final names and behavior before adoption. | Use standard adaptive containers, safe areas, legacy document protocols, `List`, or the existing loader/gesture route. |
 | MetricKit | `MetricManager` delivers typed metric and diagnostic async sequences on iOS 27. | Hold one long-lived manager and distinguish simulated payloads from reports delivered by a physical system. | Use the legacy `MXMetricManager` subscriber route for older deployment lanes, with the same evidence limits. |
 
 ## New SwiftUI API lanes
@@ -153,6 +158,44 @@ Official routes: [`AsyncImage`](https://developer.apple.com/documentation/swiftu
 [`textSelection(_:)`](https://developer.apple.com/documentation/swiftui/view/textselection%28_%3A%29),
 and the [SwiftUI 2027 performance and data-flow notes](https://developer.apple.com/swiftui/whats-new/).
 
+### Adaptive arrangements (Beta)
+
+The September 2026 SwiftUI updates introduce `ArrangementView` for primary
+and secondary content that adapts to the available environment. The built-in
+split style places the views side by side; the overlay style layers them and
+can transition to a split layout. Use these APIs as beta-only routes until
+the selected final SDK documents them as stable and the target's device and
+OS support are confirmed. They complement established navigation and layout
+containers; they do not replace product-specific navigation, safe areas, or
+accessibility review.
+
+```swift
+ArrangementView {
+    PrimaryContent()
+} secondary: {
+    SecondaryContent()
+}
+.arrangementViewStyle(.split.axes(.horizontal))
+```
+
+Official routes: [SwiftUI updates](https://developer.apple.com/documentation/updates/swiftui),
+[`ArrangementView` styles](https://developer.apple.com/documentation/swiftui/view/arrangementviewstyle%28_%3A%29),
+and [adaptive layouts on iPhone Duo](https://developer.apple.com/videos/play/tech-talks/111463/).
+
+### Hardware-reserved regions (Beta)
+
+SwiftUI's beta `GeometryProxy.reservedRegions` route and UIKit's
+`UIView.ReservedRegion` describe areas another entity occupies, including
+occlusion and division regions such as a camera or hinge. Use these APIs only
+when the selected SDK and target expose them, keep the normal safe-area and
+single-screen routes working, and test the actual form factor before changing
+content placement. Source documentation alone does not prove that a target
+device reports a particular reserved region.
+
+Official routes: [SwiftUI GeometryProxy](https://developer.apple.com/documentation/swiftui/geometryproxy),
+[`UIView.ReservedRegion`](https://developer.apple.com/documentation/uikit/uiview/reservedregion),
+and [`UIView.reservedRegions(kind:options:)`](https://developer.apple.com/documentation/uikit/uiview/reservedregions%28kind%3Aoptions%3A%29).
+
 ## MetricKit performance lane
 
 On iOS 27, `MetricManager` is an instantiable, `Sendable` object with
@@ -210,13 +253,13 @@ For each iOS 27 route, record:
 5. source, SDK, compile, fixture, simulator, physical/system, signed, and
    release evidence separately.
 
-The current workspace can validate Markdown, links, source registry wiring,
-portable package contents, and the targeted iOS 27 API probe with the
-selected Xcode 27 toolchain. It does not provide an app-target build,
-iOS 27 simulator runtime, physical-device run, archive, TestFlight, App
-Store, or production proof from this refresh alone. The available simulator
-runtime is iOS 26.4, so keep that runtime evidence separate from the Xcode 27
-SDK compile evidence.
+The current workspace can validate Markdown, links, source-registry wiring,
+portable package sources, and the previously recorded iOS 27 API probe. The
+selected local toolchain is Xcode 27.0 / iOS 27.0 SDK / Swift 6.4; the latest
+27.2 beta references above were source-reviewed but not type-checked here.
+`xcrun simctl list runtimes` returned no installed runtimes on 2026-10-01.
+This refresh did not exercise an app target, simulator, physical device,
+archive, TestFlight, App Store, or production behavior.
 
 ### Targeted SDK probe
 
@@ -231,9 +274,17 @@ prove an app target’s configuration or runtime behavior.
 
 ## Sources
 
+- [Xcode SDK and system requirements](https://developer.apple.com/xcode/system-requirements)
 - [Xcode 27 release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes)
+- [Xcode 27.2 beta release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27_2-release-notes)
 - [iOS and iPadOS 27 release notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes)
+- [iOS and iPadOS 27.2 beta release notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27_2-release-notes)
+- [SwiftUI updates](https://developer.apple.com/documentation/updates/swiftui)
 - [What’s new in SwiftUI](https://developer.apple.com/swiftui/whats-new/)
+- [ArrangementView styles](https://developer.apple.com/documentation/swiftui/view/arrangementviewstyle%28_%3A%29)
+- [SwiftUI GeometryProxy](https://developer.apple.com/documentation/swiftui/geometryproxy)
+- [UIKit UIView.ReservedRegion](https://developer.apple.com/documentation/uikit/uiview/reservedregion)
+- [AppTrackingTransparency](https://developer.apple.com/documentation/apptrackingtransparency)
 - [SwiftUI](https://developer.apple.com/documentation/swiftui/)
 - [Liquid Glass](https://developer.apple.com/documentation/technologyoverviews/liquid-glass)
 - [Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/)

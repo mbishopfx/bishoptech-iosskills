@@ -24,11 +24,13 @@ artifacts.
   [ios-27-swiftui-refresh.md](references/ios-27-swiftui-refresh.md) and the
   linked [iOS 27 SwiftUI and SDK refresh](../../../10-swiftui/13-ios27-swiftui-refresh.md).
 - For HIG or Liquid Glass changes, read the [iOS 27 native design brief](../../../90-templates/ios27-native-design-brief.md) and [iOS 27 performance and on-device proof](../../../90-templates/ios27-performance-and-on-device-proof.md) when the change affects accessibility, platform adaptation, performance, or processing location.
+- Before making a current-toolchain claim, check [Apple's Xcode SDK and system requirements](https://developer.apple.com/xcode/system-requirements) and compare its newest listed SDK with the locally selected Xcode/SDK. Record stable, beta, and local lanes separately; do not describe a beta API as available in the installed SDK.
 - Reopen the exact official Apple/Swift pages and installed SDK interfaces. Use
   official primary sources for availability, entitlement, privacy, HIG, and
   release claims. Treat secondary examples as discovery only.
 - Record the SDK/Xcode/toolchain, OS, target, device family, package revision,
-  and date for the refresh. Mark future/Beta-sensitive behavior as such.
+  and date for the refresh. Mark future/Beta-sensitive behavior as such and
+  state whether it was only source-reviewed or also checked with that SDK.
 
 ## Refresh workflow
 
@@ -95,7 +97,10 @@ When a route change affects a skill:
 - route iOS 27 SwiftUI, MetricKit, and Liquid Glass changes through the
   versioned refresh reference so iOS 26 fallbacks remain visible;
 - update role-routing, output templates, quality gates, and evaluation fixtures;
-- refresh the `.skill` archive through the official package validator;
+- refresh the `.skill` archive through the official package validator only
+  when that preserves existing archive state; if packaging would restore,
+  overwrite, or stage a pre-existing deletion, validate source files without
+  packaging and record the archive gate as not run;
 - inspect archive names/paths and ensure no workspace-private path, secret,
   user data, stale URL, or generated test output is included;
 - record whether the artifact is a seeded/open-source-oriented bundle or a
@@ -141,8 +146,12 @@ Next refresh trigger:
 - [Swift](https://swift.org/documentation/)
 - [The Swift Programming Language](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/)
 - [Xcode release notes](https://developer.apple.com/documentation/xcode-release-notes)
+- [Xcode SDK and system requirements](https://developer.apple.com/xcode/system-requirements)
 - [Xcode 27 release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes)
+- [Xcode 27.2 beta release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27_2-release-notes)
 - [iOS and iPadOS 27 release notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes)
+- [iOS and iPadOS 27.2 beta release notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27_2-release-notes)
+- [SwiftUI updates](https://developer.apple.com/documentation/updates/swiftui)
 - [What’s new in SwiftUI](https://developer.apple.com/swiftui/whats-new/)
 - [SDK and software release notes](https://developer.apple.com/documentation/xcode-release-notes)
 - [Running your app on simulated or physical devices](https://developer.apple.com/documentation/xcode/running-your-app-on-simulated-or-physical-devices)

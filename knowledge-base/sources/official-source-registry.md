@@ -1,14 +1,21 @@
 # Official Source Registry
 
-Research date for the current Apple registry: **2026-09-14**. Apple’s documentation is living documentation. Re-open the source before relying on a version-sensitive API.
+The iOS 27/Xcode 27 source section below was refreshed **2026-10-01**. Other Apple source areas retain their own review history; all documentation is living documentation, so re-open the exact source before relying on a version-sensitive API.
 
 ## iOS 27 / Xcode 27 refresh
 
 | Topic | Official source |
 | --- | --- |
+| Current Xcode, SDK, deployment-target, and Swift matrix | [Xcode SDK and system requirements](https://developer.apple.com/xcode/system-requirements) — check this page to identify the newest listed prerelease and supported deployment targets. |
 | Xcode 27, Swift 6.4, and SDKs | [Xcode 27 release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes) |
+| Latest prerelease lane reviewed 2026-10-01 | [Xcode 27.2 beta release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-27_2-release-notes) — Xcode 27.2 beta 2, iOS 27.2 SDK, Swift 6.4. This is prerelease evidence, not the local or stable toolchain. |
 | iOS/iPadOS 27 changes | [iOS and iPadOS 27 release notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27-release-notes) |
+| Latest iOS/iPadOS 27.2 prerelease changes | [iOS and iPadOS 27.2 beta release notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27_2-release-notes) |
 | SwiftUI 2027 overview | [What’s new in SwiftUI](https://developer.apple.com/swiftui/whats-new/) |
+| SwiftUI API additions in June and September 2026 | [SwiftUI updates](https://developer.apple.com/documentation/updates/swiftui) — includes beta-marked adaptive arrangement and reserved-region APIs. |
+| Adaptive primary/secondary content | [ArrangementView style](https://developer.apple.com/documentation/swiftui/view/arrangementviewstyle%28_%3A%29) — beta; review split/overlay behavior and device adaptation before use. |
+| Hardware-reserved layout regions | [SwiftUI GeometryProxy](https://developer.apple.com/documentation/swiftui/geometryproxy) and [UIKit UIView.ReservedRegion](https://developer.apple.com/documentation/uikit/uiview/reservedregion) — beta APIs for occlusion/division regions; do not replace stable safe-area behavior with an unverified route. |
+| App Tracking Transparency changes in iOS 27.2 beta | [iOS and iPadOS 27.2 beta release notes](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-27_2-release-notes) and [AppTrackingTransparency](https://developer.apple.com/documentation/apptrackingtransparency) — prerelease EU prompt behavior; recheck final policy and API details before shipping. |
 | Toolbar overflow and visibility | [ToolbarContent visibilityPriority](https://developer.apple.com/documentation/swiftui/toolbarcontent/visibilitypriority%28_%3A%29), [ToolbarOverflowMenu](https://developer.apple.com/documentation/swiftui/toolbaroverflowmenu), and [topBarPinnedTrailing](https://developer.apple.com/documentation/swiftui/toolbaritemplacement/topbarpinnedtrailing) |
 | Toolbar minimization and status bar | [toolbarMinimizationBehavior(_:for:)](https://developer.apple.com/documentation/swiftui/view/toolbarminimizationbehavior%28_%3Afor%3A%29) and [toolbarColorScheme(_:for:)](https://developer.apple.com/documentation/swiftui/view/toolbarcolorscheme%28_%3Afor%3A%29) |
 | SwiftUI Document API | [Document](https://developer.apple.com/documentation/swiftui/document), [ReadableDocument](https://developer.apple.com/documentation/swiftui/readabledocument), [WritableDocument](https://developer.apple.com/documentation/swiftui/writabledocument), and [DocumentGroup](https://developer.apple.com/documentation/swiftui/documentgroup) |
